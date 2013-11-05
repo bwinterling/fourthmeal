@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class OrderItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "it_validates_order_id" do
+    @order_item = OrderItem.create()
+    assert @order_item.invalid?
+  end
+
+  test "it_validates_item_id" do
+    @order_item = OrderItem.create(:order_id => 1)
+    assert @order_item.invalid?
+  end
 end
