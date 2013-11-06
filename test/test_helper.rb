@@ -16,5 +16,13 @@ class ActiveSupport::TestCase
     @item.save
   end
 
+  def create_valid_item
+    @item = Item.create(
+      :title => "Hello!", 
+      :description => "World", 
+      :price => 4, 
+      :photo => "test.png")
+  end
+
   # Add more helper methods to be used by all tests here...
 end

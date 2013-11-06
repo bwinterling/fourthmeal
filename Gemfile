@@ -14,6 +14,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capybara-rails'
+  gem 'launchy'
   gem 'guard'
   gem 'guard-minitest'
 end

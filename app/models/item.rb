@@ -3,4 +3,6 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates_numericality_of :price, :greater_than => 0
   validates :photo, presence: true
+
+  belongs_to :category
 end
