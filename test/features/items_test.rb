@@ -1,8 +1,39 @@
- require './test/test_helper'
+require './test/test_helper'
 
- class ItemCreationTest < MiniTest::Unit::TestCase
+class ItemCreationTest < MiniTest::Unit::TestCase
+
+  #Guests
+  def test_guest_can_browse_the_home_page
+    visit index
+    within('#index') do
+      assert page.has_css?('#main_nav')
+      assert page.has_css?('#hero_photo')
+    end
+  end
+
+  def test_guest_can_browse_menu_page
+    visit index
+    click_on 'menu'
+    within('#menu') do
+      assert page.has_content?('Tacos')
+      assert page.has_css?('#item_photo')
+      assert page.has_css?('#price')
+      assert page.has_css?('#category')
+      assert page.has_link?('login')
+      assert page.has_link?('add to order')
+    end
+  end
+
+  def test_guest_can_sort_by_specific_category
+    visit items_path
+    click_on 'Kids Menu'
+    within('#kids_menu') do
+      assert page.has_content?('Kids Tacos')
+    end
+  end
 
 
+  #Admins
   def test_it_creates_an_item_with_a_price_and_description
     visit items_path
     click_on 'new-item'
