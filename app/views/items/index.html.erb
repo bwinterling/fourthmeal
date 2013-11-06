@@ -1,1 +1,10 @@
 <h1>Items</h1>
+<ul>
+  <%= @items.each do |item| %>
+  <li><%= item.title %> </li>
+  <li><%= item.description %></li>
+  <li><%= item.price %></li>
+  <li><%= item.photo %></li>
+  </ul>
+<%end%>
+

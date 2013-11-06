@@ -12,6 +12,8 @@ OnoBurrito::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   resources :items
+  resources :orders
+  resources :categories
 
   # Example resource route with options:
   #   resources :products do
