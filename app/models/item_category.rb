@@ -5,5 +5,5 @@ class ItemCategory < ActiveRecord::Base
   validates_numericality_of :category_id
   
   belongs_to :category, inverse_of: :category
-  belongs_to :item, inverse_of: :category
+  belongs_to :item, inverse_of: :item
 end

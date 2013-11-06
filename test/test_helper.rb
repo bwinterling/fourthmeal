@@ -12,17 +12,19 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  def create_item
-    @item = Item.new
-    @item.save
+  def create_valid_item
+    @item = Item.create(:title => "Hello!", 
+    :description => "World", 
+    :price => 4, 
+    :photo => "photo.png")
   end
 
-  def create_valid_item
-    @item = Item.create(
-      :title => "Hello!", 
-      :description => "World", 
-      :price => 4, 
-      :photo => "test.png")
+  def create_valid_order
+    @order = Order.create(:status => 'ordered', :user_id => 5)
+  end
+
+  def create_valid_category
+    @category = Category.create(:title => 'Brunch')
   end
 
   # Add more helper methods to be used by all tests here...
