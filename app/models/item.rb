@@ -3,6 +3,12 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates_numericality_of :price, :greater_than => 0
   validates :photo, presence: true
+  
+  has_many :items_categories
+  has_many :categories, :through => :items_categories
 
-  belongs_to :category
+  def self.filter_by_category(category)
+    joins(:categories).where("categories.title"=> category)
+  end
+
 end

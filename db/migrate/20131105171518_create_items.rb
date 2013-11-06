@@ -1,9 +1,9 @@
 class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
-      t.text :title
-      t.string :description
-      t.decimal :price
+      t.string :title
+      t.text :description
+      t.integer :price
       t.string :photo
 
       t.timestamps
