@@ -4,5 +4,6 @@ class Item < ActiveRecord::Base
   validates_numericality_of :price, :greater_than => 0
   validates :photo, presence: true
 
-  belongs_to :category
+  has_many :item_categories
+  has_many :categories, through: :item_categories
 end
