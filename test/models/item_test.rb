@@ -26,9 +26,4 @@ class ItemTest < ActiveSupport::TestCase
     assert @item.invalid?
   end
 
-  test "it_has_a_category" do
-    create_valid_item
-    assert @item.category
-  end  
-
 end
