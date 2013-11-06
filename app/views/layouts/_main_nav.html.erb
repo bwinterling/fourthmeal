@@ -1,0 +1,11 @@
+<% content_for :main_navigation do %>
+  <nav id="main_nav" role="navigation">
+    <ul>
+      <%= nav_tab 'Home', root_path, current: current_tab %>
+      <%= nav_tab 'Menu', "" , current: current_tab %>
+      <%= nav_tab 'Locations', "" , current: current_tab %>
+      <%= nav_tab 'Contact', "" , current: current_tab %>
+      <%= nav_tab 'Order', "" , current: current_tab %>
+    </ul>
+  </nav>
+<% end %>

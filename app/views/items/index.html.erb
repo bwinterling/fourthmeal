@@ -1,10 +1,34 @@
-<h1>Items</h1>
+<header id="body_header">
+  <h1>Items</h1>
+</header>
+
+<ul id="menu_list">
   <% @items.each do |item| %>
+    
+    <li id="menu_item">
+      <header>
+        <h2><%= item.title %></h2>
+      </header>
+      <section>
+        <ul>
+          <li><%= item.description %></li>
+          <li><%= item.price %></li>
+          <li><%= item.photo %></li>
+          <a href="#">Add to Cart</a>
+        </ul>
+      </li>
+  <%end%>
+</ul>
+
+<% content_for :title do %>
+  Items
+<% end %>
+
+<% content_for :sidebar do %>
+  <section id="your_order">
+    <header><h1>Your Order</h1></header>
     <ul>
-      <li><%= item.title %> </li>
-      <li><%= item.description %></li>
-      <li><%= item.price %></li>
-      <li><%= item.photo %></li>
-      <a href="#">Add to Cart</a>
+       <!-- render @user.order  -->
     </ul>
-<%end%>
+  </section>
+<% end %>

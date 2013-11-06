@@ -1,50 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OnoBurrito</title>
+  <meta charset="utf-8">
+  <title>
+    <% if content_for?(:title) %>
+      OnoBurrito - 
+      <%= yield :title %>
+    <% else %>
+      OnoBurrito
+    <% end %>
+  </title>
   <%= stylesheet_link_tag "application", media: "all"%>
   <%= javascript_include_tag "application"%>
   <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="row">
-    <div class="col-md-12">
-      <nav class="navbar navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">OnoBurrito</a>
-        </div>
+</head>  
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">            
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">User <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">My Cart</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Log Out</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </nav>
-      <div class="col-md-12">
-        <%= yield %>
-      </div>
-    </div>
+<body>
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <section id="content">
+      <%= yield %>
+    </section>
+
+    <section id="sidebar">
+      <section id="order">
+        <%= yield :sidebar %>
+        <header><h1 class="ir" id="your_order">Your Order</h1></header>
+        <!-- render partial: 'order' -->
+      </section>
+    </section>
+
   </div>
+  <%= render 'layouts/footer' %>
 </body>
+
 </html>

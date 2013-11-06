@@ -1,0 +1,25 @@
+nav#main_nav {
+  li {
+    background: #555;
+    display: inline-block;
+    margin: 0 2px;
+    padding: 4px 6px;
+
+    a,
+    a:link,
+    a:visited {
+      color: #FFF;
+      text-decoration: none;
+    }
+    &.active {
+      background: #FFF;
+      margin-bottom: -1px;
+      a,
+      a:link,
+      a:visited {
+        color: #555;
+        font-weight: bold;
+      }
+    }
+  }
+}
