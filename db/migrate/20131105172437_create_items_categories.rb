@@ -1,4 +1,4 @@
-class CreateItemsCategories < ActiveRecord::Migration
+class CreateItemCategories < ActiveRecord::Migration
   def change
     create_table :item_categories do |t|
       t.integer :item_id, :null => false
