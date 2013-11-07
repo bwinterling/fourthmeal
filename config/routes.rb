@@ -14,6 +14,7 @@ OnoBurrito::Application.routes.draw do
   resources :items
   resources :orders
   resources :categories
+  resources :contacts
 
   # Example resource route with options:
   #   resources :products do
