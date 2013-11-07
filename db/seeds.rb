@@ -11,11 +11,43 @@ category_3,
 category_4, 
 category_5 ]
 
+seed_photos = [
+"BURRITO.png",
+"C2_DILLA_NAKED_TACO.png",
+"C2_TACO_GUMBO.png",
+"C2_TACO_NAKED-BURRITO.png",
+"C2_TACO_NAKED_TACO.png",
+"C2_TACO_TORT_SOUP.png",
+"CHIPS_DIP.png",
+"KIDS_LEADING.png",
+"KIDS_QUESADILLA.png",
+"KIDS_TACO.png",
+"NAKED_BURRITO.png",
+"Quesadilla.png",
+"TACOS.png"
+]
+
+seed_titles = [
+"Burrito",
+"Dilla Naked Taco",
+"Taco Gumbo",
+"Naked Burrito",
+"Naked Taco",
+"Taco Tortilla Soup",
+"Chips and Dip",
+"Menu Item",
+"Kids Quesadilla",
+"Kids Taco",
+"Naked Burrito",
+"Quesadilla",
+"Tacos"
+]
+
 20.times do |i|
   max = 15
   min = 3 
   price = rand * (max-min) + min
-  item = Item.create!(title: "Menu Item " + i.to_s, description: "something", price: price, photo: "BURRITO.png")
+  item = Item.create!(title: seed_titles[rand(0..12)], description: "Delicious yummy food! Order now!", price: price, photo: seed_photos[rand(0..12)])
   item.categories << Category.find(seed_categories[rand(0..4)].id)
   item.save
 end

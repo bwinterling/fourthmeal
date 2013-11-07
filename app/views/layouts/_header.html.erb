@@ -14,12 +14,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
         <li><%= link_to "Menu", items_path%></li>
-        <li><a href="#">Locations</a></li>
-        <li><a href="#">Contact</a></li>
-        <li class="divider"></li>
         <li><%= navbar_order_link %></li>
+        <li><%= link_to "Locations", "" %></li>
+        <li><%= link_to "Contact", "" %></li>
+        <li><%= link_to "Order", order_path(current_order)%></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
