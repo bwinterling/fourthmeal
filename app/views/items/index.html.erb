@@ -14,6 +14,16 @@
           <li><%= item.description %></li>
           <li><%= number_to_currency(item.price) %></li>
           <li><%= item.photo %></li>
+          
+          <%= form_for current_order do |f| %>
+           <%= hidden_field_tag :item, item.id %>
+           <%= f.submit "YUMMY YUMMY ADD TO CART" %>
+          <% end %>
+
+          <%= link_to "delete", current_order, method: :delete %>
+          
+          <%= link_to "add to cart", orders_path(item: item.id), method: :post, class: "btn btn-small" %>
+
         </ul>
       </li>
   <%end%>

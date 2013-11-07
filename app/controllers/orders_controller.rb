@@ -15,12 +15,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(:status => "ordered", :user_id => 1)
-    id = @order.id
-    @item = Item.find(params[:item])
-    OrderItem.create(:order_id => id, :item_id => @item.id, :quantity => 1)
+    # @order = Order.create(:status => "ordered", :user_id => 1)
+    # current_order.save
+    # id = @order.id
+    item = Item.find(params[:item])
 
-    session[:current_order] = id
+    # OrderItem.create(:order_id => id, :item_id => @item.id, :quantity => 1)
+    current_order.order_items.build(item: item, quantity: 1)
+
+    current_order.save
+
+    session[:current_order] = current_order.id
 
     redirect_to items_path
   end
