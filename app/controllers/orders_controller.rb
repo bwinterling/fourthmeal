@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     if params[:item]
       item = Item.find(params[:item])
 
-      @order.order_items.build(item: item, quantity: 1)
+      @order.order_items.build(item: item, quantity: 1) 
       @order.save
     end
     

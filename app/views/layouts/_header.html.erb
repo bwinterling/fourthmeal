@@ -18,7 +18,7 @@
         <li><%= navbar_order_link %></li>
         <li><%= link_to "Locations", "" %></li>
         <% if current_order.id %>
-        <li><%= link_to "Order", order_path(current_order) %></li>
+        <li><%= link_to "Order", order_path(current_order) %></li> 
         <% else %>
         <li><%= link_to "Order", orders_path, method: :post %></li>
         <% end %>

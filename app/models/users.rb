@@ -12,7 +12,7 @@ class Users < ActiveRecord::Base
     user.validates_presence_of     :full_name
     user.validates                 :password, length: { minimum: 6 }
     user.validates_format_of       :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    user.validates                 :email, uniqueness: true
+    user.validates                 :email, uniqueness: true 
   end
 
   def self.new_guest
