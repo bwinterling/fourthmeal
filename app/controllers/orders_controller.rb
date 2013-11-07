@@ -9,9 +9,10 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.all.last
+    @order = current_order
     # Order.find(params[:id])
-    @order_items = @order.items
+    @order_items = @order.order_items
+    @items = Item.all
   end
 
   def create
@@ -30,20 +31,19 @@ class OrdersController < ApplicationController
     redirect_to items_path
   end
 
-  def edit
-    @order = Order.find(params[:id])
-
+  def destroy
+    @order_item = OrderItem.find(params[:oiid])
+    @order_item.destroy
+    redirect_to :back
   end
 
+
   def update
-    # @order = Order.find(params[:id])
     @order = current_order
     id = @order.id
     @item = Item.find(params[:item])
     OrderItem.create(:order_id => id, :item_id => @item.id, :quantity => 1)
-    # @order_item = OrderItem.find(params[:item])
-    # @order_item.title
-    redirect_to items_path
+    redirect_to order_path(id)
   end
 
   def order_params
