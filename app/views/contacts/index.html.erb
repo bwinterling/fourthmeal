@@ -1,0 +1,10 @@
+<h1>All contacts</h1>
+
+<% @contacts.each do |contact| %>
+  <ul>
+    <%= contact.name %>
+    <%= contact.email %>
+    <%= contact.subject %>
+    <%= contact.comment %>
+  </ul>
+<% end %>
