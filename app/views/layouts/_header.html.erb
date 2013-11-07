@@ -1,24 +1,27 @@
 <header id="page_header" role="banner">
-  <nav id="utility">
-    <p>
-      You are logged in as <strong>Person</strong>
-      <%= link_to "[Your Account]", "current_user_path" %>
-      <%= link_to "[Logout]", "logout_path" %>
-    </p>
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Ono Burrito</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li><%= link_to "Menu", items_path%></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Contact</a></li>
+        <li class="divider"></li>
+        <li><%= link_to "Order", order_path(current_order)%></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
   </nav>
-  <%= link_to(
-    image_tag("logo.png",
-              alt: "Ono Burrito",
-              id: "logo"),
-    root_url,
-    title: "Dashboard") %>
-  <nav id="main_nav" role="navigation">
-    <ul>
-      <%= nav_tab 'Home', root_path, current: @current_tab %>
-      <%= nav_tab 'Menu', items_path   , current: @current_tab %>
-      <%= nav_tab 'Locations', "" , current: @current_tab %>
-      <%= nav_tab 'Contact', "" , current: @current_tab %>
-      <%= nav_tab 'Order', order_path(current_order) , current: @current_tab %>
-    </ul>
-  </nav>  
+
 </header>

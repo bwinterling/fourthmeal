@@ -7,12 +7,12 @@
     
     <li id="menu_item">
       <header>
-        <h2><%= item.title %></h2>
+        <h3><%= item.title %></h3>
       </header>
       <section>
         <ul>
           <li><%= item.description %></li>
-          <li><%= item.price %></li>
+          <li><%= number_to_currency(item.price) %></li>
           <li><%= item.photo %></li>
         </ul>
       </li>
