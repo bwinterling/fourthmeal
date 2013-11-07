@@ -5,3 +5,16 @@
     <li><%= order.user_id %></li>
   </ul>
 <%end%>
+
+<% content_for :title do %>
+  Order
+<% end %>
+
+<% content_for :sidebar do %>
+  <section id="your_order">
+    <header><h1>Your Order</h1></header>
+    <ul>
+       <!-- render @user.order  -->
+    </ul>
+  </section>
+<% end %>
