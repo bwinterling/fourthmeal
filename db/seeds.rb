@@ -20,3 +20,14 @@ category_5 ]
   item.save
 end
 
+order1 = Order.create(status: 'ordered', user_id: 1)
+order2 = Order.create(status: 'ordered', user_id: 5)
+order3 = Order.create(status: 'completed', user_id: 4)
+order4 = Order.create(status: 'completed', user_id: 2)
+order5 = Order.create(status: 'cancelled', user_id: 9)
+order6 = Order.create(status: 'cancelled', user_id: 8)
+order7 = Order.create(status: 'ordered', user_id: 10)
+order8 = Order.create(status: 'ordered', user_id: 15)
+order9 = Order.create(status: 'cancelled', user_id: 12)
+order10 = Order.create(status: 'completed', user_id: 19)
+
