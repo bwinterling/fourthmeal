@@ -31,7 +31,7 @@ header#page_header {
 }
 
 div.container {
-  overflow:hidden;
+  overflow: hidden;
   padding: 0 20px;
 }
 
@@ -74,10 +74,10 @@ body {
 
 section#content {
   float:left;
-
 }
+
 section#sidebar {
-  float:right;
   margin-right: -20px;
   width: 300px;
+  float:right;
 }

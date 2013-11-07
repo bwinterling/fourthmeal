@@ -17,20 +17,18 @@
 
 <body>
   <%= render 'layouts/header' %>
+  <%= image_tag("tagline.png",
+                alt: "Yummy yummy burritos",
+                id: "tagline") %>
+
   <div class="container">
+
     <section id="content">
       <%= yield %>
     </section>
 
-    <section id="sidebar">
-      <section id="order">
-        <%= yield :sidebar %>
-        <header><h1 class="ir" id="your_order">Your Order</h1></header>
-        <!-- render partial: 'order' -->
-      </section>
-    </section>
-
   </div>
+  
   <%= render 'layouts/footer' %>
 </body>
 

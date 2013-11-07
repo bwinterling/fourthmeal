@@ -6,7 +6,7 @@ section#sidebar {
   -moz-border-radius-bottomleft: 10px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  color: #FFF;
+  color: #000;
   font: {
     size: 0.8em;
     weight: normal;
@@ -16,7 +16,7 @@ section#sidebar {
   a,
   a:link,
   a:visited {
-    color: #FFF;
+    color: #000;
     text-decoration: underline;
   }
   a:hover,
@@ -28,8 +28,10 @@ section#sidebar {
   #functional_nav {
     ul {
       list-style-type: none;
-      margin: 0;
-      padding: 0;
+      margin: 0 ;
+      padding: 0 0 10px 0;
+      li#checkout_link {
+      }
     }
   }
 
@@ -39,13 +41,17 @@ section#sidebar {
       border-bottom: 5px solid #807c77;
       margin: 10px -10px;
       padding: 5px 10px 0 10px;
+
       h1#your_order {
         background: transparent url('/assets/order_background.png') 
                     no-repeat scroll top left;
         margin: 5px 0 0 0;
         padding: 0;
-        text-indent: -999px;
+        
       }
+    }
+    li {
+      color: #000;
     }
   }
 }

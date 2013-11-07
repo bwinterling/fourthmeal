@@ -6,6 +6,6 @@ module NavigationHelper
   end
 
   def currently_at(tab)
-    render_partial( 'layouts/main_nav', locals: {current_tab: tab} )
+    # render_partial( 'layouts/main_nav', locals: {current_tab: tab} )
   end
 end

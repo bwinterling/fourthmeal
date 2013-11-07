@@ -15,7 +15,7 @@ category_5 ]
   max = 15
   min = 3 
   price = rand * (max-min) + min
-  item = Item.create!(title: "Menu Item" + i.to_s, description: "something", price: price, photo: "BURRITO.png")
+  item = Item.create!(title: "Menu Item " + i.to_s, description: "something", price: price, photo: "BURRITO.png")
   item.categories << Category.find(seed_categories[rand(0..4)].id)
   item.save
 end
@@ -31,3 +31,4 @@ order8 = Order.create(status: 'ordered', user_id: 15)
 order9 = Order.create(status: 'cancelled', user_id: 12)
 order10 = Order.create(status: 'completed', user_id: 19)
 
+order_item1 = OrderItem.create(order_id: Order.last.id, item_id: Item.last.id, quantity: 2)

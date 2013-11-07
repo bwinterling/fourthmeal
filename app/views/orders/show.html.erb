@@ -1,9 +1,3 @@
-<header id="body_header">
-  <h1>Your Order</h1>
-</header>
-
-<%= @order.status %>
-
 <ul id="menu_list">
   <% @order_items.each do |item| %>
     
@@ -16,7 +10,7 @@
           <li><%= item.description %></li>
           <li><%= item.price %></li>
           <li><%= item.photo %></li>
-          <a href="#">Add to Cart</a>
+          <a href="#">Remove</a>
         </ul>
       </li>
   <%end%>
@@ -25,13 +19,4 @@
 
 <% content_for :title do %>
   Order
-<% end %>
-
-<% content_for :sidebar do %>
-  <section id="your_order">
-    <header><h1>Your Order</h1></header>
-    <ul>
-       <!-- render @user.order  -->
-    </ul>
-  </section>
 <% end %>
