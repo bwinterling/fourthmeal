@@ -8,7 +8,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'thin'
-gem 'rails_12factor'
 
 group :development, :test do
   gem 'pry'
@@ -21,4 +20,8 @@ group :development, :test do
   gem 'guard-minitest'
   gem 'launchy'
   gem 'faker'
+end
+
+group :production, :test do
+  gem 'rails_12factor'
 end
