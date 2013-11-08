@@ -19,12 +19,13 @@ class UsersController < ApplicationController
     current_user && current_user.guest?
   end
 
-  private
-    def set_user
-      @user = user.find(params[:id])
-    end
+private
+    
+  def set_user
+    @user = user.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:email, :full_name, :display_name, :password, :password_confirmation, :admin)
-    end
+  def user_params
+    params.require(:user).permit(:email, :full_name, :display_name, :password, :password_confirmation, :admin)
+  end
 end

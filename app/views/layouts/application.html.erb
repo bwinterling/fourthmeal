@@ -16,8 +16,9 @@
 </head>  
 
 <body>
-  <%= render 'layouts/header' %>
   <%= render "users/user_nav" %>
+  <%= render 'layouts/header' %>
+
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
