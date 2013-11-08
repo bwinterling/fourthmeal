@@ -44,6 +44,14 @@ class OrdersController < ApplicationController
     redirect_to :back
   end
 
+  def transaction
+  end
+
+  def purchase
+  end
+
+  private
+
   def order_params
     params.permit(:something)
   end

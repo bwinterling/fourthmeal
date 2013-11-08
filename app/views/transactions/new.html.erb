@@ -1,0 +1,28 @@
+<h1>Transaction Information</h1>
+
+<%= form_for(@transaction) do |f| %>
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :credit_card_number %>
+    <%= f.text_field :credit_card_number %>
+  </p>
+  <p>
+    <%= f.label :credit_card_expiration %>
+    <%= f.text_field :credit_card_expiration %>
+  </p>
+  <p>
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode %>
+  </p>
+  <p>
+    <%= f.submit "Purchase"%>
+  </p>
+
+<% end %>
