@@ -22,3 +22,7 @@ group :development, :test do
   gem 'launchy'
   gem 'faker'
 end
+
+group :production, :test do
+  gem 'rails_12factor'
+end

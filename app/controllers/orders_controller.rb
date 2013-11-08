@@ -29,13 +29,6 @@ class OrdersController < ApplicationController
     redirect_to order_path(session[:current_order])
   end
 
-  def destroy
-    @order_item = OrderItem.find(params[:oiid])
-    @order_item.destroy
-    redirect_to :back
-  end
-
-
   def update
     current_order.save
     @order = current_order
@@ -43,6 +36,12 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item])
     OrderItem.create(:order_id => id, :item_id => @item.id, :quantity => 1)
     redirect_to order_path(id)
+  end
+
+  def destroy
+    @order_item = OrderItem.find(params[:oiid])
+    @order_item.destroy
+    redirect_to :back
   end
 
   def order_params
