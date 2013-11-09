@@ -19,13 +19,10 @@ class OrdersController < ApplicationController
     @order = Order.create(:status => "ordered", :user_id => 1)
     if params[:item]
       item = Item.find(params[:item])
-
       @order.order_items.build(item: item, quantity: 1) 
       @order.save
-    end
-    
+    end 
     session[:current_order] = @order.id
-
     redirect_to order_path(session[:current_order])
   end
 
