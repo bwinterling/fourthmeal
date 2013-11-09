@@ -64,3 +64,5 @@ order9 = Order.create(status: 'cancelled', user_id: 12)
 order10 = Order.create(status: 'completed', user_id: 19)
 
 order_item1 = OrderItem.create(order_id: Order.last.id, item_id: Item.last.id, quantity: 2)
+
+User.create(email: "example@example.com", full_name: "Guest User", display_name: "Guest", guest: true, password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")
