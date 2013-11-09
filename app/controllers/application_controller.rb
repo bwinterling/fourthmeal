@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
-  before_action :authorize
+  #before_action :authorize
 
   delegate :allow?, to: :current_permission
   helper_method :allow?
@@ -25,11 +25,11 @@ class ApplicationController < ActionController::Base
       @current_permission ||= Permission.new(current_user)
     end
 
-    def authorize
-      if !current_permission.allow?(params[:controller], params[:action])
-        redirect_to root_url, alert: "Not authorized"
-      end
-    end
+    # def authorize
+    #   if !current_permission.allow?(params[:controller], params[:action])
+    #     redirect_to root_url, alert: "Not authorized"
+    #   end
+    # end
 
 
 
