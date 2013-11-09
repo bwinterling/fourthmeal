@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(:status => "ordered", :user_id => 1)
+    @order = Order.create(:status => "unpaid", :user_id => 1)
     if params[:item]
       item = Item.find(params[:item])
       @order.order_items.build(item: item, quantity: 1) 
