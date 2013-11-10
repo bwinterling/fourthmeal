@@ -13,14 +13,14 @@ class OrderTest < ActiveSupport::TestCase
   end
 
   test "it_validates_user_id" do
-    order = Order.create(:status => "ordered")
+    order = Order.create(:status => "unpaid")
     assert order.invalid?
   end
 
   test "it_validates_correct_type_of_status" do
     order = Order.create(:status => 'mumbojumbo', :user_id => 5)
     assert order.invalid?
-    order2 = Order.create(:status => 'ordered', :user_id => 5)
+    order2 = Order.create(:status => 'unpaid', :user_id => 5)
     assert order2.valid?
   end
 

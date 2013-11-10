@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   # TO DO - put this into the transaction controller
   # before_action :authorize, only: [:post]
-
   
   delegate :allow?, to: :current_permission
 
@@ -15,7 +14,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    Order.find_by_id(session[:current_order]) || Order.new(user_id: 1, status: "ordered") 
+    Order.find_by_id(session[:current_order]) || Order.new(user_id: 1, status: "unpaid") 
   end
 
    private
@@ -28,10 +27,10 @@ class ApplicationController < ActionController::Base
       @current_permission ||= Permission.new(current_user)
     end
 
-    def authorize
-      if !current_permission.allow?(params[:controller], params[:action])
-        redirect_to root_url, alert: "Not authorized"
-      end
-    end
+    # def authorize
+    #   if !current_permission.allow?(params[:controller], params[:action])
+    #     redirect_to root_url, alert: "Not authorized"
+    #   end
+    # end
 
 end
