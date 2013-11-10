@@ -13,4 +13,6 @@
  *= require unsemantic-grid-responsive
  *= require layout
  *= require item
+ *= require navigation
+ *= require footer
  */

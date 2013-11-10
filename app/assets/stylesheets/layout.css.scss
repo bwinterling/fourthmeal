@@ -1,42 +1,29 @@
 body {
-  background-color: rgb(249, 249, 249);
+  background-color: rgb(233, 237, 235);
+  color: rgb(119, 119, 119);
   font-family: 'Sintony', sans-serif;
 }
 
 .grid-container {
-  background-color: rgb(233, 237, 235);
+  background-color: rgb(249, 249, 249);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
 #page_header {
   height: 230px;
-  margin-bottom: 10px;
 }
 
-#user_nav,
-.nav_item {
-  display: inline;
-  padding: 0;
-  margin: 0;
+#logo h1{
+  font-size: 3em;
+  font-weight: bold;
+  color: black;
+  font-family: Helvetica, sans-serif
 }
 
-.nav_item a,
-#user_nav a {
-  font-size: 0.8em;
-  text-decoration: none;
-  margin: 5px;
-}
-
-.footer_item {
-  display: inline-block;
-}
-
-.footer_item a {
-  font-size: 0.8em;
-  text-decoration: none;
-}
-
-.list_item {
-  list-style-type: none;
-  list-style-position: inside;
-  text-decoration: none;
+.map {
+  margin: 10px;
 }

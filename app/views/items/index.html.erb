@@ -1,10 +1,18 @@
-<header id="body_header" class="prefix-5">
-  <h1>Items</h1>
+<header id="body-header" class="grid-container">
+  <h1>What's On the Menu At Ono</h1>
 </header>
 
-<ul id="menu_list">
-  <%= render partial: 'item', locals: {items: @items } %>
-</ul>
+<section id="featured" class="grid-container">
+  <%= image_tag("BURRITO.png") %>
+</section>
+
+<section id="other-products" class="grid-container">
+  <% @categories = Category.all %>
+  <h2> Categories: </h2>
+  <%= div_for(@categories) do |category| %>
+    <p><%= category.title %></p>
+  <% end %>
+</section>
 
 <% content_for :title do %>
   Items

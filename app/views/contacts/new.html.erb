@@ -1,24 +1,27 @@
-<h1>Contact us</h1>
+<div class="grid-container">
 
-<%= form_for(@contact) do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :subject %>
-    <%= f.text_field :subject %>
-  </p>
-  <p>
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
-  </p>
-  <p>
-    <%= f.submit "Enter"%>
-  </p>
+  <h1>Contact us</h1>
 
-<% end %>
+  <%= form_for(@contact) do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :subject %>
+      <%= f.text_field :subject %>
+    </p>
+    <p>
+      <%= f.label :comment %>
+      <%= f.text_field :comment %>
+    </p>
+    <p>
+      <%= f.submit "Enter"%>
+    </p>
+
+  <% end %>
+</div>

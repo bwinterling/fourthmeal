@@ -7,4 +7,5 @@ module ApplicationHelper
       link_to "Order Now!", items_path
     end
   end
+  
 end

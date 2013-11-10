@@ -1,8 +1,14 @@
-<% order = Order.all.last %>
-<ul>
-  <% order.items.each do |item| %>
-    <li><%= item.title %></li>
-    <li><%= item.description %></li>
-    <li><%= item.price %></li>
-  <% end %>
-</ul>
+<%= div_for(order_items, class: "grid-40 suffix-5 menu_item") do |order_item| %>
+  <%= render partial: 'items/item', locals: {item: order_item.item } %>
+
+  <header>
+    <h3>You Ordered:</h3>
+  </header>
+  <section>
+    <p class="list-item">Quantity: <%= order_item.quantity %></p>
+    <p class="list-item">Total for this item: <%= number_to_currency(order_item.quantity*order_item.item.price) %></p>
+    <%= button_to "Remove", 
+        { :controller => :orders, :action => 'destroy', :oiid => order_item.id }, 
+          :method => :delete, class:"list-item" %>
+  </section>
+<% end %>

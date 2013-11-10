@@ -1,25 +1,23 @@
-nav#main_nav {
-  li {
-    background: #555;
-    display: inline-block;
-    margin: 0 2px;
-    padding: 4px 6px;
+#user-nav,
+.nav-item {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
 
-    a,
-    a:link,
-    a:visited {
-      color: #FFF;
-      text-decoration: none;
-    }
-    &.active {
-      background: #FFF;
-      margin-bottom: -1px;
-      a,
-      a:link,
-      a:visited {
-        color: #555;
-        font-weight: bold;
-      }
-    }
-  }
+.nav-item a,
+#user-nav a {
+  font-size: 0.8em;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.main-nav-container {
+  margin-top: 500px;
+}
+
+#user-nav {
+  margin-top: 12%;
+  text-align: right;
+  font-size: 0.8em;
 }

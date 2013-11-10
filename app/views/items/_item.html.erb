@@ -1,10 +1,8 @@
-<%= div_for(items, class: "grid-40 suffix-5 menu_item") do |item| %>
-  <header>
-    <h2><%= item.title %></h2>
-  </header>
-  <section>
-    <div class="list_item"><%= image_tag item.photo %></div>
-    <p class="list_item"><%= item.description %></p>
-    <p class="list_item"><%= number_to_currency(item.price) %></p>     
-  </section>
-<% end %>
+<header>
+  <h2><%= item.title %></h2>
+</header>
+<section>
+  <div class="list-item"><%= image_tag item.photo %></div>
+  <p class="list-item"><%= item.description %></p>
+  <p class="list-item"><%= number_to_currency(item.price) %></p>   
+</section>

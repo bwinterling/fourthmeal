@@ -2,10 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#body_header {
+.category {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1.2em;
 }
-
-.menu_item {
-  margin-bottom: 10px;
-}
-
