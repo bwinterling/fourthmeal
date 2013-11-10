@@ -1,8 +1,13 @@
-<div class="grid-40" id="main-nav-container">
+<div class="grid-50" class="main-nav-container">
   <ul>
     <li class="nav-item"><%= link_to "Menu", items_path%></li>
     <li class="nav-item"><%= link_to "Locations", locations_path %></li>
-    <li class="nav-item"><%= link_to "Contact", new_contact_path %></li>   
-    <li class="nav-item"><%= navbar_order_link %></li>    
+    <li class="nav-item"><%= link_to "Contact", new_contact_path %></li>
   </ul>
+</div>
+
+<div class="grid-20" class="main-nav-container">
+  <div id="order-link" class="nav-item">
+    <%= navbar_order_link %>
+  </div>
 </div>

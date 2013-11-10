@@ -1,14 +1,27 @@
-<%= div_for(order_items, class: "grid-40 suffix-5 menu_item") do |order_item| %>
-  <%= render partial: 'items/item', locals: {item: order_item.item } %>
+<table class="grid-100">
+  <thead>
+    <tr>
+      <td class="table-header-item">Title</td>
+      <td class="table-header-item">Description</td>
+      <td class="table-header-item">Price</td>
+      <td class="table-header-item">Quantity</td>
+      <td class="table-header-item">Subtotal</td>
+      <td class="table-header-item">Remove?</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= div_for(order_items, class: "grid-40 suffix-5") do |order_item| %>
+      <%= render partial: 'order_item', locals: {item: order_item.item, order_item: order_item } %>
+    <% end %>
+  </tbody>
+</table>
 
-  <header>
-    <h3>You Ordered:</h3>
-  </header>
-  <section>
-    <p class="list-item">Quantity: <%= order_item.quantity %></p>
-    <p class="list-item">Total for this item: <%= number_to_currency(order_item.quantity*order_item.item.price) %></p>
-    <%= button_to "Remove", 
-        { :controller => :orders, :action => 'destroy', :oiid => order_item.id }, 
-          :method => :delete, class:"list-item" %>
-  </section>
-<% end %>
+
+<div class="grid-100">
+  <h3>
+    Your current total: <%= number_to_currency(order_total(@order_items)) %> 
+  </h3>
+  <% if current_order %>
+    <%= button_to "Checkout", new_transaction_path, :action => 'get', class: "button grid-25 prefix-65" %>
+  <% end %>
+</div>

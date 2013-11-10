@@ -1,8 +1,9 @@
-<header>
-  <h2><%= item.title %></h2>
-</header>
-<section>
-  <div class="list-item"><%= image_tag item.photo %></div>
-  <p class="list-item"><%= item.description %></p>
-  <p class="list-item"><%= number_to_currency(item.price) %></p>   
-</section>
+<%= div_for(item, class:"tile grid-33") do %>
+  <%= image_tag item.photo %>
+  <%= form_for current_order do |f| %>
+    <%= hidden_field_tag :item, item.id %>
+    <p class="tile-text"><%= item.title %></p>
+    <%= f.submit "Add to Cart", class:'button-small' %>
+  <% end %>
+<% end %>
+

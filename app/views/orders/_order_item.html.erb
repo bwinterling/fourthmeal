@@ -1,0 +1,10 @@
+<tr>
+  <td class="table-item"><%= item.title %></td>
+  <td class="table-item"><%= item.description %></td>
+  <td class="table-item"><%= number_to_currency(item.price) %></td> 
+  <td class="table-item"><%= order_item.quantity %></td>
+  <td class="table-item"><%= number_to_currency(order_item.quantity*order_item.item.price) %></td>
+  <td class="table-item"><%= button_to "Remove", 
+      { :controller => :orders, :action => 'destroy', :oiid => order_item.id }, 
+        :method => :delete, class:"button-small" %></td>
+</tr>

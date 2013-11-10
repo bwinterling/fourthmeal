@@ -1,23 +1,42 @@
-#user-nav,
 .nav-item {
-  display: block;
+  display: inline-block;
   padding: 0;
-  margin: 0;
+  margin: 72px 25px 0 0 ;
 }
 
 .nav-item a,
-#user-nav a {
-  font-size: 0.8em;
-  text-decoration: none;
-  margin-bottom: 5px;
+ {
+  font-size: 1em;
+  text-decoration: none; 
+  color: black;
 }
 
-.main-nav-container {
-  margin-top: 500px;
+.nav-item a:hover,
+#user-nav a:hover {
+  text-decoration: underline; 
+  color: rgb(0, 112, 127);
 }
+
 
 #user-nav {
-  margin-top: 12%;
   text-align: right;
-  font-size: 0.8em;
+  font-size: 0.6em;
+  color: black;
+}
+
+#user-nav a {
+  text-decoration: none;
+  color: black;
+}
+
+.order-link {
+  font-family: 'Podkova', serif;
+  background-color: rgb(244, 70, 71);
+  font-size: 1.6em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: none;
+  margin: 5px 0 0 7px;
 }

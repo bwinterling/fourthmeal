@@ -15,6 +15,7 @@
   <%= javascript_include_tag "application"%>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Podkova:700' rel='stylesheet' type='text/css'>
 </head>  
 
 <body>
@@ -23,8 +24,8 @@
       <%= render 'layouts/header' %>
     </header>
 
-    <main class="grid-container" role="main">
-      <div class="grid-100" id="flash-section">
+    <main role="main">
+      <div class="grid-100 grid-container" id="flash-section">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <% end %>
