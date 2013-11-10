@@ -4,7 +4,7 @@ module ApplicationHelper
     if current_order.id
       link_to "Your Order", order_path(current_order)
     else
-      link_to "Order Now!", items_path
+      link_to "Order Now!", orders_path, method: :post
     end
   end
   
