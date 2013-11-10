@@ -61,7 +61,7 @@ order6 = Order.create(status: 'unpaid', user_id: 8)
 order7 = Order.create(status: 'unpaid', user_id: 10)
 order8 = Order.create(status: 'unpaid', user_id: 15)
 order9 = Order.create(status: 'unpaid', user_id: 12)
-order10 = Order.create(status: 'unpaid, user_id: 19)
+order10 = Order.create(status: 'unpaid', user_id: 19)
 
 order_item1 = OrderItem.create(order_id: Order.last.id, item_id: Item.last.id, quantity: 2)
 
