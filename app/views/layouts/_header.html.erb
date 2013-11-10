@@ -1,31 +1,5 @@
-<header id="page_header" role="banner">
-  <nav class="navbar navbar-default" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Ono Burrito</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Menu", items_path%></li>
-        <li><%= navbar_order_link %></li>
-        <li><%= link_to "Locations", locations_path %></li>
-        <% if current_order.id %>
-        <li><%= link_to "Order", order_path(current_order) %></li> 
-        <% else %>
-        <li><%= link_to "Order", orders_path, method: :post %></li>
-        <% end %>
-        <li><%= link_to "Contact", new_contact_path %></li>        
-        <li><%= link_to "Log In", "" %></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </nav>
-
-</header>
+<div class="grid-30" id="logo">
+  <h1>Ono Burrito</h1>
+</div>
+<%= render "layouts/main_nav" %>
+<%= render "users/user_nav" %>

@@ -1,24 +1,9 @@
-<header id="body_header">
+<header id="body_header" class="prefix-5">
   <h1>Items</h1>
 </header>
 
 <ul id="menu_list">
-  <% @items.each do |item| %>
-
-    <div class="col-md-4"
-      <li id="menu_item">
-        <header>
-          <h3><%= item.title %></h3>
-        </header>
-        <section>
-          <ul>
-            <li><%= image_tag item.photo %></li>
-            <li><%= item.description %></li>
-            <li><%= number_to_currency(item.price) %></li>     
-          </ul>
-        </li>
-    </div>
-  <%end%>
+  <%= render partial: 'item', locals: {items: @items } %>
 </ul>
 
 <% content_for :title do %>

@@ -1,11 +1,8 @@
-<% content_for :main_navigation do %>
-  <nav id="main_nav" role="navigation">
-    <ul>
-      <%= nav_tab 'Home', root_path, current: current_tab %>
-      <%= nav_tab 'Menu', "" , current: current_tab %>
-      <%= nav_tab 'Locations', "" , current: current_tab %>
-      <%= nav_tab 'Contact', "/contact" , current: current_tab %>
-      <%= nav_tab 'Order', "" , current: current_tab %>
-    </ul>
-  </nav>
-<% end %>
+<div class="grid-40">
+  <ul id="nav_list">
+    <li class="nav_item"><%= link_to "Menu", items_path%></li>
+    <li class="nav_item"><%= link_to "Locations", locations_path %></li>
+    <li class="nav_item"><%= link_to "Contact", new_contact_path %></li>   
+    <li class="nav_item"><%= navbar_order_link %></li>     
+  </ul>
+</div>
