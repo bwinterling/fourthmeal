@@ -22,6 +22,6 @@ class UsersTest < ActiveSupport::TestCase
   test "it_validates_display_name" do 
     @user = User.create(:display_name => "Hashrocket")
     assert @user.invalid?
-  end
+  end 
  
 end

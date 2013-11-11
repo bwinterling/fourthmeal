@@ -28,7 +28,7 @@ class ActiveSupport::TestCase
     @user = User.create(:email        => "ben@example.com",
                         :full_name    => "Bennny Smith",
                         :display_name => "Bennybeans")
-  end
+  end 
 
   # Add more helper methods to be used by all tests here...
 end
