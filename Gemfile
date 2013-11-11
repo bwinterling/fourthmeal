@@ -21,7 +21,6 @@ group :development, :test do
   gem 'guard-minitest'
   gem 'launchy'
   gem 'faker'
-  gem 'jazz_hands'
 end
 
 group :production, :test do

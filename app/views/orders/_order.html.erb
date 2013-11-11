@@ -21,7 +21,7 @@
   <h3>
     Your current total: <%= number_to_currency(order_total(@order_items)) %> 
   </h3>
-  <% if current_order %>
-    <%= button_to "Checkout", new_transaction_path, :action => 'get', class: "button grid-25 prefix-65" %>
+  <% if current_order.id %>
+    <%= button_to "Checkout", new_transaction_path, :method => :get, class: "button grid-25 prefix-65" %>
   <% end %>
 </div>
