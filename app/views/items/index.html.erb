@@ -1,25 +1,18 @@
-<header id="body_header">
-  <h1>Items</h1>
+<header id="body-header" class="grid-container">
+  <h1>What's On the Menu At Ono</h1>
 </header>
 
-<ul id="menu_list">
-  <% @items.each do |item| %>
+<section id="featured" class="grid-container">
+  <%= image_tag("splash_burrito.jpg", class:"splash-burrito") %>
+</section>
 
-    <div class="col-md-4"
-      <li id="menu_item">
-        <header>
-          <h3><%= item.title %></h3>
-        </header>
-        <section>
-          <ul>
-            <li><%= image_tag item.photo %></li>
-            <li><%= item.description %></li>
-            <li><%= number_to_currency(item.price) %></li>     
-          </ul>
-        </li>
-    </div>
-  <%end%>
-</ul>
+<section id="other-products" class="grid-container">
+  <% @categories = Category.all %>
+  <h2> Categories: </h2>
+  <%= div_for(@categories) do |category| %>
+    <p><%= category.title %></p>
+  <% end %>
+</section>
 
 <% content_for :title do %>
   Items

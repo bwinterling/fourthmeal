@@ -1,8 +1,25 @@
-<% order = Order.all.last %>
-<ul>
-  <% order.items.each do |item| %>
-    <li><%= item.title %></li>
-    <li><%= item.description %></li>
-    <li><%= item.price %></li>
-  <% end %>
-</ul>
+<table class="grid-100">
+  <thead>
+    <tr>
+      <td class="table-header-item">Title</td>
+      <td class="table-header-item">Description</td>
+      <td class="table-header-item">Price</td>
+      <td class="table-header-item">Quantity</td>
+      <td class="table-header-item">Subtotal</td>
+      <td class="table-header-item">Remove?</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= div_for(order_items, class: "grid-40 suffix-5") do |order_item| %>
+      <%= render partial: 'order_item', locals: {item: order_item.item, order_item: order_item } %>
+    <% end %>
+  </tbody>
+</table>
+
+
+<div class="grid-100">
+  <h3>
+    Your current total: <%= number_to_currency(order_total(@order_items)) %> 
+  </h3>
+  <%= button_to "Checkout", new_transaction_path, :method => :get, class: "button grid-25 prefix-65" %>
+</div>

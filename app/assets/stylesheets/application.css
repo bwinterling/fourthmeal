@@ -9,5 +9,11 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require bootstrap
+ *= require normalize
+ *= require unsemantic-grid-responsive
+ *= require layout
+ *= require item
+ *= require orders
+ *= require navigation
+ *= require footer
  */

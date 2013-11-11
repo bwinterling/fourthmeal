@@ -1,0 +1,9 @@
+<%= div_for(item, class:"tile grid-33") do %>
+  <%= image_tag item.photo %>
+  <%= form_for current_order do |f| %>
+    <%= hidden_field_tag :item, item.id %>
+    <p class="tile-text"><%= item.title %></p>
+    <%= f.submit "Add to Cart", class:'button-small' %>
+  <% end %>
+<% end %>
+

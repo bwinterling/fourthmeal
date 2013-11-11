@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <title>
     <% if content_for?(:title) %>
       OnoBurrito - 
@@ -13,27 +14,34 @@
   <%= stylesheet_link_tag "application", media: "all"%> 
   <%= javascript_include_tag "application"%>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Podkova:700' rel='stylesheet' type='text/css'>
 </head>  
 
 <body>
-  <%= render "users/user_nav" %>
-  <%= render 'layouts/header' %>
+  <div id="wrapper">
+    <header class="grid-container" id="page_header" role="header">
+      <%= render 'layouts/header' %>
+    </header>
 
+    <nav class="grid-container" role="navigation">
+      <%= render "layouts/main_nav" %>
+    </nav>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-
-
-  <div class="container">
-
-    <section id="content">
+    <main role="main">
+      <div class="grid-100 grid-container" id="flash-section">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+      </div>
       <%= yield %>
-    </section>
+    </main>
 
+    <footer class="grid-container" role="footer">
+      <%= render 'layouts/footer' %>
+    </footer>
+    
   </div>
-  
-  <%= render 'layouts/footer' %>
 </body>
 
 </html>

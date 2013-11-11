@@ -6,10 +6,7 @@ require 'capybara/rails'
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  #
-  # Note: You'll currently still have to declare fixtures explicitly in integration tests
-  # -- they do not yet inherit this setting
+
   fixtures :all
 
   def create_valid_item
@@ -20,7 +17,7 @@ class ActiveSupport::TestCase
   end
 
   def create_valid_order
-    @order = Order.create(:status => 'ordered', :user_id => 5)
+    @order = Order.create(:status => 'unpaid', :user_id => 5)
   end
 
   def create_valid_category

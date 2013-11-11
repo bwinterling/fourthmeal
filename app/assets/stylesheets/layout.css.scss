@@ -1,83 +1,55 @@
-header#page_header {
-  background: #bc471d url('/assets/brandtag.png') bottom right no-repeat;
-  color: #FFF;
-  height: 68px;
-  margin-bottom: 10px;
-  overflow: hidden;
-  padding: 10px 20px;
-
-  a,
-  a:link,
-  a:hover,
-  a:active,
-  a:visited {
-    color: #fef8e7;
-    text-decoration: none;
-  }
-
-  nav#utility {
-    float: right;
-    font-size: 0.8em;
-  }
-
-  #logo {
-    position: absolute;
-    top: 15px;
-  }
-}
-
-#tagline {
-  margin-left: 20px;
-}
-
-div.container {
-  overflow: hidden;
-  padding: 0 20px;
-}
-
-footer#page_footer {
-  background-color: #807c77;
-  border-bottom: 10px solid #4c2719;
-  color: #FFF;
-  font-size: 0.7em;
-  height: 100px;
-  padding: 10px 20px;
-
-  ul {
-    margin-left: -10px;
-    padding: 0;
-
-    li {
-      border-right: 1px solid #fef8e7;
-      display: inline;
-      margin: 0;
-      &:last-child {
-        border-right: none;
-      }
-
-      a {
-        padding: 5px 10px;
-        &:link,
-        &:hover,
-        &:visited,
-        &:active {
-          color: #fff;
-        }
-      }
-    }
-  }
-}
-
 body {
-  background-color: rgb(245, 234, 205);
+  background-color: rgb(233, 237, 235);
+  color: rgb(119, 119, 119);
+  font-family: 'Sintony', sans-serif;
 }
 
-section#content {
-  float:left;
+.grid-container {
+  background-color: rgb(249, 249, 249);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+} 
+
+#logo-text{
+  font-size: 2em;
+  font-weight: bold;
+  color: black;
+  font-family: 'Podkova', serif;
+  margin: 0;
+  text-decoration: none;
 }
 
-section#sidebar {
-  margin-right: -20px;
-  width: 300px;
-  float:right;
+.map {
+  margin: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: black;
+  font-family: 'Podkova', serif;
+  font-weight: bold;
+}
+
+.button {
+  font-size: 1.2em;
+  display: inline-block;
+  margin: 0 0 10px 0;
+  background-color: rgb(3, 166, 120);
+}
+
+.button-small {
+  font-size: 0.7em;
+  display: inline-block;
+  padding: 0px 30px 20px 0px;
+}
+
+.splash-burrito {
+  align: center;
 }

@@ -1,53 +1,16 @@
-<h2>Your current order </h2>
-<ul>
-  <% @order_items.each do |oi| %>
-    
-    <li>
-      <header>
-        <h4><%= oi.item.title %></h4> 
-      </header>
-      <section>
-        <ul>
-          <li>Description: <%= oi.item.description %></li>
-          <li>Price: <%= number_to_currency(oi.item.price) %></li>
-          <li>Quantity: <%= oi.quantity %></li>
-          <li>Total for this item: <%= number_to_currency(oi.quantity*oi.item.price) %></li>
-          <li><%= button_to "Remove", {:controller => :orders, :action => 'destroy', :oiid => oi.id }, :method => :delete %></li>
-        </ul>
-      </li>
-  <%end%>
-</ul>
+<section id="current_order" class="grid-container">
+  <h2 class="grid-100">Your current order </h2>
+  <%= render partial: 'order', 
+    locals: {items: @order.items, order_items: @order.order_items } %>
+</section>
 
-<h3>Add more items to your cart</h3>
+<section id="shop_more" class="grid-container">
+  <h2>Add more items to your cart</h3>
+    <% Item.all.each do |item| %>
+      <%= render partial: 'items/item', locals: {item: item } %>
+    <% end %>
+</section>
 
-<ul id="menu_list">
-  <% @items.each do |item| %>
-    <div class="col-md-4"
-      <li id="menu_item">
-        <header>
-          <h3><%= item.title %></h3>
-        </header>
-        <section>
-          <ul>
-            <li><%= image_tag item.photo %></li>
-            <li><%= item.description %></li>
-            <li><%= number_to_currency(item.price) %></li>  
-            <%= form_for current_order do |f| %>
-              <%= hidden_field_tag :item, item.id %>
-              <%= f.submit "Add to Cart" %>
-            <% end %>
-          </ul>
-        </li>
-    </div>
-  <%end%>
-</ul>
-
-<% total = 0 %>
-<% @order_items.each {|i| total += (i.item.price * i.quantity) } %>
-
-<h4>Your current total: <%= number_to_currency(total) %> </h4>
-
-<%= link_to "Checkout", "" %>
 
 <% content_for :title do %>
   Order
