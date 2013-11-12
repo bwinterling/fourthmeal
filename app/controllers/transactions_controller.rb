@@ -1,7 +1,7 @@
 class TransactionsController < ApplicationController
 
   def index
-    @transaction = Transaction.all
+    @transactions = Transaction.all
   end
   
   def new
