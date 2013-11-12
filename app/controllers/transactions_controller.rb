@@ -13,10 +13,9 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    transaction = Transaction.create(transaction_params)
+    transaction = current_order.build_transaction(transaction_params)
     if transaction.save
-      current_order.transaction = transaction
-      # transaction.order.status = "Paid"
+      transaction.pay!
       flash[:notice] = "Successfully created your order!"
       redirect_to transaction_path(transaction)
     else
