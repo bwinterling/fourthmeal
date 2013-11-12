@@ -10,7 +10,6 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_order
-    # Order.find(params[:id])
     @order_items = @order.order_items
     @items = Item.all
   end

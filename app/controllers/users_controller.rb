@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      current_user.move_to(@user) if is_guest?
+      current_user.move_to(@user) if is_admin?
       session[:user_id] = @user.id
       redirect_to orders_path, :notice => "Signed up!"
     else
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def is_guest?
+  def is_admin?
     current_user && current_user.guest?
   end
 
