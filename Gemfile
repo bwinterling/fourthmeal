@@ -21,6 +21,7 @@ group :development, :test do
   gem 'guard-minitest'
   gem 'launchy'
   gem 'faker'
+  gem 'paperclip'
 end
 
 group :production, :test do
