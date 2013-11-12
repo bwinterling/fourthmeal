@@ -37,4 +37,4 @@ class ItemsController < ApplicationController
 
 end
 
-# /items?category=Spicy
+
