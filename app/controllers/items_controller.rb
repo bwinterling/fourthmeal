@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = params[:category] ? Item.filter_by_category(params[:category]) : Item.all
+    if @current_category
+      @items = @current_category.items
+    else
+      @items = Item.all
+    end
   end
 
   def new
@@ -20,8 +24,8 @@ class ItemsController < ApplicationController
         :description => params[:item][:description],
         :price => params[:item][:price].to_f,
         :photo => params[:item][:photo].original_filename)
-        flash.notice = "#{@item.title} was created"
-        redirect_to edit_item_path(@item.id)
+        flash.notice = "#{@item.title} was created" if @item.save
+        redirect_to items_path
     rescue
       flash.notice = "Sorry, there was a problem with the item you tried to create.
       Please check your input and try again."
