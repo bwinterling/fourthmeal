@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def is_admin?
-    current_user && current_user.guest?
+    current_user && current_user.admin
   end
 
 private

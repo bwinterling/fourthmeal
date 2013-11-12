@@ -187,7 +187,7 @@ nachos = Item.create!(
   title: "Three Cheese Nachos", 
   description: "That's 'not-cho' cheese!", 
   price: 5.99, 
-  photo: "C2_TACO_NAKED_TACO.png")
+  photo: "3_CHEESE_NACHOS.png")
 
 ItemCategory.create!(
   item_id: nachos.id,

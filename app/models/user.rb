@@ -4,16 +4,14 @@ class User < ActiveRecord::Base
   has_many :orders
 
   before_save   :encrypt_password
-  with_options :unless => :guest? do |user|
-    user.validates_confirmation_of :password
-    user.validates_presence_of     :password, :on => :create
-    user.validates                 :display_name, length: { in: 2..32 }, :allow_blank => true
-    user.validates_presence_of     :email
-    user.validates_presence_of     :full_name
-    user.validates                 :password, length: { minimum: 6 }
-    user.validates_format_of       :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-    user.validates                 :email, uniqueness: true 
-  end
+  validates_confirmation_of :password
+  validates_presence_of     :password, :on => :create
+  validates                 :display_name, length: { in: 2..32 }, :allow_blank => true
+  validates_presence_of     :email
+  validates_presence_of     :full_name
+  validates                 :password, length: { minimum: 6 }
+  validates_format_of       :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates                 :email, uniqueness: true 
 
   def self.new_admin
     new { |u| u.admin = true }
