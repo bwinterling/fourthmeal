@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
     user.validates                 :email, uniqueness: true 
   end
 
-  def self.new_guest
-    new { |u| u.guest = true }
+  def self.new_admin
+    new { |u| u.admin = true }
   end
 
   def name
-    guest ? "Guest" : email
+    admin ? "admin" : email
   end
 
   def move_to(user)
