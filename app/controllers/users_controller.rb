@@ -9,14 +9,15 @@ class UsersController < ApplicationController
     if @user.save
       current_user.move_to(@user) if is_admin?
       session[:user_id] = @user.id
-      redirect_to orders_path, :notice => "Signed up!"
+      current_order.save
+      redirect_to order_path(current_order.id), :notice => "Signed up!"
     else
       render "new"
     end
   end
 
   def is_admin?
-    current_user && current_user.guest?
+    current_user && current_user.admin
   end
 
 private

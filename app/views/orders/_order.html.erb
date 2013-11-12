@@ -10,16 +10,20 @@
     </tr>
   </thead>
   <tbody>
+    
     <%= div_for(order_items, class: "grid-40 suffix-5") do |order_item| %>
       <%= render partial: 'order_item', locals: {item: order_item.item, order_item: order_item } %>
     <% end %>
   </tbody>
 </table>
 
-
-<div class="grid-100">
-  <h3>
-    Your current total: <%= number_to_currency(order_total(@order_items)) %> 
-  </h3>
-  <%= button_to "Checkout", new_transaction_path, :method => :get, class: "button grid-25 prefix-65" %>
-</div>
+<% unless order_items.nil? %>
+  <div class="grid-100">
+    <h3>
+      Your current total: <%= number_to_currency(order_total(@order_items)) %> 
+    </h3>
+    <%= button_to "Checkout", new_transaction_path, 
+    :method => :get, 
+    class: "button grid-25 prefix-65" %>
+  </div>
+<% end %>

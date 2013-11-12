@@ -12,6 +12,9 @@ class OrdersController < ApplicationController
     @order = current_order
     @order_items = @order.order_items
     @items = Item.all
+    if @order_items.count < 1
+      redirect_to menu_path
+    end
   end
 
   def create
