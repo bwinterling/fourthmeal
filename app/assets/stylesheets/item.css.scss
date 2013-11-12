@@ -11,8 +11,8 @@
 .tile {
   margin: 5px 0 0 0;
   float: left;
-  width: 231px;
-  height: 231px;
+  width: 270px;
+  height: 270px;
   position: relative;
   float: left;
 }
@@ -35,9 +35,13 @@
   display: none;
 }
 
-.tile-text,
+.tile-text {
+  font-size: 1.2em;
+  padding: 0;
+}
+
 .list-item {
-  font-size: 0.8em;
+  font-size: 1em;
   margin: 0;
   display: inline-block;
   padding: 0 10px 0 0;
@@ -50,6 +54,4 @@
 }
 
 .table-item {
-  font-size: 0.8em;
-  padding: 0 30px 20px 0;
 }

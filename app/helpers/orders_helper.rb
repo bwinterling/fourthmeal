@@ -6,4 +6,5 @@ module OrdersHelper
     order_items.each {|i| total += (i.item.price * i.quantity) }
     total
   end
+  
 end
