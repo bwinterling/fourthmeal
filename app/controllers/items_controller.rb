@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    current_category = params[:category]
     @item = Item.find(params[:id])
   end
 

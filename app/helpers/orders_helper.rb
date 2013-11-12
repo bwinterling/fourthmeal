@@ -6,5 +6,9 @@ module OrdersHelper
     order_items.each {|i| total += (i.item.price * i.quantity) }
     total
   end
+
+  def cart_filled?
+    current_order && current_order.order_items.count > 0
+  end
   
 end

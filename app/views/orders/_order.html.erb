@@ -10,10 +10,9 @@
     </tr>
   </thead>
   <tbody>
-    <% unless order_items.nil? %>
-      <%= div_for(order_items, class: "grid-40 suffix-5") do |order_item| %>
-        <%= render partial: 'order_item', locals: {item: order_item.item, order_item: order_item } %>
-      <% end %>
+    
+    <%= div_for(order_items, class: "grid-40 suffix-5") do |order_item| %>
+      <%= render partial: 'order_item', locals: {item: order_item.item, order_item: order_item } %>
     <% end %>
   </tbody>
 </table>

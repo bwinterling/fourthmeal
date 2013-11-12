@@ -1,11 +1,27 @@
+<div id="view_order" class="grid-container">
+  <div class="grid-100">
+    <% if cart_filled? %>
+      <%= link_to "View Your Order", order_path(current_order.id), class: "" %>
+    <% end %>
+  </div>
+</div>
+
 <header id="body-header" class="grid-container">
   <div id="menu_greeting" class="grid-40">
     <h1>On the Menu At Ono</h1>
   </div>
   <section id="other-products" class="grid-60">
-    <% @categories = Category.all %>
-    <% @categories.each do |category| %>
-      <a href="#" class="category"><%= category.title %></a>
+    <% if current_category = Category.all %>
+      <a href="#" class="category">All</a>
+    <% else %>
+      <a href="/menu" class="category">All</a>
+    <% end %>
+    <% Category.all.each do |category| %>
+      <% if current_category == category.title %>
+        <a href=<%= "#" %> class="category"><%= category.title %></a>
+      <% else %>
+        <a href=<%= "/menu/#{category.title.downcase}" %> class="category"><%= category.title %></a>
+      <% end %>
     <% end %>
   </section>
 </header>

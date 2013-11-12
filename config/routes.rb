@@ -19,9 +19,13 @@ OnoBurrito::Application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  resources :items
-  resources :orders
-  resources :categories
+  resources :items do
+    resources :item_categories
+  end
+
+
+  get 'menu' => 'items#index', as: :menu
+  resources :orders  
   resources :contacts
   resources :order_items
   resources :locations
