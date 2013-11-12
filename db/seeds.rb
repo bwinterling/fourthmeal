@@ -258,22 +258,21 @@ User.create(email: "demo+franklin@jumpstartlab.com",
   full_name: "Franklin Webber", 
   display_name: "", 
   admin: false, 
-  password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", 
-  password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")
+  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
+  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
 
 User.create(email: "demo+jeff@jumpstartlab.com", 
   full_name: "Jeff", 
   display_name: "j3", 
   admin: false, 
-  password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", 
-  password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")
+  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
+  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
 
 User.create(email: "demo+katrina@jumpstartlab.com", 
   full_name: "Katrina Owen", 
   display_name: "kytrynx", 
   admin: true, 
-  password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", 
-  password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")
+  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
+  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
 
 order_item1 = OrderItem.create(order_id: Order.last.id, item_id: Item.last.id, quantity: 2)
-

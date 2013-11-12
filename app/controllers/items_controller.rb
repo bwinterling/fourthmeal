@@ -4,16 +4,28 @@ class ItemsController < ApplicationController
     @items = params[:category] ? Item.filter_by_category(params[:category]) : Item.all
   end
 
+  def new
+    @item = Item.new
+  end
+
   def show
     @item = Item.find(params[:id])
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.save
-
-    flash.notice = "#{@item.name} was created"
-    redirect_to edit_item_path(@item.id)
+    begin
+      @item = Item.new(
+        :title => params[:item][:title],
+        :description => params[:item][:description],
+        :price => params[:item][:price].to_f,
+        :photo => params[:item][:photo].original_filename)
+        flash.notice = "#{@item.title} was created"
+        redirect_to edit_item_path(@item.id)
+    rescue
+      flash.notice = "Sorry, there was a problem with the item you tried to create.
+      Please check your input and try again."
+      redirect_to items_path
+    end
     #redirect_to admin_items_path
   end
 

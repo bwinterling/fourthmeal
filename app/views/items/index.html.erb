@@ -1,11 +1,11 @@
 <header id="body-header" class="grid-container">
-  <div id="menu_greeting" class="grid-60">
-    <h1>What's On the Menu At Ono</h1>
+  <div id="menu_greeting" class="grid-40">
+    <h1>On the Menu At Ono</h1>
   </div>
-  <section id="other-products" class="grid-40">
+  <section id="other-products" class="grid-60">
     <% @categories = Category.all %>
-    <%= div_for(@categories) do |category| %>
-      <p><%= category.title %></p>
+    <% @categories.each do |category| %>
+      <a href="#" class="category"><%= category.title %></a>
     <% end %>
   </section>
 </header>
