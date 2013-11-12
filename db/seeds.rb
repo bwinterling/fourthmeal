@@ -1,56 +1,247 @@
-category_1 = Category.create(title: "Soup")
-category_2 = Category.create(title: "Booze")
-category_3 = Category.create(title: "Cake")
-category_4 = Category.create(title: "Stupid")
-category_5 = Category.create(title: "Beer")
+entrees = Category.create(title: "Entrees")
+combos = Category.create(title: "Combos")
+kids = Category.create(title: "Kids Menu")
+add_ons = Category.create(title: "Add Ons")
+beverages = Category.create(title: "Beverages")
 
-seed_categories = [
-category_1, 
-category_2, 
-category_3, 
-category_4, 
-category_5 ]
+# ENTREES
 
-seed_photos = [
-"BURRITO.png",
-"C2_DILLA_NAKED_TACO.png",
-"C2_TACO_GUMBO.png",
-"C2_TACO_NAKED-BURRITO.png",
-"C2_TACO_NAKED_TACO.png",
-"C2_TACO_TORT_SOUP.png",
-"CHIPS_DIP.png",
-"KIDS_LEADING.png",
-"KIDS_QUESADILLA.png",
-"KIDS_TACO.png",
-"NAKED_BURRITO.png",
-"Quesadilla.png",
-"TACOS.png"
-]
+burrito = Item.create!(
+  title: "Steak Burrito", 
+  description: "Mouthwatering slab of meat wrapped in white flour.", 
+  price: 5.99, 
+  photo: "BURRITO.png")
 
-seed_titles = [
-"Burrito",
-"Dilla Naked Taco",
-"Taco Gumbo",
-"Naked Burrito",
-"Naked Taco",
-"Taco Tortilla Soup",
-"Chips and Dip",
-"Menu Item",
-"Kids Quesadilla",
-"Kids Taco",
-"Naked Burrito",
-"Quesadilla",
-"Tacos"
-]
+ItemCategory.create!(
+  item_id: burrito.id,
+  category_id: entrees.id
+  )
 
-20.times do |i|
-  max = 15
-  min = 3 
-  price = rand * (max-min) + min
-  item = Item.create!(title: seed_titles[rand(0..12)], description: "Delicious yummy food! Order now!", price: price, photo: seed_photos[rand(0..12)])
-  item.categories << Category.find(seed_categories[rand(0..4)].id)
-  item.save
-end
+breakfast_burrito = Item.create!(
+  title: "Breakfast Burrito", 
+  description: "Eggs and meat!", 
+  price: 3.99, 
+  photo: "BREAKFAST.png")
+
+ItemCategory.create!(
+  item_id: breakfast_burrito.id,
+  category_id: entrees.id
+  )
+
+naked_burrito = Item.create!(
+  title: "Naked Burrito", 
+  description: "Get lucky with a naked burrito.", 
+  price: 5.99, 
+  photo: "NAKED_BURRITO.png")
+
+ItemCategory.create!(
+  item_id: naked_burrito.id,
+  category_id: entrees.id
+  )
+
+taco_gumbo = Item.create!(
+  title: "Taco Gumbo", 
+  description: "Good for a cold day.", 
+  price: 4.99, 
+  photo: "C2_TACO_GUMBO.png")
+
+ItemCategory.create!(
+  item_id: taco_gumbo.id,
+  category_id: entrees.id
+  )
+
+sig_veggie_burrito = Item.create!(
+  title: "Signature Vegetable Burrito", 
+  description: "Vegetarian is caveman speak for bad hunter.", 
+  price: 4.99, 
+  photo: "SIG_VEGGIE_BURRITO.png")
+
+ItemCategory.create!(
+  item_id: sig_veggie_burrito.id,
+  category_id: entrees.id
+  )
+
+taco_salad = Item.create!(
+  title: "Taco Salad", 
+  description: "It's 'healthy'.", 
+  price: 5.99, 
+  photo: "TACO_SALAD.png")
+
+ItemCategory.create!(
+  item_id: taco_salad.id,
+  category_id: entrees.id
+  )
+
+
+
+# Kids Menu
+
+kids_meal = Item.create!(
+  title: "Kids Meal", 
+  description: "Comes with a plastic toy.", 
+  price: 3.99, 
+  photo: "KIDS_LEADING.png")
+
+ItemCategory.create!(
+  item_id: kids_meal.id,
+  category_id: kids.id
+  )
+
+kids_taco = Item.create!(
+  title: "Kids Taco", 
+  description: "It's like the big one, only smaller.", 
+  price: 3.99, 
+  photo: "KIDS_TACO.png")
+
+ItemCategory.create!(
+  item_id: kids_taco.id,
+  category_id: kids.id
+  )
+
+kids_quesadilla = Item.create!(
+  title: "Kids Quesadilla", 
+  description: "It's like the big one, only smaller.", 
+  price: 3.99, 
+  photo: "KIDS_QUESADILLA.png")
+
+ItemCategory.create!(
+  item_id: kids_quesadilla.id,
+  category_id: kids.id
+  )
+
+kids_burrito = Item.create!(
+  title: "Kids Naked Burrito", 
+  description: "It's like the big one, only smaller.", 
+  price: 3.99, 
+  photo: "KIDS_NAKED_BURRITO.png")
+
+ItemCategory.create!(
+  item_id: kids_burrito.id,
+  category_id: kids.id
+  )
+
+
+
+# Combos
+
+taco_tortilla_soup = Item.create!(
+  title: "Taco Torilla Soup", 
+  description: "Es Muy Picante.", 
+  price: 6.99, 
+  photo: "C2_TACO_TORT_SOUP.png")
+
+ItemCategory.create!(
+  item_id: taco_tortilla_soup.id,
+  category_id: combos.id
+  )
+
+nacho_dilla = Item.create!(
+  title: "Nacho Dilla", 
+  description: "Eat one every dia.", 
+  price: 6.99, 
+  photo: "C2_NACHO_DILLA.png")
+
+ItemCategory.create!(
+  item_id: nacho_dilla.id,
+  category_id: combos.id
+  )
+
+taco_w_gumbo_soup = Item.create!(
+  title: "Taco With Gumbo Soup", 
+  description: "You must be hungry!", 
+  price: 6.99, 
+  photo: "C2_TACO_GUMBO.png")
+
+ItemCategory.create!(
+  item_id: taco_w_gumbo_soup.id,
+  category_id: combos.id
+  )
+
+taco_w_naked_burrito = Item.create!(
+  title: "Taco With A Naked Burrito", 
+  description: "You must be hungry!", 
+  price: 6.99, 
+  photo: "C2_TACO_NAKED-BURRITO.png")
+
+ItemCategory.create!(
+  item_id: taco_w_naked_burrito.id,
+  category_id: combos.id
+  )
+
+two_naked_tacos = Item.create!(
+  title: "Two Naked Tacos", 
+  description: "Two tacos caught in bed together!", 
+  price: 6.99, 
+  photo: "C2_TACO_NAKED_TACO.png")
+
+ItemCategory.create!(
+  item_id: two_naked_tacos.id,
+  category_id: combos.id
+  )
+
+
+
+# Add-ons
+
+nachos = Item.create!(
+  title: "Three Cheese Nachos", 
+  description: "That's 'not-cho' cheese!", 
+  price: 5.99, 
+  photo: "C2_TACO_NAKED_TACO.png")
+
+ItemCategory.create!(
+  item_id: nachos.id,
+  category_id: add_ons.id
+  )
+
+chips_dip = Item.create!(
+  title: "Chips and Dip", 
+  description: "Crunchy and smooth.", 
+  price: 4.99, 
+  photo: "CHIPS_DIP.png")
+
+ItemCategory.create!(
+  item_id: chips_dip.id,
+  category_id: add_ons.id
+  )
+
+
+
+# Beverages
+
+beer = Item.create!(
+  title: "Beer", 
+  description: "Beer beer beer beer.", 
+  price: 3.99, 
+  photo: "beers.jpeg")
+
+ItemCategory.create!(
+  item_id: beer.id,
+  category_id: beverages.id
+  )
+
+soda = Item.create!(
+  title: "Soda", 
+  description: "Sodee pop.", 
+  price: 1.99, 
+  photo: "soda.jpg")
+
+ItemCategory.create!(
+  item_id: soda.id,
+  category_id: beverages.id
+  )
+
+margarita = Item.create!(
+  title: "Margaritas", 
+  description: "Blended margs for your enjoyment.", 
+  price: 5.99, 
+  photo: "cocktails.jpg")
+
+ItemCategory.create!(
+  item_id: margarita.id,
+  category_id: beverages.id
+  )
+
 
 order1 = Order.create(status: 'unpaid', user_id: 1)
 order2 = Order.create(status: 'unpaid', user_id: 5)
@@ -63,6 +254,26 @@ order8 = Order.create(status: 'unpaid', user_id: 15)
 order9 = Order.create(status: 'unpaid', user_id: 12)
 order10 = Order.create(status: 'unpaid', user_id: 19)
 
+User.create(email: "demo+franklin@jumpstartlab.com", 
+  full_name: "Franklin Webber", 
+  display_name: "", 
+  admin: false, 
+  password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", 
+  password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")
+
+User.create(email: "demo+jeff@jumpstartlab.com", 
+  full_name: "Jeff", 
+  display_name: "j3", 
+  admin: false, 
+  password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", 
+  password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")
+
+User.create(email: "demo+katrina@jumpstartlab.com", 
+  full_name: "Katrina Owen", 
+  display_name: "kytrynx", 
+  admin: true, 
+  password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", 
+  password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")
+
 order_item1 = OrderItem.create(order_id: Order.last.id, item_id: Item.last.id, quantity: 2)
 
-User.create(email: "example@example.com", full_name: "Guest User", display_name: "Guest", guest: true, password_hash: "10$GJV2qlZzfjzqZS9MuQFuQOfEwTgQk.OR2H1veqeubqurKnTrNO2LS", password_salt:"$2a$10$GJV2qlZzfjzqZS9MuQFuQO")

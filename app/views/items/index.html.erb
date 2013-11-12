@@ -1,18 +1,21 @@
 <header id="body-header" class="grid-container">
-  <h1>What's On the Menu At Ono</h1>
+  <div id="menu_greeting" class="grid-50">
+    <h1>What's On the Menu At Ono</h1>
+  </div>
+  <section id="other-products" class="grid-50">
+    <% @categories = Category.all %>
+    <%= div_for(@categories) do |category| %>
+      <p><%= category.title %></p>
+    <% end %>
+  </section>
 </header>
 
-<section id="featured" class="grid-container">
-  <%= image_tag("splash_burrito.jpg", class:"splash-burrito") %>
-</section>
-
-<section id="other-products" class="grid-container">
-  <% @categories = Category.all %>
-  <h2> Categories: </h2>
-  <%= div_for(@categories) do |category| %>
-    <p><%= category.title %></p>
+<section id="" class="grid-container">
+  <% Item.all.each do |item| %>
+    <%= render partial: 'items/item', locals: {item: item } %>
   <% end %>
 </section>
+
 
 <% content_for :title do %>
   Items
