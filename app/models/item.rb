@@ -1,9 +1,12 @@
 class Item < ActiveRecord::Base
+    has_attached_file :photo,
+    :default_url => "/images/:style/missing.png"
+  # attr_accessor :photo_file_name
 
   validates :title, presence: true
   validates :description, presence: true
-  validates_numericality_of :price, :greater_than_or_equal_to => 0
-  validates :photo, presence: true
+  validates_numericality_of :price, :greater_than => 0
+
   
   has_many :item_categories
   has_many :categories, :through => :item_categories
