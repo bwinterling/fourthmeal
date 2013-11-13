@@ -315,4 +315,14 @@ User.create(email: "demo+katrina@jumpstartlab.com",
   password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
   password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
 
+User.create(email: "ben@example.com", 
+  full_name: "Ben Lewis", 
+  display_name: "bennybeans", 
+  admin: true, 
+  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
+  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
+
+AdminUser.create(:email => "admin@example.com", :password => "password")
+AdminUser.create(:email => "demo+katrina@jumpstartlab.com", :password => "password")
+
 order_item1 = OrderItem.create(order_id: Order.last.id, item_id: Item.last.id, quantity: 2)
