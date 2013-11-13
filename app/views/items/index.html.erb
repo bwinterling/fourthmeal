@@ -10,7 +10,9 @@
 
 <section id="" class="grid-container">
   <% @items.each do |item| %>
-    <%= render partial: 'items/item', locals: {item: item } %>
+    <% unless item.retired %>
+      <%= render partial: 'items/item', locals: {item: item } %>
+    <% end %>
   <% end %>
 </section>
 

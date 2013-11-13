@@ -15,9 +15,21 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to menu_path
     else
-      render "new"
-      redirect_to sign_up_path
+      flash[:message] = "Your account was not saved for some reason!"
+      redirect_to log_in_path
     end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to user_path(@user.id), :notice => "Credentials updated!"
+    else
+      redirect_to user_path(@user.id), :notice => "Your account was not saved for some reason!"
+    end
+  end
+
+  def show
   end
 
   def is_admin?
