@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   def show
     @order = current_order
     @order_items = @order.order_items
-    @items = Item.all
+    @items = Item.active
     if @order_items.count < 1
       redirect_to menu_path
     end
