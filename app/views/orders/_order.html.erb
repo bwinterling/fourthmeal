@@ -10,10 +10,13 @@
     </tr>
   </thead>
   <tbody>
+
+    # TO DO: Change this div for to a content tag for
     
     <%= div_for(order.order_items, class: "grid-40 suffix-5") do |order_item| %>
       <%= render partial: 'order_item', locals: {item: order_item.item, order_item: order_item } %>
     <% end %>
+
   </tbody>
 </table>
 

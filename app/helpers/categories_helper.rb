@@ -4,14 +4,13 @@ module CategoriesHelper
   end
 
   def link_to_category(category, current=nil)
-    css_class = "category" 
+    css_class = "category"
     if category == current
-      css_class += "active"
+      css_class += " active"
     end
 
     link_to category.title, 
             menu_items_path(category.to_param), 
             class: css_class
   end
-
 end
