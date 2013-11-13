@@ -16,4 +16,5 @@
  *= require orders
  *= require navigation
  *= require footer
+ *= require_tree .
  */

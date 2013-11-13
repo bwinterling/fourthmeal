@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
     Order.find_by_id(session[:current_order]) || Order.new(status: "unpaid")  
   end
 
+  def categories
+   @categories ||= Category.all
+  end
+  
   private
 
    def current_user
@@ -26,6 +30,8 @@ class ApplicationController < ActionController::Base
    def current_permission
      @current_permission ||= Permission.new(current_user)
    end
+
+
 
    # def authorize
    #   if !current_permission.allow?(params[:controller], params[:action])

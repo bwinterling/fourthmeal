@@ -7,11 +7,8 @@
   <section id="other-products" class="grid-60">
     <%= link_to "Full Menu", menu_path, class:"category #{'active' if @category.nil?}" %>
     <% @categories.each do |category| %>
-      <% if @category == category %>
-        <%= link_to category.title, menu_items_path(category.to_param), class:"active category" %>
-      <% else %>
-        <%= link_to category.title, menu_items_path(category.to_param), class:"category" %>
-      <% end %>
+      <%= category_link(category, @category) %>
+      
     <% end %>
   </section>
 
