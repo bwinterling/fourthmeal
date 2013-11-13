@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
   before_action :load_category, :only => [:index, :in_category]
 
+  before_action :load_category, :only => [:index, :in_category]
+  def load_category
+    @categories = Category.all
+  end
+
   def index
     @items = Item.active
     @page_title = "Full Menu"

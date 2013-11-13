@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @page_title = "Order"
+    @page_title = "Your Order"
     @order = current_order
     @order_items = @order.order_items
     @items = Item.active
