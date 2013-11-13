@@ -1,16 +1,19 @@
 class ItemsController < ApplicationController
 
+  before_action :load_category, :only => [:index, :in_category]
+  def load_category
+    @categories = Category.all
+  end
+
   def index
-    if @current_category
-      @items = @current_category.items
-    else
-      @items = Item.all
-    end
+    @items = Item.active
+    @page_title = "Full Menu"
   end
 
   def in_category
     @category = Category.find_by_slug(params[:category_slug])
-    @items = @category.items
+    @items = @category.items.active
+    @page_title = @category.title
     render :index
   end
 
