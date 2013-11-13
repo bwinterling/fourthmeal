@@ -1,16 +1,12 @@
 class ItemsController < ApplicationController
 
   def index
-    if @current_category
-      @items = @current_category.items
-    else
-      @items = Item.active
-    end
+    @items = Item.active
   end
 
   def in_category
     @category = Category.find_by_slug(params[:category_slug])
-    @items = @category.items
+    @items = @category.items.active
     render :index
   end
 

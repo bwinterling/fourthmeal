@@ -20,6 +20,4 @@ OnoBurrito::Application.routes.draw do
   resources :locations
   resources :transactions
 
-  #
-
 end
