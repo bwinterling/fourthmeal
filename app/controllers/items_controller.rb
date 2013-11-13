@@ -2,11 +2,13 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.active
+    @page_title = "Full Menu"
   end
 
   def in_category
     @category = Category.find_by_slug(params[:category_slug])
     @items = @category.items.active
+    @page_title = @category.title
     render :index
   end
 

@@ -8,6 +8,14 @@ module ApplicationHelper
     end
   end
 
+  def page_helper
+    if @page_title
+    "- #{@page_title}"
+    elsif content_for?(:title)
+      "-" + yield(:title)
+    end
+  end
+
   ## MAY NEED TO BE
   
   # def navbar_order_link
