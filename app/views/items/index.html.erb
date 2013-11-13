@@ -1,11 +1,3 @@
-<div id="view_order" class="grid-container">
-  <div class="grid-100">
-    <% if items_in_cart? %>
-      <%= link_to "View Your Order", order_path(current_order.id), class: "" %>
-    <% end %>
-  </div>
-</div>
-
 <%= render 'header' %>
 
 <section class="grid-container menu-view">
