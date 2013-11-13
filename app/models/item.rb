@@ -19,4 +19,8 @@ class Item < ActiveRecord::Base
     joins(:categories).where("categories.title"=> category)
   end
 
+  def self.active
+    where(:retired => false)
+  end
+
 end

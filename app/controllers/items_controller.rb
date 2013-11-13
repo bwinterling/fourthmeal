@@ -2,9 +2,9 @@ class ItemsController < ApplicationController
 
   def index
     if @current_category
-      @items = @current_category.items.find_all(!item.retired?)
+      @items = @current_category.items
     else
-      @items = Item.all
+      @items = Item.active
     end
   end
 
