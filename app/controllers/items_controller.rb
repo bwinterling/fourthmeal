@@ -56,6 +56,10 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:title, :description, :price, :photo, :photo_file_name)
   end
 
+  def load_category
+    @categories = Category.all
+  end
+
 end
 
 
