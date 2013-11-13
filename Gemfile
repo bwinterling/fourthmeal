@@ -24,7 +24,7 @@ group :development, :test do
   gem 'launchy'
   gem 'faker'
   gem 'simplecov', :require => false, :group => :test
-
+  gem 'quiet_assets'
 end
 
 group :production, :test do
