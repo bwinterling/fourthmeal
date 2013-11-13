@@ -7,7 +7,7 @@ class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
 
-  fixtures :all
+  # fixtures :all
 
   def create_valid_item
     @item = Item.create(:title => "Hello!", 
@@ -25,7 +25,7 @@ class ActiveSupport::TestCase
   end
 
   def create_valid_user
-    @user = User.create(:email        => "ben@example.com",
+    @user = User.create(:email        => "test@example.com",
                         :full_name    => "Bennny Smith",
                         :display_name => "Bennybeans")
   end 

@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20131113203824) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "categories", force: true do |t|
-    t.string   "title"
+    t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,16 +65,16 @@ ActiveRecord::Schema.define(version: 20131113203824) do
   end
 
   create_table "item_categories", force: true do |t|
-    t.integer  "item_id"
-    t.integer  "category_id"
+    t.integer  "item_id",     null: false
+    t.integer  "category_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "items", force: true do |t|
-    t.text     "title"
-    t.string   "description"
-    t.decimal  "price"
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "price",              precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
@@ -82,14 +82,7 @@ ActiveRecord::Schema.define(version: 20131113203824) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "slug"
-    t.boolean  "retired",            default: false
-  end
-
-  create_table "items_categories", force: true do |t|
-    t.integer  "item_id"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "retired",                                     default: false
   end
 
   create_table "order_items", force: true do |t|

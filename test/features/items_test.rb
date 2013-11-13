@@ -1,10 +1,10 @@
 require './test/test_helper'
 
-class ItemCreationTest < MiniTest::Unit::TestCase
+class ItemCreationTest < Capybara::Rails::TestCase
 
   #Guests
   def test_guest_can_browse_the_home_page
-    visit index
+    visit "root_path"
     within('#index') do
       assert page.has_css?('#main_nav')
       assert page.has_css?('#hero_photo')
@@ -12,7 +12,7 @@ class ItemCreationTest < MiniTest::Unit::TestCase
   end
 
   def test_guest_can_browse_menu_page
-    visit index
+    visit "root_path"
     click_on 'menu'
     within('#menu') do
       assert page.has_content?('Tacos')
@@ -25,7 +25,7 @@ class ItemCreationTest < MiniTest::Unit::TestCase
   end
 
   def test_guest_can_sort_by_specific_category
-    visit items_path
+    visit menu_path
     click_on 'Kids Menu'
     within('#kids_menu') do
       assert page.has_content?('Kids Tacos')
