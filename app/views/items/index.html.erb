@@ -1,6 +1,6 @@
 <div id="view_order" class="grid-container">
   <div class="grid-100">
-    <% if cart_filled? %>
+    <% if items_in_cart? %>
       <%= link_to "View Your Order", order_path(current_order.id), class: "" %>
     <% end %>
   </div>
