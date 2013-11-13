@@ -8,11 +8,9 @@
 
 <%= render 'header' %>
 
-<section id="" class="grid-container">
+<section class="grid-container">
   <% @items.each do |item| %>
-    <% unless item.retired %>
-      <%= render partial: 'items/item', locals: {item: item } %>
-    <% end %>
+    <%= render partial: 'items/item', locals: {item: item } %>
   <% end %>
 </section>
 
