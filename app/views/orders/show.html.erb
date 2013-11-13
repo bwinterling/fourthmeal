@@ -10,12 +10,6 @@
   <div class="grid-100">
     <h2>Fill Your Bag</h2>
   </div>
-    <% @items.each do |item| %>
-      <%= render partial: 'items/item', locals: {item: item } %>
-    <% end %>
+  
+  <%= render partial: 'items/item', collection: @items %>
 </section>
-
-
-<% content_for :title do %>
-  Order
-<% end %>
