@@ -3,7 +3,7 @@ module CategoriesHelper
     @current_category ||= nil
   end
 
-  def category_link(category, current=nil)
+  def link_to_category(category, current=nil)
     css_class = "category" 
     if category == current
       css_class += "active"

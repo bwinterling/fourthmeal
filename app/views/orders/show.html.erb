@@ -1,5 +1,5 @@
 <section id="current_order" class="grid-container">
-  <% if cart_filled? %>
+  <% if items_in_cart? %>
     <h2 class="grid-100">Your current order </h2>
     <%= render partial: 'order', 
       locals: {items: @order.items, order_items: @order.order_items } %>
