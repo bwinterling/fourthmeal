@@ -4,10 +4,8 @@ one:
   title: MyText
   description: MyString
   price: 9.99
-  photo: MyString
 
 two:
   title: MyText
   description: MyString
   price: 9.99
-  photo: MyString

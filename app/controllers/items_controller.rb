@@ -26,8 +26,7 @@ class ItemsController < ApplicationController
     @item = Item.new(
       :title => params[:item][:title],
       :description => params[:item][:description],
-      :price => params[:item][:price].to_f,
-      :photo => params[:item][:photo])
+      :price => params[:item][:price].to_f
 
     if @item.save!
       flash.notice = "#{@item.title} was created"
