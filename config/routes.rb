@@ -25,6 +25,13 @@ OnoBurrito::Application.routes.draw do
 
 
   get 'menu' => 'items#index', as: :menu
+
+  get "menu/:category_slug" => "items#in_category", as: "menu_items"
+  # Category.all.each do |category|
+  #   get "menu/#{category.title}" => 'items#index', as: "menu/#{category.title}"
+  # end
+
+
   resources :orders  
   resources :contacts
   resources :order_items

@@ -1,0 +1,15 @@
+<header id="body-header" class="grid-container">
+  <div id="menu_greeting" class="grid-40">
+    <h1>On the Menu At Ono</h1>
+  </div>
+  <section id="other-products" class="grid-60">
+    <a href="/menu" class="category">All</a>
+    <% Category.all.each do |category| %>
+      <% if @category == category %>
+        <%= link_to category.title, menu_items_path(category.to_param), class:"active category" %>
+      <% else %>
+        <%= link_to category.title, menu_items_path(category.to_param), class:"category" %>
+      <% end %>
+    <% end %>
+  </section>
+</header>

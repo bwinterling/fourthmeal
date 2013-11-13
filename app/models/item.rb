@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+  # attr_accessor :photo_file_name
+
   validates :title, presence: true
   validates :description, presence: true
   validates_numericality_of :price, :greater_than => 0
@@ -10,8 +12,8 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :orders, :through => :order_items
 
-  has_attached_file :avatar, :styles => { :medium => "300X300", :thumb => "100x100"},
-  :default_url => "/images/:style/missing.png"
+  has_attached_file :photo,
+    :default_url => "/images/:style/missing.png"
 
 
   def self.filter_by_category(category)

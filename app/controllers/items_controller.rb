@@ -8,30 +8,35 @@ class ItemsController < ApplicationController
     end
   end
 
+  def in_category
+    @category = Category.find_by_slug(params[:category_slug])
+    @items = @category.items
+    render :index
+  end
+
   def new
     @item = Item.new
   end
 
   def show
-    current_category = params[:category]
     @item = Item.find(params[:id])
   end
 
   def create
-    begin
-      @item = Item.new(
-        :title => params[:item][:title],
-        :description => params[:item][:description],
-        :price => params[:item][:price].to_f,
-        :photo => params[:item][:photo].original_filename)
-        flash.notice = "#{@item.title} was created" if @item.save
-        redirect_to items_path
-    rescue
+    @item = Item.new(
+      :title => params[:item][:title],
+      :description => params[:item][:description],
+      :price => params[:item][:price].to_f,
+      :photo => params[:item][:photo])
+
+    if @item.save!
+      flash.notice = "#{@item.title} was created"
+      redirect_to items_path
+    else
       flash.notice = "Sorry, there was a problem with the item you tried to create.
       Please check your input and try again."
-      redirect_to items_path
+      render :new
     end
-    #redirect_to admin_items_path
   end
 
   def edit
@@ -49,7 +54,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :photo)
+    params.require(:item).permit(:title, :description, :price, :photo, :photo_file_name)
   end
 
 end
