@@ -26,6 +26,11 @@ class ApplicationController < ActionController::Base
    def current_permission
      @current_permission ||= Permission.new(current_user)
    end
+
+   def load_category
+     @categories = Category.all
+   end
+   
    # def authorize
    #   if !current_permission.allow?(params[:controller], params[:action])
    #     redirect_to root_url, alert: "Not authorized"

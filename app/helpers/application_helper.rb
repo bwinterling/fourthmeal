@@ -8,11 +8,11 @@ module ApplicationHelper
     end
   end
 
-  def page_helper
+  def page_title
     if @page_title
     "- #{@page_title}"
     elsif content_for?(:title)
-      "-" + yield(:title)
+      "-" + content_for(:title)
     end
   end
 

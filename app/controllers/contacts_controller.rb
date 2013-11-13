@@ -17,7 +17,6 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
-    @page_title = "Contact Us"
   end
 
   def contact_params
