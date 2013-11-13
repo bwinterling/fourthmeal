@@ -23,6 +23,8 @@ group :development, :test do
   gem 'guard-minitest'
   gem 'launchy'
   gem 'faker'
+  gem 'simplecov', :require => false, :group => :test
+
 end
 
 group :production, :test do
