@@ -6,13 +6,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      current_user.move_to(@user) if is_admin?
+    if @user.save && current_order.id
+      # current_user.move_to(@user) if is_admin?
       session[:user_id] = @user.id
       current_order.save
       redirect_to order_path(current_order.id), :notice => "Signed up!"
+    elsif @user.save && !current_order.id
+      session[:user_id] = @user.id
+      redirect_to menu_path
     else
       render "new"
+      redirect_to sign_up_path
     end
   end
 
