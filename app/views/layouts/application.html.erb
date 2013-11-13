@@ -4,12 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
   <title>
-    <% if content_for?(:title) %>
-      OnoBurrito - 
-      <%= yield :title %>
-    <% else %>
-      OnoBurrito
-    <% end %>
+    OnoBurrito <%= page_title %>
   </title>
   <%= stylesheet_link_tag "application", media: "all"%> 
   <%= javascript_include_tag "application"%>
@@ -24,8 +19,12 @@
       <%= render 'layouts/header' %>
     </header>
 
+    <nav class="grid-container" id="main-nav-container" role="navigation">
+      <%= render "layouts/main_nav" %>
+    </nav>
+
     <main role="main">
-      <div class="grid-100 grid-container" id="flash-section">
+      <div class="grid-container" id="flash-section">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
         <% end %>
@@ -33,7 +32,7 @@
       <%= yield %>
     </main>
 
-    <footer class="grid-container" role="footer">
+    <footer class="grid-container" id="footer-container" role="footer">
       <%= render 'layouts/footer' %>
     </footer>
     

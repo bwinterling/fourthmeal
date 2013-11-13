@@ -8,15 +8,6 @@
 
 <%= render 'header' %>
 
-<section id="" class="grid-container">
-  <% @items.each do |item| %>
-    <%= render partial: 'items/item', locals: {item: item } %>
-  <% end %>
+<section class="grid-container">
+  <%= render partial: 'items/item', collection: @items %>
 </section>
-
-
-<% content_for :title do %>
-  Items
-<% end %>
-
-

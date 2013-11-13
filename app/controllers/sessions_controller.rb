@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
 
   def new
+    
   end
 
   def create
     @user = User.authenticate(params[:email], params[:password])
-    if @user
+    if @user && current_order.id
       session[:user_id] = @user.id
       current_order.save
       redirect_to order_path(current_order.id), :notice => "Logged in!"

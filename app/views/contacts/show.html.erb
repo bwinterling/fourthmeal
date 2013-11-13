@@ -3,3 +3,7 @@
 <%= @contacts.each do |contact|%>
   <%= contact.name %>
 <% end  %>
+
+<% content_for :title do %>
+  Contact Us
+<% end %>

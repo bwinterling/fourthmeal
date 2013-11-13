@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready(function(){
+  $("#item_2").click(function(){
+    $("#item_2").liveTile({mode: 'fade', repeatCount: 0, delay:0 });
+  });
+});

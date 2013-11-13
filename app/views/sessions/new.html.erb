@@ -16,6 +16,11 @@
   </div>
 
   <div class="grid-50">
-    <%= render 'users/signup' %>
+    <h1>Sign Up</h1>
+    <%= render 'users/form' %>
   </div>
 </div>
+
+<% content_for :title do %>
+  Sign Up or Log In
+<% end %>

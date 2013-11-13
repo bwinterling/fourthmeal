@@ -10,14 +10,17 @@
     </tr>
   </thead>
   <tbody>
+
+    # TO DO: Change this div for to a content tag for
     
-    <%= div_for(order_items, class: "grid-40 suffix-5") do |order_item| %>
+    <%= div_for(order.order_items, class: "grid-40 suffix-5") do |order_item| %>
       <%= render partial: 'order_item', locals: {item: order_item.item, order_item: order_item } %>
     <% end %>
+
   </tbody>
 </table>
 
-<% unless order_items.nil? %>
+<% unless order.order_items.nil? %>
   <div class="grid-100">
     <h3>
       Your current total: <%= number_to_currency(order_total(@order_items)) %> 

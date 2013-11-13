@@ -4,7 +4,7 @@ development:
   encoding: unicode
   database: ono_burrito_development
   pool: 5
-  username: ono_burrito
+  username:
   password:
 
 test:
@@ -12,7 +12,7 @@ test:
   encoding: unicode
   database: ono_burrito_test
   pool: 5
-  username: ono_burrito
+  username:
   password:
 
 production:
@@ -20,5 +20,5 @@ production:
   encoding: unicode
   database: ono_burrito_production
   pool: 5
-  username: ono_burrito
+  username:
   password:

@@ -1,27 +1,51 @@
+#main-nav-container {
+  background-color: rgb(0, 112, 127);
+  margin-bottom: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.nav-list {
+  margin: 8px 0;
+  padding: 0;
+}
+
 .nav-item {
   display: inline-block;
   padding: 0;
-  margin: 0 25px 0 0 ;
-  
+  margin: 0 25px 0 0 ; 
 }
 
 .nav-item a,
  {
-  font-size: 1em;
+  font-size: 1.2em;
   text-decoration: none; 
-  color: black;
+  color: rgb(249, 249, 249);
 }
 
 .nav-item a:hover,
 #user-nav a:hover {
   text-decoration: underline; 
-  color: rgb(0, 112, 127);
+  color: rgb(244, 70, 71);
+}
+
+.active {
+  background-color: rgb(3, 166, 120);
+  padding: 0px 6px 0 6px;
+  color: rgb(249, 249, 249);
+}
+
+.active:hover {
+  color: rgb(249, 249, 249);
+  text-decoration: none;
 }
 
 
 #user-nav {
   text-align: right;
-  font-size: 0.6em;
+  font-size: 0.8em;
   color: black;
 }
 
@@ -40,4 +64,8 @@
   border-radius: 4px;
   border: none;
   margin: 5px 0 0 7px;
+}
+
+.user-nav-link {
+  margin-left: 10px;
 }
