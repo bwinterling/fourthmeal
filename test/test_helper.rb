@@ -13,8 +13,7 @@ class ActiveSupport::TestCase
   def create_valid_item
     @item = Item.create(:title => "Hello!", 
     :description => "World", 
-    :price => 4, 
-    :photo => "photo.png")
+    :price => 4 )
   end
 
   def create_valid_order

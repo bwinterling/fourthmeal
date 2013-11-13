@@ -23,7 +23,7 @@
       <%= render "layouts/main_nav" %>
     </nav>
 
-    <main role="main">
+    <main id="main-body" role="main">
       <div class="grid-container" id="flash-section">
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>

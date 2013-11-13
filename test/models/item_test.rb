@@ -28,11 +28,6 @@ class ItemTest < ActiveSupport::TestCase
     assert @item.invalid?
   end
 
-  test "it_validates_photo" do
-    @item = Item.create(:title => "Hello!", :description => "World", :price => 4, :photo => "")
-    assert @item.invalid?
-  end
-
   test "it has categories" do
     create_valid_item
     assert @item.categories
