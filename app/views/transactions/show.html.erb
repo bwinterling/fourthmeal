@@ -1,5 +1,6 @@
  <div class="grid-container">
-  <h1>Transaction Details</h1>
+  <div class="grid-100" id="transaction-container">
+    <h1>Transaction Details</h1>
     <div id="transaction-details">
       <p>Name: <%= @transaction.first_name %>
       <%= @transaction.last_name %></p>
@@ -13,4 +14,5 @@
       <p>Total: <%= number_to_currency(order_total(@transaction.order.order_items)) %></p>
       <p>Zipcode: <%= @transaction.zipcode %></p>
     </div>
+  </div>
 </div>

@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
     @transaction.update(:order_id => current_order.id)
     if @transaction.save
       @transaction.pay!
+      Notifier.send_transaction_email(current_user).deliver
       flash[:notice] = "Successfully created your order!"
       redirect_to transaction_path(@transaction)
     else
