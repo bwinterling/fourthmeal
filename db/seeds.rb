@@ -307,27 +307,22 @@ ItemCategory.create(
 user1 = User.create(email: "demo+franklin@jumpstartlab.com", 
   full_name: "Franklin Webber", 
   display_name: "", 
-  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
-  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
+  password: "password")
 
 user2 = User.create(email: "demo+jeff@jumpstartlab.com", 
   full_name: "Jeff", 
-  display_name: "j3", 
-  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
-  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
+  display_name: "j3",
+  password: "password")
 
 user3 = User.create(email: "demo+katrina@jumpstartlab.com", 
   full_name: "Katrina Owen", 
   display_name: "kytrynx", 
-  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
-  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
+  password: "password")
 
 user4 = User.create(email: "benjamin@example.com", 
   full_name: "Ben Lewis", 
   display_name: "bennybeans", 
-  password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
-  password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
-
+  password: "password")
 
 
 # ADMIN USERS

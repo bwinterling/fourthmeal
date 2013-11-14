@@ -3,6 +3,13 @@
     <div id="transaction-details">
       <p>Name: <%= @transaction.first_name %>
       <%= @transaction.last_name %></p>
+      <% @transaction.order.order_items.each do |oi| %>
+        <div class="order-item-details">
+          <p>Item: <%= oi.item.title %></p>
+          <p>Quantity: <%= oi.quantity %></p>
+          <p>Subtotal: <%= number_to_currency(oi.item.price*oi.quantity) %></p>
+        </div>
+      <% end %>
       <p>Total: <%= number_to_currency(order_total(@transaction.order.order_items)) %></p>
       <p>Zipcode: <%= @transaction.zipcode %></p>
     </div>
