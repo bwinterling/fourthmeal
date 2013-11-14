@@ -55,3 +55,28 @@ table {
 #your-current-order {
   padding-left: 1%;
 }
+
+#your-order-history {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+
+#view-history {
+  font-size: 1.2em;
+  text-decoration: none; 
+  color: rgb(249, 249, 249);
+}
+
+#view-history:hover {
+  text-decoration: underline; 
+  color: rgb(244, 70, 71);
+}
+
+#order-history-container {
+  padding-bottom: 3%;
+}
+
+.date-ordered {
+  color: black;
+}

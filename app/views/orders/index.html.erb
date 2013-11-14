@@ -1,0 +1,14 @@
+<div class="grid-container">
+  <div class="grid-100" id="order-history-container">
+    <h1 id="your-order-history">Your Order History</h1>
+    <% @orders.each do |order| %>
+      <hr/>
+      <h2>Order #<%= order.id%></h2>
+      <%= render partial: 'old_order', locals: {order: order} %>
+      <p class="date-ordered">Date Ordered: <%= order.created_at.strftime("%B %d, %Y") %></p>
+      <h3>Order Total: <%= number_to_currency(order_total(order.order_items)) %></h3>
+    <% end %>
+    <hr/>
+    <%= link_to "Back to your profile", user_path(current_user.id), id:'back-to-profile' %>
+  </div>
+</div>

@@ -1,7 +1,14 @@
 <div class="grid-container">
-  <h1>Edit Your Account Info</h1>
-  <%= render 'users/form' %>
+  <div class="grid-100">
+    <h1 id="edit-your-account">Edit Your Account Info</h1>
+    <%= render 'users/form' %>
+  </div>
+
+  <div class="grid-100">
+    <h4><%= link_to "View Your Order History", orders_path, id:'view-history' %></h4>
+  </div>
 </div>
+
 
 <% content_for :title do %>
   Your Account

@@ -2,6 +2,15 @@ class OrdersController < ApplicationController
 
   helper_method :add_item_to_order
 
+  def index
+    if current_user.orders
+      @orders = current_user.orders
+    else
+      flash[:notice] = "Sorry, you don't have any orders yet."
+      redirect_to root_path
+    end
+  end
+
   def new
     @order = Order.new
   end

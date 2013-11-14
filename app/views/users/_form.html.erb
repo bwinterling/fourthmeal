@@ -1,27 +1,29 @@
-<%= form_for @user do |f| %>
-  <%= render "shared/errors", model: @user %>
-  
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name %>
-  </p>
-  <p>
-    <%= f.label :display_name %><br />
-    <%= f.text_field :display_name %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
+<div class="grid-100">
+  <%= form_for current_user do |f| %>
+    <%= render "shared/errors", model: current_user %>
+    
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <%= f.label :full_name %><br />
+      <%= f.text_field :full_name %>
+    </p>
+    <p>
+      <%= f.label :display_name %><br />
+      <%= f.text_field :display_name %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </p>
+    <p>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %>
+    </p>
 
 
-  <p class="button"><%= f.submit %></p> 
-<% end %>
+    <p><%= f.submit class: "button", id:"update-user" %></p> 
+  <% end %>
+</div>

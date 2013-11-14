@@ -1,0 +1,26 @@
+<table class="grid-100">
+  <thead>
+    <tr>
+      <td class="table-header-item">Title</td>
+      <td class="table-header-item">Description</td>
+      <td class="table-header-item">Price</td>
+      <td class="table-header-item">Quantity</td>
+      <td class="table-header-item">When Placed</td>
+      <td class="table-header-item">Subtotal</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% order.order_items.each do |order_item| %>
+      <%= content_tag_for(:tr, order_item) do |order_item| %>
+        <td class="table-item"><%= order_item.item.title %></td>
+        <td class="table-item"><%= order_item.item.description %></td>
+        <td class="table-item"><%= number_to_currency(order_item.item.price) %></td> 
+        <td class="table-item"><%= order_item.quantity %></td>
+        <td class="table-item"><%= time_ago_in_words(order_item.created_at) %> ago.</td>
+        <td class="table-item"><%= number_to_currency(order_item.quantity*order_item.item.price) %></td>
+      <% end %>
+    <% end %>
+  </tbody>
+
+</table>
