@@ -1,13 +1,3 @@
-ActionMailer::Base.smtp_settings = {
-  :user_name => 'bennlewis',
-  :password => ENV['SENDGRID_PD'],
-  :domain => 'http://onoburrito.herokuapp.com/',
-  :address => 'smtp.sendgrid.net',
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
-}
-
 OnoBurrito::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
