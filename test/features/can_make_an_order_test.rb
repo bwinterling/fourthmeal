@@ -39,22 +39,23 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
     end
   end
 
-#   test "can add multiple instances of same item to order" do
-#     Item.create(title: 'Burrito', description: 'Yummy', price: '1')
-#     Item.create(title: 'Burrito', description: 'Yummy', price: '1')
+  test "can add multiple instances of same item to order" do
+    item1 = Item.create(title: 'Steak Burrito', description: 'Mouthwatering slab', price: '1')
+    item2 = Item.create(title: 'Breakfast Burrito', description: 'Yummy', price: '1')
 
-#     visit root_path
-#     within("#") do
-#       click_on "Add to Order"
-#     end
-#     within("#") do
-#       click_on "Add to Order"
-#     end
+    visit root_path
+    within "#item_#{item1.id}" do
+      click_on "Add to Cart"
+    end
 
-#     visit order_path(Order.first)
-#     within("#") do
-#       assert_equal "2", find_field('Quantity').value
-#     end
-#   end
+    within "#item_#{item1.id}" do
+      click_on "Add to Cart"
+    end
+
+    visit order_path(Order.first)
+    within("#current_order") do
+      assert_content page, "2"
+    end
+  end
 
 end
