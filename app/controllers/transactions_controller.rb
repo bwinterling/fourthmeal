@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
     @transaction.update(:order_id => current_order.id)
     if @transaction.save
       @transaction.pay!
+      current_order.update(:user_id => current_user.id, :status => "paid")
       session[:current_order] = nil
       flash[:notice] = "Successfully created your order!"
       redirect_to transaction_path(@transaction)

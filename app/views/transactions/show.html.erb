@@ -2,7 +2,7 @@
   <div class="grid-100" id="transaction-container">
     <h1>Transaction Details</h1>
     <div id="transaction-details">
-      <p>Name: <%= @transaction.first_name %>
+      <p class="order-item-details">Name: <%= @transaction.first_name %>
       <%= @transaction.last_name %></p>
       <% @transaction.order.order_items.each do |oi| %>
         <div class="order-item-details">
@@ -11,8 +11,8 @@
           <p>Subtotal: <%= number_to_currency(oi.item.price*oi.quantity) %></p>
         </div>
       <% end %>
-      <p>Total: <%= number_to_currency(order_total(@transaction.order.order_items)) %></p>
-      <p>Zipcode: <%= @transaction.zipcode %></p>
+      <p class="order-item-details">Total: <%= number_to_currency(order_total(@transaction.order.order_items)) %></p>
+      <p class="order-item-details">Zipcode: <%= @transaction.zipcode %></p>
     </div>
   </div>
 </div>
