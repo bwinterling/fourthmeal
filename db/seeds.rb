@@ -306,40 +306,52 @@ ItemCategory.create(
 
 # ORDERS
 
-order1 = Order.create(status: 'unpaid', user_id: 1)
-order2 = Order.create(status: 'unpaid', user_id: 5)
-order3 = Order.create(status: 'unpaid', user_id: 4)
-order4 = Order.create(status: 'unpaid', user_id: 2)
-order5 = Order.create(status: 'unpaid', user_id: 9)
-order6 = Order.create(status: 'paid', user_id: 8)
-order7 = Order.create(status: 'unpaid', user_id: 10)
-order8 = Order.create(status: 'paid', user_id: 15)
-order9 = Order.create(status: 'unpaid', user_id: 12)
-order10 = Order.create(status: 'paid', user_id: 19)
+order1 = Order.create(status: 'unpaid', user_id: user1.id)
+order2 = Order.create(status: 'unpaid', user_id: user2.id)
+order3 = Order.create(status: 'unpaid', user_id: user3.id)
+order4 = Order.create(status: 'unpaid', user_id: user4.id)
+order5 = Order.create(status: 'unpaid', user_id: user1.id)
+order6 = Order.create(status: 'paid', user_id: user2.id)
+order7 = Order.create(status: 'unpaid', user_id: user3.id)
+order8 = Order.create(status: 'paid', user_id: user4.id)
+order9 = Order.create(status: 'unpaid', user_id: user1.id)
+order10 = Order.create(status: 'paid', user_id: user2.id)
 
 
+# ORDER ITEMS
+
+order_item1 = OrderItem.create(order_id: order1.id, item_id: item1.id, quantity: 2)
+order_item2 = OrderItem.create(order_id: order2.id, item_id: item2.id, quantity: 2)
+order_item3 = OrderItem.create(order_id: order3.id, item_id: item3.id, quantity: 2)
+order_item4 = OrderItem.create(order_id: order4.id, item_id: item4.id, quantity: 2)
+order_item5 = OrderItem.create(order_id: order5.id, item_id: item5.id, quantity: 2)
+order_item6 = OrderItem.create(order_id: order6.id, item_id: item6.id, quantity: 2)
+order_item7 = OrderItem.create(order_id: order7.id, item_id: item7.id, quantity: 2)
+order_item8 = OrderItem.create(order_id: order8.id, item_id: item8.id, quantity: 2)
+order_item9 = OrderItem.create(order_id: order9.id, item_id: item9.id, quantity: 2)
+order_item10 = OrderItem.create(order_id: order10.id, item_id: item10.id, quantity: 2)
 
 # USERS
 
-User.create(email: "demo+franklin@jumpstartlab.com", 
+user1 = User.create(email: "demo+franklin@jumpstartlab.com", 
   full_name: "Franklin Webber", 
   display_name: "", 
   password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
   password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
 
-User.create(email: "demo+jeff@jumpstartlab.com", 
+user2 = User.create(email: "demo+jeff@jumpstartlab.com", 
   full_name: "Jeff", 
   display_name: "j3", 
   password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
   password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
 
-User.create(email: "demo+katrina@jumpstartlab.com", 
+user3 = User.create(email: "demo+katrina@jumpstartlab.com", 
   full_name: "Katrina Owen", 
   display_name: "kytrynx", 
   password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
   password_salt:"$2a$10$peyLQDdJKdcB9YqE21wIi.")
 
-User.create(email: "benjamin@example.com", 
+user4 = User.create(email: "benjamin@example.com", 
   full_name: "Ben Lewis", 
   display_name: "bennybeans", 
   password_hash: "$2a$10$peyLQDdJKdcB9YqE21wIi.ntTY56kARmsSQhm5WSsNjhPP9vNktWC", 
@@ -351,9 +363,3 @@ User.create(email: "benjamin@example.com",
 
 AdminUser.create(:email => "admin@example.com", :password => "password")
 AdminUser.create(:email => "demo+katrina@jumpstartlab.com", :password => "password")
-
-
-
-# ORDER ITEMS
-
-order_item1 = OrderItem.create(order_id: Order.last.id, item_id: Item.last.id, quantity: 2)
