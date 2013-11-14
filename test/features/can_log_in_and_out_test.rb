@@ -48,8 +48,6 @@ class CanLogInAndOutTest < Capybara::Rails::TestCase
     end
 
 
-
-
 end
 
 
