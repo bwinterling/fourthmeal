@@ -12,7 +12,7 @@
  *= require normalize
  *= require unsemantic-grid-responsive
  *= require layout
- *= require item
+ *= require items
  *= require orders
  *= require navigation
  *= require footer
