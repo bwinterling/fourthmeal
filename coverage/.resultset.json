@@ -350,6 +350,11 @@
         1,
         1,
         1,
+        1,
+        null,
+        1,
+        0,
+        null,
         null,
         1,
         0,
@@ -404,6 +409,10 @@
         null,
         null,
         null,
+        null
+      ],
+      "/Users/benlewis/Dropbox/Code/ono_burrito/app/helpers/code_helper.rb": [
+        1,
         null
       ],
       "/Users/benlewis/Dropbox/Code/ono_burrito/app/helpers/items_helper.rb": [
@@ -530,8 +539,6 @@
         1,
         1,
         1,
-        null,
-        null,
         null
       ],
       "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/item.rb": [
@@ -609,8 +616,6 @@
         1,
         1,
         1,
-        1,
-        1,
         null,
         1,
         0,
@@ -619,6 +624,6 @@
         null
       ]
     },
-    "timestamp": 1384405889
+    "timestamp": 1384442341
   }
 }

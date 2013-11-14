@@ -13,7 +13,7 @@ class MenuTest < Capybara::Rails::TestCase
     within ("#main-body") do
       assert page.has_css?('#item_1')
     end
-    assert page.has_css?('.item-details')
+    assert page.has_css?('.tile-details')
     assert page.has_link?('Sign up or Log in')
     assert page.has_css?('.add-to-cart')
   end

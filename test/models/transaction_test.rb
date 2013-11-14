@@ -34,18 +34,6 @@ class TransactionTest < ActiveSupport::TestCase
     refute transaction.valid?
   end
 
-  test "it does not create a transaction when credit card number is invalid" do
-    invalid_params = valid_params.merge(credit_card_number: 546666)
-    transaction = Transaction.create(invalid_params)
-    refute transaction.valid?
-  end
-
-  test "it does not create a transaction when credit card expiration is invalid" do
-    invalid_params = valid_params.merge(credit_card_expiration: 24)
-    transaction = Transaction.create(invalid_params)
-    refute transaction.valid?
-  end
-
   test "it does not create a transaction when zipcode is invalid" do
     invalid_params = valid_params.merge(zipcode: 559)
     transaction = Transaction.create(invalid_params)
