@@ -1,28 +1,35 @@
 <div class="grid-container">
-  <h1>Contact Us</h1>
+  <div class="grid-100" id="contact-container">
+    <h1>Contact Us</h1>
 
-  <%= form_for(@contact) do |f| %>
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :subject %>
-      <%= f.text_field :subject %>
-    </p>
-    <p>
-      <%= f.label :comment %>
-      <%= f.text_field :comment %>
-    </p>
-    <p>
-      <%= f.submit "Enter"%>
-    </p>
+    <%= form_for(@contact) do |f| %>
 
-  <% end %>
+      <table>
+      <tr>
+        <td class="contact-label"><%= f.label :name %></td>
+        <td class="contact-form"><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <td class="contact-label"><%= f.label :email %></td>
+        <td class="contact-form"><%= f.text_field :email %></td>
+      </tr>
+      <tr>
+        <td class="contact-label"><%= f.label :subject %></td>
+        <td class="contact-form"><%= f.text_field :subject %></td>
+      </tr>
+      <tr>
+        <td class="contact-label"><%= f.label :comment %></td>
+        <td class="contact-form"><%= f.text_field :comment %></td>
+      </tr>
+      
+    </table>
+
+      <p>
+        <%= f.submit "Enter", id: "contact-button" %>
+      </p>
+
+    <% end %>
+  </div>
 </div>
 
 <% content_for :title do %>
