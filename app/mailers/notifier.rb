@@ -1,6 +1,6 @@
 class Notifier < ActionMailer::Base
   include SendGrid
-  default :from => 'any_from_address@example.com'
+  default :from => 'order_confirmation@onoburrito.com'
 
   def send_transaction_email(user)
     @user = user

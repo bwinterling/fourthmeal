@@ -1,7 +1,7 @@
 ActionMailer::Base.smtp_settings = {
   :user_name => 'bennlewis',
   :password => ENV['SENDGRID_PD'],
-  :domain => 'http://whispering-fjord-8926.herokuapp.com/',
+  :domain => 'http://onoburrito.herokuapp.com/',
   :address => 'smtp.sendgrid.net',
   :port => 587,
   :authentication => :plain,
