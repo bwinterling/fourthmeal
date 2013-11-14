@@ -32,10 +32,11 @@ class ActiveSupport::TestCase
     @category = Category.create(:title => 'Brunch')
   end
 
-  def create_valid_user
+  def create_valid_user(password = "password")
     @user = User.create(:email        => "test@example.com",
                         :full_name    => "Bennny Smith",
-                        :display_name => "Bennybeans")
+                        :display_name => "Bennybeans",
+                        :password     => password)
   end 
 
   # Add more helper methods to be used by all tests here...

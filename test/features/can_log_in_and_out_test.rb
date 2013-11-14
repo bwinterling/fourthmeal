@@ -2,8 +2,7 @@ require './test/test_helper'
 
 class CanLogInAndOutTest < Capybara::Rails::TestCase
 
-  test "user can sign up, log in, and log out" do
-
+  test "user can sign up with valid params" do
     visit root_path
 
     click_on "Sign up or Log in"
@@ -18,21 +17,42 @@ class CanLogInAndOutTest < Capybara::Rails::TestCase
     end
 
     assert_content page, 'Logged in'
+    end
 
-    click_on "Log out"
+    test "test can log out" do
+      user = create_valid_user
+      visit log_in_path
+      click_on "Log In"
 
-    assert_content page, 'Logged out!'
+      within "#login-form" do
+        fill_in "Email", with: user.email
+        fill_in "Password", with: "password"
+        click_button "Log In"
+      end
+      click_on "Log out"
+      assert_content page, "Logged out"
+    end
+
+    test "cannot sign up with invalid params" do
+      visit root_path
 
     click_on "Sign up or Log in"
 
-    within "#login-form" do
-      fill_in "email", with: 'benji@example.com'
-      fill_in "password", with: 'password'
-      click_button "Log In"
+    within "#new_user" do
+      fill_in "Email", with: 'benji@example.com'
+      fill_in "Full name", with: 'Benjamin Franklin'
+      fill_in "Display name", with: "bennybeans"
+      click_button "Create User"
+    end
+    assert_content page, "can't be blank"
     end
 
-    assert_content page, 'Logged in'
-  end
+
+
 
 end
+
+
+
+
 

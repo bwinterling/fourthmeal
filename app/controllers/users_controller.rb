@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save && current_order.id
-      # current_user.move_to(@user) if is_admin?
       session[:user_id] = @user.id
       current_order.save
       redirect_to order_path(current_order.id), :notice => "Signed up!"
@@ -15,8 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to menu_path
     else
-      flash[:message] = "Your account was not saved for some reason!"
-      redirect_to log_in_path
+      render "sessions/new"
     end
   end
 
