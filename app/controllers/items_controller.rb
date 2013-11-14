@@ -17,26 +17,6 @@ class ItemsController < ApplicationController
     render :index
   end
 
-  # def new
-  #   @item = Item.new
-  # end
-
-  # def create
-  #   @item = Item.new(
-  #     :title => params[:item][:title],
-  #     :description => params[:item][:description],
-  #     :price => params[:item][:price].to_f)
-
-  #   if @item.save!
-  #     flash.notice = "#{@item.title} was created"
-  #     redirect_to items_path
-  #   else
-  #     flash.notice = "Sorry, there was a problem with the item you tried to create.
-  #     Please check your input and try again."
-  #     render :new
-  #   end
-  # end
-
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
