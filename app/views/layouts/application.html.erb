@@ -23,19 +23,20 @@
       <%= render "layouts/main_nav" %>
     </nav>
 
-    <main id="main-body" role="main">
+    <div class="grid-container" id="flash-section">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "grid-100" %>
+      <% end %>
+    </div>
 
-      <div class="grid-container" id="flash-section">
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, :id => "flash_#{name}" %>
-        <% end %>
-      </div>
+    <main id="main-body" role="main">
 
       <% if items_in_cart? && @order.nil? %>
         <%= render 'layouts/view_order_link' %>
       <% end %>
        
       <%= yield %>
+
     </main>
 
     <footer class="grid-container" id="footer-container" role="footer">

@@ -32,14 +32,23 @@
 }
 
 .active {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
   background-color: rgb(3, 166, 120);
-  padding: 0px 6px 0 6px;
+  padding: 0.8%;
   color: rgb(249, 249, 249);
 }
 
 .active:hover {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
   color: rgb(249, 249, 249);
   text-decoration: none;
+  padding: 1%;
 }
 
 
