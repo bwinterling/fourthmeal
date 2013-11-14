@@ -1,6 +1,5 @@
 **Ono Burrito** is a farm to table restaurant specalizing in pseudo-mexican fare.  
 
-**ONO BURRITO**
 [Ono Burrito](http://onoburrito.herokuapp.com/)
 
 **Project Spec from Jumpstartlabs:**
