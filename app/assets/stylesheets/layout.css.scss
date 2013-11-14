@@ -73,3 +73,18 @@ h1 {
   font-size: 1.6em;
   font-weight: bold;
 }
+
+.view-order-link {
+  font-size: 2em;
+  text-decoration: none;
+  font-family: 'Podkova', serif;
+}
+
+.view-order-link:hover {
+  text-decoration: none;
+  color: rgb(244, 70, 71);
+}
+
+#view_order {
+  padding: 0.5% 1%;
+}
