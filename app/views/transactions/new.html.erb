@@ -25,9 +25,9 @@
       <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_czwzkTp2tactuLOEOqbMTRzG"
-        data-amount="1198"
+        data-amount="#{(order_total(order.order_items)).to_i}"
         data-name="Ono-Burrito"
-        data-description="2 Burritos ($11.98)"
+        data-description="Your Order"
         data-image="/128x128.png">
       </script>
 
