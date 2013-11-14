@@ -12,6 +12,7 @@ OnoBurrito::Application.routes.draw do
   resources :transactions, only: [:new, :create, :show]
   resources :users
 
+  get "code" => "codes#index"
   get "log_out" => "sessions#destroy"
   get "log_in" => "sessions#new"
   get 'menu' => 'items#index', as: :menu
