@@ -38,4 +38,23 @@ class ItemTest < ActiveSupport::TestCase
     assert @item.orders
   end
 
+  test "it has a slug" do
+    create_valid_item
+    assert @item.slug
+  end
+
+  test "it has a retired flag" do
+    create_valid_item
+    assert_respond_to @item, :retired
+    refute @item.retired
+  end
+
+  test "it has photo attributes" do
+    create_valid_item
+    assert_respond_to @item, :photo_file_name
+    assert_respond_to @item, :photo_content_type
+    assert_respond_to @item, :photo_file_size
+    assert_respond_to @item, :photo_updated_at
+  end
+
 end
