@@ -1,36 +1,38 @@
 <div class="grid-container">
-  <h1>Transaction Information</h1>
+  <div class="grid-100" id="transaction-container">
+    <h1>Transaction Information</h1>
 
-  <%= form_for(@transaction) do |f| %>
+    <%= form_for(@transaction) do |f| %>
 
-  <%= render "shared/errors", model: @transaction %>
+    <%= render "shared/errors", model: @transaction %>
 
-    <table>
-    <tr>
-      <td><%= f.label :first_name %></td>
-      <td><%= f.text_field :first_name %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :last_name %></td>
-      <td><%= f.text_field :last_name %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :credit_card_number %></td>
-      <td><%= f.text_field :credit_card_number %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :credit_card_expiration %></td>
-      <td><%= f.text_field :credit_card_expiration %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :zipcode %>
-      <td><%= f.text_field :zipcode %>
-    </tr>
-  </table>
+      <table>
+      <tr>
+        <td class="transaction-label"><%= f.label :first_name %></td>
+        <td class="transaction-form"><%= f.text_field :first_name %></td>
+      </tr>
+      <tr>
+        <td class="transaction-label"><%= f.label :last_name %></td>
+        <td class="transaction-form"><%= f.text_field :last_name %></td>
+      </tr>
+      <tr>
+        <td class="transaction-label"><%= f.label :credit_card_number %></td>
+        <td class="transaction-form"><%= f.text_field :credit_card_number %></td>
+      </tr>
+      <tr>
+        <td class="transaction-label"><%= f.label :credit_card_expiration %></td>
+        <td class="transaction-form"><%= f.text_field :credit_card_expiration %></td>
+      </tr>
+      <tr>
+        <td class="transaction-label"><%= f.label :zipcode %>
+        <td class="transaction-form"><%= f.text_field :zipcode %>
+      </tr>
+    </table>
 
-    <p>
-      <%= f.submit "Purchase"%>
-    </p>
+      <p>
+        <%= f.submit "Purchase", id:"transaction-button" %>
+      </p>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>

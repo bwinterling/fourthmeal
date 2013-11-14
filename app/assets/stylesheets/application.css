@@ -15,6 +15,8 @@
  *= require items
  *= require location
  *= require orders
+ *= require contacts
  *= require navigation
+ *= require transaction
  *= require footer
  */
