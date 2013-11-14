@@ -8,7 +8,7 @@ class Transaction < ActiveRecord::Base
   validates_format_of   :zipcode, with: /\d{5}/
 
   def pay!
-    order.status = "paid"
+    order.status = "paid" 
     order.save
   end
 end
