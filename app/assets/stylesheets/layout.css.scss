@@ -13,13 +13,11 @@ body {
   margin-bottom: 10px;
 } 
 
-#logo-text{
-  font-size: 2em;
-  font-weight: bold;
-  color: black;
-  font-family: 'Podkova', serif;
-  margin: 0;
-  text-decoration: none;
+#logo-image{
+  padding: 0;
+  display: block;
+  height: 30%;
+  width: 30%
 }
 
 .map {
@@ -87,4 +85,8 @@ h1 {
 
 #view_order {
   padding: 0.5% 1%;
+}
+
+#header-container {
+  padding: 0;
 }
