@@ -39,8 +39,9 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order_item = OrderItem.find(params[:oiid])
-    @order_item.destroy
+    @order = Order.find(params[:id])
+    @order.items.destroy_all
+    flash[:notice] = "Your order was successfully cancelled."
     redirect_to :back
   end
 

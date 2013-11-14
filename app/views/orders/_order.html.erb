@@ -1,4 +1,5 @@
 <table class="grid-100">
+
   <thead>
     <tr>
       <td class="table-header-item">Title</td>
@@ -9,20 +10,25 @@
       <td class="table-header-item">Remove?</td>
     </tr>
   </thead>
-  <tbody>
-    
-      <%= render partial: 'order_item', collection: order.order_items %>
 
+  <tbody>
+    <%= render partial: 'order_item', collection: order.order_items %>
   </tbody>
+
 </table>
 
 <% unless order.order_items.nil? %>
   <div class="grid-100">
-    <h3>
+    <h2 id="current-total">
       Your current total: <%= number_to_currency(order_total(@order_items)) %> 
-    </h3>
-    <%= button_to "Checkout", new_transaction_path, 
-    :method => :get, 
-    class: "button grid-25 prefix-65" %>
+    </h2>
+    <%= link_to "(Cancel Order)", order_path(current_order.id), :method => :delete, id: "cancel-link" %>
   </div>
+
+  <div class="grid-100">
+    <%= button_to "Checkout", new_transaction_path, 
+      :method => :get, class: "button grid-25 prefix-65", 
+      id:"checkout-button" %>
+  </div>
+  
 <% end %>
