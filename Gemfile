@@ -11,7 +11,6 @@ gem 'thin'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'paperclip'
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'sendgrid'
 
 group :development, :test do
   gem 'rails-pry'

@@ -14,17 +14,9 @@ class TransactionsController < ApplicationController
     @transaction.update(:order_id => current_order.id)
     if @transaction.save
       @transaction.pay!
-      begin
-        current_order = Order.new
-        Notifier.send_transaction_email(current_user).deliver
-        flash[:notice] = "Successfully created your order!"
-        redirect_to transaction_path(@transaction)
-      rescue
-        flash[:notice] = "Successfully created your order, 
-          but there was a problem sending your confirmation email. 
-          Sorry, we're looking into the problem."
-        redirect_to transaction_path(@transaction)
-      end
+      session[:current_order] = nil
+      flash[:notice] = "Successfully created your order!"
+      redirect_to transaction_path(@transaction)
     else
       flash[:notice] = "There was a problem creating your order!"
       render :new
