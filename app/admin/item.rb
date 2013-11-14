@@ -6,7 +6,5 @@ ActiveAdmin.register Item do
   filter :description, :label => 'Description'
   filter :price, :label => 'Price'
   filter :created_at, :label => 'Created_at'
-  filter :updated_at, :label => 'Updated_at'
-
-  
+  filter :updated_at, :label => 'Updated_at'  
 end
