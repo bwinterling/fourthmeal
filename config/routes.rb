@@ -2,7 +2,9 @@ OnoBurrito::Application.routes.draw do
   root :to => "items#index"
 
   resources :contacts
-  resources :items
+  resources :items do
+    :item_categories
+  end
   resources :locations
   resources :orders  
   resources :order_items

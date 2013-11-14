@@ -30,10 +30,9 @@ class OrdersController < ApplicationController
   def update
     current_order.save
     @order = current_order
-    id = @order.id
     @item = Item.find(params[:item])
     add_item_to_order
-    redirect_to order_path(id)
+    redirect_to order_path(@order.id)
   end
 
   def destroy
