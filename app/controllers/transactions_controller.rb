@@ -10,14 +10,14 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    transaction = current_order.build_transaction(transaction_params)
-    if transaction.save
-      transaction.pay!
+    @transaction = current_order.build_transaction(transaction_params)
+    if @transaction.save
+      @transaction.pay!
       flash[:notice] = "Successfully created your order!"
-      redirect_to transaction_path(transaction)
+      redirect_to transaction_path(@transaction)
     else
       flash[:notice] = "There was a problem creating your order!"
-      redirect_to new_transaction_path
+      render :new
     end
   end
 

@@ -9,7 +9,7 @@ OnoBurrito::Application.routes.draw do
   resources :orders  
   resources :order_items
   resources :sessions
-  resources :transactions
+  resources :transactions, only: [:new, :create, :show]
   resources :users
 
   get "log_out" => "sessions#destroy"

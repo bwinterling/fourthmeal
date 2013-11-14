@@ -13,7 +13,7 @@ gem 'paperclip'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development, :test do
-  gem 'pry'
+  gem 'rails-pry'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'capybara-rails'
