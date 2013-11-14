@@ -1,6 +1,6 @@
 <div class="grid-100">
-  <%= form_for current_user do |f| %>
-    <%= render "shared/errors", model: current_user %>
+  <%= form_for @user do |f| %>
+    <%= render "shared/errors", model: @user %>
     
     <p>
       <%= f.label :email %><br />
