@@ -302,35 +302,6 @@ ItemCategory.create(
   category_id: beverages.id
   )
 
-
-
-# ORDERS
-
-order1 = Order.create(status: 'unpaid', user_id: user1.id)
-order2 = Order.create(status: 'unpaid', user_id: user2.id)
-order3 = Order.create(status: 'unpaid', user_id: user3.id)
-order4 = Order.create(status: 'unpaid', user_id: user4.id)
-order5 = Order.create(status: 'unpaid', user_id: user1.id)
-order6 = Order.create(status: 'paid', user_id: user2.id)
-order7 = Order.create(status: 'unpaid', user_id: user3.id)
-order8 = Order.create(status: 'paid', user_id: user4.id)
-order9 = Order.create(status: 'unpaid', user_id: user1.id)
-order10 = Order.create(status: 'paid', user_id: user2.id)
-
-
-# ORDER ITEMS
-
-order_item1 = OrderItem.create(order_id: order1.id, item_id: item1.id, quantity: 2)
-order_item2 = OrderItem.create(order_id: order2.id, item_id: item2.id, quantity: 2)
-order_item3 = OrderItem.create(order_id: order3.id, item_id: item3.id, quantity: 2)
-order_item4 = OrderItem.create(order_id: order4.id, item_id: item4.id, quantity: 2)
-order_item5 = OrderItem.create(order_id: order5.id, item_id: item5.id, quantity: 2)
-order_item6 = OrderItem.create(order_id: order6.id, item_id: item6.id, quantity: 2)
-order_item7 = OrderItem.create(order_id: order7.id, item_id: item7.id, quantity: 2)
-order_item8 = OrderItem.create(order_id: order8.id, item_id: item8.id, quantity: 2)
-order_item9 = OrderItem.create(order_id: order9.id, item_id: item9.id, quantity: 2)
-order_item10 = OrderItem.create(order_id: order10.id, item_id: item10.id, quantity: 2)
-
 # USERS
 
 user1 = User.create(email: "demo+franklin@jumpstartlab.com", 
@@ -363,3 +334,32 @@ user4 = User.create(email: "benjamin@example.com",
 
 AdminUser.create(:email => "admin@example.com", :password => "password")
 AdminUser.create(:email => "demo+katrina@jumpstartlab.com", :password => "password")
+
+
+
+# ORDERS
+
+order1 = Order.create(status: 'unpaid', user_id: user1.id)
+order2 = Order.create(status: 'unpaid', user_id: user2.id)
+order3 = Order.create(status: 'unpaid', user_id: user3.id)
+order4 = Order.create(status: 'unpaid', user_id: user4.id)
+order5 = Order.create(status: 'unpaid', user_id: user1.id)
+order6 = Order.create(status: 'paid', user_id: user2.id)
+order7 = Order.create(status: 'unpaid', user_id: user3.id)
+order8 = Order.create(status: 'paid', user_id: user4.id)
+order9 = Order.create(status: 'unpaid', user_id: user1.id)
+order10 = Order.create(status: 'paid', user_id: user2.id)
+
+
+# ORDER ITEMS
+
+order_item1 = OrderItem.create(order_id: order1.id, item_id: burrito.id, quantity: 1)
+order_item2 = OrderItem.create(order_id: order2.id, item_id: breakfast_burrito.id, quantity: 2)
+order_item3 = OrderItem.create(order_id: order3.id, item_id: naked_burrito.id, quantity: 3)
+order_item4 = OrderItem.create(order_id: order4.id, item_id: taco_gumbo.id, quantity: 4)
+order_item5 = OrderItem.create(order_id: order5.id, item_id: sig_veggie_burrito.id, quantity: 5)
+order_item6 = OrderItem.create(order_id: order6.id, item_id: taco_salad.id, quantity: 4)
+order_item7 = OrderItem.create(order_id: order7.id, item_id: kids_meal.id, quantity: 3)
+order_item8 = OrderItem.create(order_id: order8.id, item_id: kids_quesadilla.id, quantity: 2)
+order_item9 = OrderItem.create(order_id: order9.id, item_id: kids_burrito.id, quantity: 1)
+order_item10 = OrderItem.create(order_id: order10.id, item_id: kids_taco.id, quantity: 2)
