@@ -18,10 +18,9 @@
 .tile {
   margin: 5px 0 0 0;
   float: left;
-  width: 270px;
-  height: 270px;
+  width: 300px;
+  height: 350px;
   position: relative;
-  float: left;
 }
 
 .frontside {
@@ -42,17 +41,21 @@
   display: none;
 }
 
-.tile-text {
-  font-size: 1.2em;
+.tile-title {
   padding: 0;
-  margin: 0;
+  margin: 0 0 10px 0;
+}
+
+.tile-details {
+  display: block;
+  margin: 0 0 5px 0;
+  padding: 0;
 }
 
 .list-item {
   font-size: 1em;
   margin: 0;
   display: inline-block;
-  padding: 0 10px 0 0;
 }
 
 .table-header-item {
@@ -66,4 +69,8 @@
 
 .tile-front {
   background-color: rgb(249, 249, 249);
+}
+
+.item-image {
+  display: block;
 }

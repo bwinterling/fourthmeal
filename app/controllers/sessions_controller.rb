@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       redirect_to menu_path
     else
       flash.now.alert = "Invalid email or password"
-      render "new"
+      render :new
     end
   end
 

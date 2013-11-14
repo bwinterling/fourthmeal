@@ -1,18 +1,21 @@
 <%= div_for(item, class:"tile grid-33") do %>
-  <div class="live-tile" data-mode: 'flip'>
-    <div class="tile-front">
-      <%= image_tag item.photo.url, height:200, width:200 %>
+
+    <div class="item-tile" data-toggle="popover" title data-content="Hello, world!">
+
+      <%= image_tag item.photo.url, class:"item-image", height:200, width:200 %>
+
+      
       <%= form_for current_order do |f| %>
         <%= hidden_field_tag :item, item.id %>
-        <p class="tile-text"><%= item.title %></p>
+        <h2 class="tile-title">
+          <%= item.title %>
+        </h2>
+        <p class="tile-details"><%= item.description %></p>
+        <p class="tile-details"><%= item.price %></p>
         <%= f.submit "Add to Cart", class:'button-small add-to-cart' %>
       <% end %>
+
+      
     </div> 
-  </div>
-  <div class="tile-back item-details">
-    <%# item.title %>
-    <%# item.description %>
-    <%# item.price %>
-  </div>
 <% end %>
 
