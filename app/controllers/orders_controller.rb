@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  helper_method :add_item_to_order
+
   def new
     @order = Order.new
   end
@@ -30,7 +32,7 @@ class OrdersController < ApplicationController
     @order = current_order
     id = @order.id
     @item = Item.find(params[:item])
-    OrderItem.create(:order_id => id, :item_id => @item.id, :quantity => 1)
+    add_item_to_order
     redirect_to order_path(id)
   end
 
@@ -46,4 +48,18 @@ class OrdersController < ApplicationController
   def order_params
     params.permit(:something)
   end
+
+  def add_item_to_order
+    if current_order.order_items.find_by_item_id(params[:item])
+      @order_item = current_order.order_items.find_by_item_id(params[:item])
+      current_count = @order_item.quantity
+      @order_item.update(:quantity => current_count + 1)
+    else
+      @order_item = OrderItem.create(
+        :order_id => current_order.id, 
+        :item_id => @item.id, 
+        :quantity => 1)
+    end
+  end
+
 end
