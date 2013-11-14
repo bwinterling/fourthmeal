@@ -1,9 +1,5 @@
 class OrdersController < ApplicationController
 
-  def index
-    @orders = Order.all
-  end
-
   def new
     @order = Order.new
   end
@@ -43,12 +39,6 @@ class OrdersController < ApplicationController
     @order.items.destroy_all
     flash[:notice] = "Your order was successfully cancelled."
     redirect_to :back
-  end
-
-  def transaction
-  end
-
-  def purchase
   end
 
   private

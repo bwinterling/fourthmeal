@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :load_category, :only => [:index, :in_category]
 
-  before_action :load_category, :only => [:index, :in_category]
   def load_category
     @categories = Category.all
   end
@@ -22,10 +21,6 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def show
-    @item = Item.find(params[:id])
-  end
-
   def create
     @item = Item.new(
       :title => params[:item][:title],
@@ -40,10 +35,6 @@ class ItemsController < ApplicationController
       Please check your input and try again."
       render :new
     end
-  end
-
-  def edit
-    @item = Item.find(params[:id])
   end
 
   def update

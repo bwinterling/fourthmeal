@@ -1,18 +1,11 @@
 class ContactsController < ApplicationController
-  def index
-    @contacts = Contact.all
-  end
-
 
   def create
     @contact = Contact.new(contact_params)
     @contact.save
-
+    flash[:notice] = "Thanks for your message! 
+      We'll get back to you as soon as possible."
     redirect_to root_path
-  end
-
-  def show
-    @contacts = Contact.all 
   end
 
   def new

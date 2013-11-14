@@ -6,16 +6,12 @@ class User < ActiveRecord::Base
   before_save   :encrypt_password
   validates_confirmation_of :password
   # validates_presence_of     :password, :on => :create
-  # validates                 :password, length: { minimum: 6 }
+  validates                 :password, length: { minimum: 6 }
   validates                 :display_name, length: { in: 2..32 }, :allow_blank => true
   validates_presence_of     :email
   validates_presence_of     :full_name
   validates_format_of       :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates                 :email, uniqueness: true 
-
-  def self.new_admin
-    new { |u| u.admin = true }
-  end
 
   def move_to(user)
     orders.update_all(user_id: user.id)

@@ -1,11 +1,5 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  
-
-  # TO DO - put this into the transaction controller
-  # before_action :authorize, only: [:post]
   
   delegate :allow?, to: :current_permission
 
@@ -30,13 +24,5 @@ class ApplicationController < ActionController::Base
    def current_permission
      @current_permission ||= Permission.new(current_user)
    end
-
-
-
-   # def authorize
-   #   if !current_permission.allow?(params[:controller], params[:action])
-   #     redirect_to root_url, alert: "Not authorized"
-   #   end
-   # end
 
 end

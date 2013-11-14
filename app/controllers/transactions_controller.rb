@@ -1,8 +1,4 @@
 class TransactionsController < ApplicationController
-
-  def index
-    @transactions = Transaction.all
-  end
   
   def new
     @transaction = Transaction.new
@@ -34,6 +30,5 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:first_name, :last_name, :credit_card_number, :credit_card_expiration, :zipcode)
   end
-
 
 end
