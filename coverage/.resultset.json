@@ -439,10 +439,6 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/helpers/transactions_helper.rb": [
-        1,
-        null
-      ],
       "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/admin_user.rb": [
         1,
         null,
@@ -540,8 +536,6 @@
       ],
       "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/item.rb": [
         1,
-        1,
-        null,
         null,
         null,
         1,
@@ -587,7 +581,7 @@
         1,
         1,
         null,
-        null,
+        1,
         null,
         1,
         null,
@@ -625,6 +619,6 @@
         null
       ]
     },
-    "timestamp": 1384392740
+    "timestamp": 1384393923
   }
 }

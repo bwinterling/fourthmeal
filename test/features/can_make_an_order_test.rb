@@ -11,7 +11,7 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
       click_on "Add to Cart"
     end
 
-    assert_content page, 'Your current order'
+    assert_content page, 'Your Current Order'
 
     assert_content page, "Mouthwatering slab"
     

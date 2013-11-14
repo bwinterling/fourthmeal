@@ -10,9 +10,6 @@ require './test/helpers/minitest_helper'
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
-
-  # fixtures :all
-
   def create_valid_item
     @item = Item.create(:title => "Hello!", 
     :description => "World", 

@@ -1,3 +1,76 @@
-// Place all the styles related to the Items controller here.
+// Place all the styles related to the Item controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category {
+  display: inline-block;
+  margin-top: 1.8%;
+  margin-right: 2%;
+  color: black;
+  text-decoration: none;
+}
+
+.category:hover {
+  text-decoration: underline; 
+  color: rgb(0, 112, 127);
+}
+
+.tile {
+  margin: 5px 0 0 0;
+  float: left;
+  width: 300px;
+  height: 350px;
+  position: relative;
+}
+
+.frontside {
+  background: none repeat scroll 0% 0% rgb(249, 249, 249);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.backside {
+  display: none;
+}
+
+.imageHover {
+  display: none;
+}
+
+.tile-title {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.tile-details {
+  display: block;
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+.list-item {
+  font-size: 1em;
+  margin: 0;
+  display: inline-block;
+}
+
+.table-header-item {
+  font-size: 1em;
+  color: black;
+  padding: 0 30px 20px 0;
+}
+
+.table-item {
+}
+
+.tile-front {
+  background-color: rgb(249, 249, 249);
+}
+
+.item-image {
+  display: block;
+}

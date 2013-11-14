@@ -1,6 +1,4 @@
 class Item < ActiveRecord::Base
-    has_attached_file :photo,
-    :default_url => "/images/:style/missing.png"
   # attr_accessor :photo_file_name
 
   validates :title, presence: true
