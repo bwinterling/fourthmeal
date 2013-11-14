@@ -2,6 +2,7 @@
   <h1>Transaction Information</h1>
 
   <%= form_for(@transaction) do |f| %>
+  <%= render "shared/errors", model: @transaction %>
     <p>
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
