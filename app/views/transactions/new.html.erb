@@ -30,7 +30,7 @@
       <script
         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="pk_test_czwzkTp2tactuLOEOqbMTRzG"
-        data-amount="Now"
+        data-amount="#{(order_total(order.order_items)).to_i}"
         data-name="Ono-Burrito"
         data-description="Your Order"
         data-image="/128x128.png">

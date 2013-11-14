@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :allow?
   helper_method :current_user
   helper_method :current_order
+  helper_method :current_order_total
 
   def current_order
     Order.find_by_id(session[:current_order]) || Order.new(status: "unpaid")  
@@ -13,6 +14,10 @@ class ApplicationController < ActionController::Base
 
   def categories
    @categories ||= Category.all
+  end
+
+  def current_order_total
+    order_total(current_order.order_items).to_i
   end
   
   private
