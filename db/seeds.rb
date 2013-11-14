@@ -175,6 +175,11 @@ ItemCategory.create(
   category_id: combos.id
   )
 
+ItemCategory.create(
+  item_id: nacho_dilla.id,
+  category_id: entrees.id
+  )
+
 taco_w_gumbo_soup = Item.create(
   title: "Taco With Gumbo Soup", 
   description: "You must be hungry!", 
@@ -214,6 +219,11 @@ ItemCategory.create(
   category_id: combos.id
   )
 
+ItemCategory.create(
+  item_id: two_naked_tacos.id,
+  category_id: entrees.id
+  )
+
 
 
 # Add-ons
@@ -229,6 +239,11 @@ nachos = Item.create(
 ItemCategory.create(
   item_id: nachos.id,
   category_id: add_ons.id
+  )
+
+ItemCategory.create(
+  item_id: nachos.id,
+  category_id: entrees.id
   )
 
 chips_dip = Item.create(
