@@ -15,24 +15,23 @@
         <td class="transaction-label"><%= f.label :last_name %></td>
         <td class="transaction-form"><%= f.text_field :last_name %></td>
       </tr>
-      <tr>
-        <td class="transaction-label"><%= f.label :credit_card_number %></td>
-        <td class="transaction-form"><%= f.text_field :credit_card_number %></td>
-      </tr>
-      <tr>
-        <td class="transaction-label"><%= f.label :credit_card_expiration %></td>
-        <td class="transaction-form"><%= f.text_field :credit_card_expiration %></td>
-      </tr>
+     
       <tr>
         <td class="transaction-label"><%= f.label :zipcode %>
         <td class="transaction-form"><%= f.text_field :zipcode %>
       </tr>
     </table>
 
-      <p>
-        <%= f.submit "Purchase", id:"transaction-button" %>
-      </p>
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_czwzkTp2tactuLOEOqbMTRzG"
+        data-amount="2000"
+        data-name="Ono-Burrito"
+        data-description="2 Burritos ($11.98)"
+        data-image="/128x128.png">
+      </script>
 
     <% end %>
+
   </div>
 </div>

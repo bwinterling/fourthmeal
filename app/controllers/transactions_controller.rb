@@ -11,6 +11,7 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = current_order.build_transaction(transaction_params)
+    @transaction.update(:order_id => current_order.id)
     if @transaction.save
       @transaction.pay!
       flash[:notice] = "Successfully created your order!"
@@ -23,6 +24,12 @@ class TransactionsController < ApplicationController
 
   def show
     @transaction = Transaction.find_by(id: params[:id])
+    if current_user.id = @transaction.order.user_id
+      render :show
+    else
+      @transaction = nil
+      redirect_to root_path
+    end
   end
 
   private
