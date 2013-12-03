@@ -11,6 +11,7 @@ gem 'thin'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'paperclip'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'rack-mini-profiler'
 
 group :development, :test do
   gem 'rails-pry'
