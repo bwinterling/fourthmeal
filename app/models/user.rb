@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
   validates_presence_of     :email
   validates_presence_of     :full_name
   validates_format_of       :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validates                 :email, uniqueness: true 
+  validates                 :email, uniqueness: true
 
+  # TODO move_to does not appear anywhere
   def move_to(user)
     orders.update_all(user_id: user.id)
   end
