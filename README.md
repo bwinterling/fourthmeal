@@ -15,7 +15,7 @@ TBD
 [Fourth Meal Project Spec](http://tutorials.jumpstartlab.com/projects/fourth_meal.html)
 
 To Run and view code:
- $ git clone git@github.com:bwinterling/fourth_meal.git
+ $ git clone git@github.com:bwinterling/fourthmeal.git
  
  Open the file in your favorite text editor
  
