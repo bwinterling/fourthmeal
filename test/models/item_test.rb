@@ -1,4 +1,6 @@
 require 'test_helper'
+SimpleCov.command_name 'test:units'
+
 
 class ItemTest < ActiveSupport::TestCase
 
