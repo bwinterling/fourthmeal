@@ -1,7 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/controllers/application_controller.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -36,7 +36,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/helpers/application_helper.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/helpers/application_helper.rb": [
         1,
         null,
         1,
@@ -53,7 +53,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/helpers/categories_helper.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/helpers/categories_helper.rb": [
         1,
         1,
         0,
@@ -71,7 +71,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/helpers/orders_helper.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/helpers/orders_helper.rb": [
         1,
         null,
         1,
@@ -87,7 +87,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/admin_user.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/models/admin_user.rb": [
         1,
         null,
         null,
@@ -95,7 +95,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/admin/admin_user.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/admin/admin_user.rb": [
         1,
         1,
         0,
@@ -122,7 +122,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/admin/category.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/admin/category.rb": [
         1,
         null,
         1,
@@ -134,69 +134,12 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/category.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/models/category.rb": [
         1,
         1,
         null,
         1,
         1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/admin/dashboard.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/admin/item.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/item.rb": [
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
         null,
         1,
         0,
@@ -208,7 +151,64 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/admin/order.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/admin/dashboard.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/brianwinterling/ruby/ono_burrito/app/admin/item.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/brianwinterling/ruby/ono_burrito/app/models/item.rb": [
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/brianwinterling/ruby/ono_burrito/app/admin/order.rb": [
         1,
         null,
         1,
@@ -223,7 +223,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/order.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/models/order.rb": [
         1,
         1,
         null,
@@ -236,7 +236,7 @@
         1,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/admin/transaction.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/admin/transaction.rb": [
         1,
         1,
         null,
@@ -248,7 +248,7 @@
         null,
         null
       ],
-      "/Users/benlewis/Dropbox/Code/ono_burrito/app/models/transaction.rb": [
+      "/Users/brianwinterling/ruby/ono_burrito/app/models/transaction.rb": [
         1,
         1,
         null,
@@ -263,7 +263,7 @@
         null
       ]
     },
-    "timestamp": 1384446675
+    "timestamp": 1386036920
   },
   "MiniTest": {
     "coverage": {
