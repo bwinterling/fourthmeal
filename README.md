@@ -15,6 +15,9 @@ Current Site:
 [Dinner Dash Project Spec](http://tutorials.jumpstartlab.com/projects/dinner_dash.html)
 [Fourth Meal Project Spec](http://tutorials.jumpstartlab.com/projects/fourth_meal.html)
 
+To run tests:
+`rake test_all`
+
 To Run and view code:
  $ git clone git@github.com:bwinterling/fourthmeal.git
  
