@@ -1,16 +1,13 @@
 ENV["RAILS_ENV"] ||= "test"
-#require 'simplecov'
-#SimpleCov.start 'rails'
-#puts "required simplecov"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
 require './test/helpers/minitest_helper'
+SimpleCov.start 'rails'
+puts "required simplecov"
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
-
-
 
   def create_valid_item
     @item = Item.create(:title => "Hello!",
@@ -37,7 +34,7 @@ class ActiveSupport::TestCase
                         :full_name    => "Bennny Smith",
                         :display_name => "Bennybeans",
                         :password     => password)
-  end 
+  end
 
   # Add more helper methods to be used by all tests here...
 end
