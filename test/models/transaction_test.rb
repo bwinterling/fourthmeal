@@ -39,4 +39,13 @@ class TransactionTest < ActiveSupport::TestCase
     transaction = Transaction.create(invalid_params)
     refute transaction.valid?
   end
+
+  test "it updates a paid transaction and saves" do
+    order = create_valid_order
+    alt_params = valid_params.merge(order_id: order.id)
+    transaction = Transaction.create(alt_params)
+    assert_equal "unpaid", transaction.order.status 
+    transaction.pay!
+    assert_equal "paid", transaction.order.status
+  end
 end
