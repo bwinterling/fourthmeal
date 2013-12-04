@@ -28,6 +28,6 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
-group :production, :test do
+group :production do
   gem 'rails_12factor'
 end
