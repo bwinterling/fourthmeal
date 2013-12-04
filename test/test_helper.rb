@@ -3,8 +3,6 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
 require './test/helpers/minitest_helper'
-SimpleCov.start 'rails'
-puts "required simplecov"
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
