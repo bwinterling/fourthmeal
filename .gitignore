@@ -13,7 +13,7 @@
 
 # Ignore silly files
 /public/assets/*.*
-/coverage
+coverage
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
