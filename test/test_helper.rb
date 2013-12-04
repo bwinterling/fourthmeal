@@ -4,7 +4,7 @@ SimpleCov.start 'rails'
 puts "required simplecov"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'capybara/rails' 
+require 'capybara/rails'
 require './test/helpers/minitest_helper'
 
 class ActiveSupport::TestCase
@@ -13,8 +13,8 @@ class ActiveSupport::TestCase
 
 
   def create_valid_item
-    @item = Item.create(:title => "Hello!", 
-    :description => "World", 
+    @item = Item.create(:title => "Hello!",
+    :description => "World",
     :price => 4,
     :slug => "new_item",
     :retired => false,
