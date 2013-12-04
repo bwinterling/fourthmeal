@@ -1,5 +1,4 @@
 require 'test_helper'
-SimpleCov.command_name 'test:units'
 
 
 class ItemTest < ActiveSupport::TestCase
@@ -57,6 +56,19 @@ class ItemTest < ActiveSupport::TestCase
     assert_respond_to @item, :photo_content_type
     assert_respond_to @item, :photo_file_size
     assert_respond_to @item, :photo_updated_at
+  end
+
+  test "it finds items given a category title" do
+    item = create_valid_item
+    item2 = item.dup
+    item2.title = "Goodbye!"
+    category = create_valid_category
+    category2 = category.dup
+    category2.title = "Lunch"
+    item.categories << category
+    item2.categories << category2
+    found_items = Item.filter_by_category("Brunch")
+    assert_equal "Hello!", found_items.first.title
   end
 
 end

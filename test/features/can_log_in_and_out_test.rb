@@ -1,5 +1,4 @@
 require './test/test_helper'
-SimpleCov.command_name "features"
 
 class CanLogInAndOutTest < Capybara::Rails::TestCase
 
