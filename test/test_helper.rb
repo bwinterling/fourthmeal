@@ -34,5 +34,17 @@ class ActiveSupport::TestCase
                         :password     => password)
   end
 
+  def create_and_login_user
+    user = create_valid_user
+    visit log_in_path
+    click_on "Log In"
+
+    within "#login-form" do
+      fill_in "Email", with: user.email
+      fill_in "Password", with: "password"
+      click_button "Log In"
+    end
+  end
+
   # Add more helper methods to be used by all tests here...
 end

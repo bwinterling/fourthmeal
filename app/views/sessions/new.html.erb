@@ -15,6 +15,10 @@
     <% end %>
   </div>
 
+  <div id="checkout-button-guest">
+    <%= link_to 'Checkout as guest', '#' %>
+  </div>
+
   <div class="grid-50">
     <h1>Sign Up</h1>
     <%= render 'users/form', locals: { user: @user } %>
