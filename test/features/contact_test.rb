@@ -2,7 +2,7 @@ require './test/test_helper'
 
 class ContactRequestTest < Capybara::Rails::TestCase
 
-  def test_user_can_send_contact_request
+  test "user can send contact request" do
     reset_email
     visit root_path
     click_on "Contact"
@@ -16,7 +16,6 @@ class ContactRequestTest < Capybara::Rails::TestCase
     end
     assert_content page, 'Thanks for your message!'
     assert_equal "Question", last_email.subject
-    # rspec example - last_email.to.should include(user.email)
   end
 
 end
