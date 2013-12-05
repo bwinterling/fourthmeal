@@ -24,13 +24,8 @@ OnoBurrito::Application.configure do
 
   # change SMTP settings
   ActionMailer::Base.smtp_settings = {
-    :user_name => ENV["SENDGRID_USERNAME"],
-    :password => ENV["SENDGRID_PASSWORD"],
-    :domain => 'fourthmeal.herokuapp.com',
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
+    :address => "localhost",
+    :port => 1025
   }
 
   # Print deprecation notices to the Rails logger.
