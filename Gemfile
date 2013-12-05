@@ -13,9 +13,6 @@ gem 'paperclip'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'rack-mini-profiler'
 
-# email gem (also requires service to send email)
-gem 'pony'
-
 group :development, :test do
   gem 'rails-pry'
   gem 'better_errors'

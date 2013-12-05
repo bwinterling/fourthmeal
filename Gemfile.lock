@@ -181,8 +181,6 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
-    pony (1.5.1)
-      mail (>= 2.0)
     pry (0.9.12.3)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -291,7 +289,6 @@ DEPENDENCIES
   minitest-rails-capybara
   paperclip
   pg
-  pony
   quiet_assets
   rack-mini-profiler
   rails (= 4.0.1)
