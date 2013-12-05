@@ -3,7 +3,7 @@ require './test/test_helper'
 
 class CanMakeAnOrderTest < Capybara::Rails::TestCase
 
-  test "a user can create an order" do
+  test "a user can create an cart" do
     item = Item.create(title: 'Steak Burrito', description: 'Mouthwatering slab', price: '1')
 
     visit root_path
@@ -14,12 +14,12 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
 
     assert_content page, 'Your Current Order'
     assert_content page, "Mouthwatering slab"
-    
+
   end
 
-  
 
-  test "can add multiple items to order without logging in" do
+
+  test "can add multiple items to cart without logging in" do
     item1 = Item.create(title: 'Steak Burrito', description: 'Mouthwatering slab', price: '1')
     item2 = Item.create(title: 'Breakfast Burrito', description: 'Yummy', price: '1')
 
@@ -39,7 +39,7 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
     end
   end
 
-  test "can add multiple instances of same item to order" do
+  test "can add multiple instances of same item to a cart" do
     item1 = Item.create(title: 'Steak Burrito', description: 'Mouthwatering slab', price: '1')
     item2 = Item.create(title: 'Breakfast Burrito', description: 'Yummy', price: '1')
 
