@@ -34,5 +34,13 @@ class ActiveSupport::TestCase
                         :password     => password)
   end
 
+  def last_email
+    ActionMailer::Base.deliveries.last
+  end
+
+  def reset_email
+    ActionMailer::Base.deliveries = []
+  end
+
   # Add more helper methods to be used by all tests here...
 end
