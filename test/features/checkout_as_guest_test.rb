@@ -11,28 +11,24 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
     end
 
     click_on "Checkout"
-
-    within "#checkout-button-guest" do
-      assert page.has_content?("Checkout as guest")
-    end
-
+    assert page.has_link?("Guest Checkout")
   end
 
 
-  def test_guest_user_can_checkout
-    skip
+def test_guest_user_can_checkout
+  skip
 
-    within "#checkout-button-guest" do
-      click_on "Checkout as guest"
-    end
-    within "#transaction-container" do
-      assert page.has_content?("Transaction Information")
-    end
-
-    # fill out transaction details
-    # press Pay button
-    # See some form of confirmation
-    #
+  within "#checkout-button-guest" do
+    click_on "Guest Checkout"
   end
+  within "#transaction-container" do
+    assert page.has_content?("Transaction Information")
+  end
+
+  # fill out transaction details
+  # press Pay button
+  # See some form of confirmation
+  #
+end
 
 end

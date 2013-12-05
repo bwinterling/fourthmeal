@@ -42,7 +42,7 @@ h1 {
 .button {
   font-size: 1.2em;
   display: inline-block;
-  margin: 0 0 10px 0;
+  margin-top: 2%;
   background-color: rgb(3, 166, 120);
   color: rgb(249, 249, 249);
   -webkit-border-radius: 4px;
@@ -52,9 +52,19 @@ h1 {
   border: none;
 }
 
+.button a {
+  text-decoration: none;
+  color: white;
+  padding: .5em;
+}
+
 .button-small {
   display: block;
   margin: 5px 0;
+}
+
+.guest-checkout {
+  margin-top: 10%
 }
 
 .splash-burrito {
