@@ -54,5 +54,4 @@ class ActiveSupport::TestCase
     end
   end
 
-  # Add more helper methods to be used by all tests here...
 end
