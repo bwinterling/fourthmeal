@@ -17,24 +17,24 @@ class CanLogInAndOutTest < Capybara::Rails::TestCase
     end
 
     assert_content page, 'Logged in'
+  end
+
+  test "test can log out" do
+    user = create_valid_user
+    visit log_in_path
+    click_on "Log In"
+
+    within "#login-form" do
+      fill_in "Email", with: user.email
+      fill_in "Password", with: "password"
+      click_button "Log In"
     end
+    click_on "Log out"
+    assert_content page, "Logged out"
+  end
 
-    test "test can log out" do
-      user = create_valid_user
-      visit log_in_path
-      click_on "Log In"
-
-      within "#login-form" do
-        fill_in "Email", with: user.email
-        fill_in "Password", with: "password"
-        click_button "Log In"
-      end
-      click_on "Log out"
-      assert_content page, "Logged out"
-    end
-
-    test "cannot sign up with invalid params" do
-      visit root_path
+  test "cannot sign up with invalid params" do
+    visit root_path
 
     click_on "Sign up or Log in"
 
@@ -45,7 +45,7 @@ class CanLogInAndOutTest < Capybara::Rails::TestCase
       click_button "Create User"
     end
     assert_content page, "can't be blank"
-    end
+  end
 
 
 end
