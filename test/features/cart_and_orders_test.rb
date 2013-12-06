@@ -1,6 +1,5 @@
 require './test/test_helper'
 
-
 class CanMakeAnOrderTest < Capybara::Rails::TestCase
 
   test "a user can create an cart" do

@@ -2,8 +2,8 @@ require './test/test_helper'
 
 class CanViewByCategoriesTest < Capybara::Rails::TestCase
 
-test "can see all items by category" do
-    categories = Category.create(name: "Slushees")
+  def test_can_see_all_items_by_category
+    category = Category.create(title: "Slushees")
     item = Item.create(title: 'Cherry Slushee', description: 'Yummy', price: '1')
     category.items << item
 
