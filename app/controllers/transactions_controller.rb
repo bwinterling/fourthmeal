@@ -1,8 +1,8 @@
 class TransactionsController < ApplicationController
-  
+
   def new
     @transaction = Transaction.new
-    if current_user
+    if current_user || params[:guest]
       render :new
     else
       redirect_to new_session_path
@@ -14,7 +14,7 @@ class TransactionsController < ApplicationController
     @transaction.update(:order_id => current_order.id)
     if @transaction.save
       @transaction.pay!
-      current_order.update(:user_id => current_user.id, :status => "paid")
+      current_order.update(:user_id => current_order.user_id, :status => "paid")
       session[:current_order] = nil
       flash[:notice] = "Successfully created your order!"
       redirect_to transaction_path(@transaction)
@@ -26,7 +26,8 @@ class TransactionsController < ApplicationController
 
   def show
     @transaction = Transaction.find_by(id: params[:id])
-    if current_user.id = @transaction.order.user_id
+    if @transaction.order.user_id == 1 || current_user.id == @transaction.order.user_id
+      # TODO: this condition makes all guest (order.user_id = 1) accessible to the publid
       render :show
     else
       @transaction = nil
