@@ -37,6 +37,14 @@ class ActiveSupport::TestCase
                         :password_confirmation => password)
   end
 
+  def last_email
+    ActionMailer::Base.deliveries.last
+  end
+
+  def reset_email
+    ActionMailer::Base.deliveries = []
+  end
+
   def create_and_login_user
     user = create_valid_user("password","foo@bar.com")
     visit log_in_path
@@ -48,5 +56,4 @@ class ActiveSupport::TestCase
     end
   end
 
-  # Add more helper methods to be used by all tests here...
 end

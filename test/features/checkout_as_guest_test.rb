@@ -11,13 +11,8 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
     end
 
     click_on "Checkout"
-
-    within "#checkout-button-guest" do
-      assert page.has_content?("Checkout as guest")
-    end
-
+    assert page.has_link?("Guest Checkout")
   end
-
 
   def test_guest_user_can_checkout
     Capybara.reset!
@@ -31,7 +26,7 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
     click_on "Checkout"
 
     within "#checkout-button-guest" do
-      click_on "Checkout as guest"
+      click_on "Guest Checkout"
     end
 
     within "#transaction-container" do
