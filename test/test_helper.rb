@@ -34,6 +34,14 @@ class ActiveSupport::TestCase
                         :password     => password)
   end
 
+  def last_email
+    ActionMailer::Base.deliveries.last
+  end
+
+  def reset_email
+    ActionMailer::Base.deliveries = []
+  end
+
   def create_and_login_user
     user = create_valid_user
     visit log_in_path
