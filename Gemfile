@@ -26,6 +26,8 @@ group :development, :test do
   gem 'faker'
   gem 'simplecov', :require => false, :group => :test
   gem 'quiet_assets'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :production do

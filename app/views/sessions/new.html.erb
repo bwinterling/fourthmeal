@@ -11,8 +11,13 @@
         <%= label_tag :password %><br />
         <%= password_field_tag :password %>
       </p>
-      <p class="button"><%= submit_tag "Log In" %></p>
+      <div class="button"><%= submit_tag "Log In" %></div>
     <% end %>
+
+    <h1 class="guest-checkout">Or Checkout as Guest</h1>
+      <div class="button" id="checkout-button-guest">
+        <%= link_to 'Guest Checkout', new_transaction_path(:guest => true) %>
+      </div>
   </div>
 
   <div class="grid-50">

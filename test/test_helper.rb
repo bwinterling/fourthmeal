@@ -4,8 +4,10 @@ require 'rails/test_help'
 require 'capybara/rails'
 require './test/helpers/minitest_helper'
 
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
+  self.use_transactional_fixtures = false
 
   def create_valid_item
     @item = Item.create(:title => "Hello!",
@@ -27,11 +29,12 @@ class ActiveSupport::TestCase
     @category = Category.create(:title => 'Brunch')
   end
 
-  def create_valid_user(password = "password")
-    @user = User.create(:email        => "test@example.com",
+  def create_valid_user(password="password", email="test@example.com")
+    @user = User.create(:email        => email,
                         :full_name    => "Bennny Smith",
                         :display_name => "Bennybeans",
-                        :password     => password)
+                        :password     => password,
+                        :password_confirmation => password)
   end
 
   def last_email
@@ -42,5 +45,15 @@ class ActiveSupport::TestCase
     ActionMailer::Base.deliveries = []
   end
 
-  # Add more helper methods to be used by all tests here...
+  def create_and_login_user
+    user = create_valid_user("password","foo@bar.com")
+    visit log_in_path
+
+    within "#login-form" do
+      fill_in "Email", with: "foo@bar.com"
+      fill_in "Password", with: "password"
+      click_button "Log In"
+    end
+  end
+
 end
