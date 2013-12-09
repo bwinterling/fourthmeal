@@ -6,6 +6,7 @@ class TransactionTest < ActiveSupport::TestCase
     {
       first_name: "Mike",
       last_name: "Williams",
+      email: "bob@hope.com",
       credit_card_number: 4444888899996666,
       credit_card_expiration: 8833,
       zipcode: 45455
@@ -14,7 +15,7 @@ class TransactionTest < ActiveSupport::TestCase
 
   test "it is invalid without attributes" do
     @transaction = Transaction.create()
-    assert @transaction.invalid? 
+    assert @transaction.invalid?
   end
 
   test "it is valid with correct attributes" do
@@ -34,6 +35,12 @@ class TransactionTest < ActiveSupport::TestCase
     refute transaction.valid?
   end
 
+  test "it does not create a transaction when email is empty" do
+    invalid_params = valid_params.merge(email: "")
+    transaction = Transaction.create(invalid_params)
+    refute transaction.valid?
+  end
+
   test "it does not create a transaction when zipcode is invalid" do
     invalid_params = valid_params.merge(zipcode: 559)
     transaction = Transaction.create(invalid_params)
@@ -44,7 +51,7 @@ class TransactionTest < ActiveSupport::TestCase
     order = create_valid_order
     alt_params = valid_params.merge(order_id: order.id)
     transaction = Transaction.create(alt_params)
-    assert_equal "unpaid", transaction.order.status 
+    assert_equal "unpaid", transaction.order.status
     transaction.pay!
     assert_equal "paid", transaction.order.status
   end
