@@ -30,6 +30,11 @@ class TransactionTest < ActiveSupport::TestCase
   end
 
   # TODO: write test with invalid email
+  test "it does not create a transactio with invalid email" do
+    invalid_params = valid_params.merge(email: "foo")
+    transaction = Transaction.create(invalid_params)
+    refute transaction.valid?
+  end
 
   test "it does not create a transaction when last name is empty" do
     invalid_params = valid_params.merge(last_name: "")
