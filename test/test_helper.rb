@@ -54,6 +54,16 @@ class ActiveSupport::TestCase
       fill_in "Password", with: "password"
       click_button "Log In"
     end
+    user
+  end
+
+  def create_transaction_for(user)
+    Transaction.create(first_name: user.full_name,
+                       last_name: user.display_name,
+                       email: user.email,
+                       zipcode: "12345",
+                       order_id: user.orders.last.id
+                      )
   end
 
 end

@@ -1,7 +1,15 @@
 class TransactionsController < ApplicationController
 
   def new
-    @transaction = Transaction.new
+    if current_user && !current_user.orders.empty? && current_user.last_transaction 
+      transaction = current_user.last_transaction
+      @transaction = Transaction.new(first_name: transaction.first_name, 
+                                     last_name: transaction.last_name, 
+                                     email: transaction.email, 
+                                     zipcode: transaction.zipcode)
+    else
+      @transaction = Transaction.new
+    end
     if current_user || params[:guest]
       render :new
     else
@@ -14,7 +22,11 @@ class TransactionsController < ApplicationController
     @transaction.update(:order_id => current_order.id)
     if @transaction.save
       @transaction.pay!
-      current_order.update(:user_id => current_order.user_id, :status => "paid")
+      if current_user
+        current_order.update(:user_id => current_user.id, :status => "paid")
+      else
+        current_order.update(:status => "paid")
+      end
       session[:current_order] = nil
       OrderMailer.order_confirmation(@transaction).deliver
       flash[:notice] = "Successfully created your order!"
