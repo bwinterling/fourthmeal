@@ -10,5 +10,4 @@ module OrdersHelper
     current_order && current_order.order_items.count > 0
   end
 
-  
 end

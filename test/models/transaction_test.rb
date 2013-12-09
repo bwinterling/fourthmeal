@@ -29,7 +29,6 @@ class TransactionTest < ActiveSupport::TestCase
     refute transaction.valid?
   end
 
-  # TODO: write test with invalid email
   test "it does not create a transactio with invalid email" do
     invalid_params = valid_params.merge(email: "foo")
     transaction = Transaction.create(invalid_params)
