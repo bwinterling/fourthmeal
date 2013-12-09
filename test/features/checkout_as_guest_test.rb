@@ -36,6 +36,7 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
     within "#new_transaction" do
       fill_in "First name", with: "Bob"
       fill_in "Last name", with: "Hope"
+      fill_in "Email", with: "shopper@example.com"
       fill_in "Zipcode", with: "12345"
       click_on "Pay with Card"
     end

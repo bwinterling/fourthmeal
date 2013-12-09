@@ -17,6 +17,7 @@ class TransactionsControllerTest < ActionController::TestCase
                   {"current_order" => @order})
     assert_equal "Your order is confirmed!", last_email.subject
     assert_equal "shopper@example.com", last_email.to.first
+    # TODO: assert body has transaction's items
   end
 
 end
