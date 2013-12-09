@@ -16,6 +16,7 @@ class TransactionsController < ApplicationController
       @transaction.pay!
       current_order.update(:user_id => current_order.user_id, :status => "paid")
       session[:current_order] = nil
+      OrderMailer.order_confirmation(@transaction).deliver
       flash[:notice] = "Successfully created your order!"
       redirect_to transaction_path(@transaction)
     else
@@ -38,7 +39,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:first_name, :last_name, :credit_card_number, :credit_card_expiration, :zipcode)
+    params.require(:transaction).permit(:first_name, :last_name, :email, :credit_card_number, :credit_card_expiration, :zipcode)
   end
 
 end
