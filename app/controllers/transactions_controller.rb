@@ -39,7 +39,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:first_name, :last_name, :credit_card_number, :credit_card_expiration, :zipcode)
+    params.require(:transaction).permit(:first_name, :last_name, :email, :credit_card_number, :credit_card_expiration, :zipcode)
   end
 
 end

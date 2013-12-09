@@ -9,8 +9,7 @@ class OrderMailer < ActionMailer::Base
   def order_confirmation(transaction)
     @transaction = transaction
 
-    mail to: "to@example.org", # TODO: transaction.email
-      # TODO: NEED TO INCLUDE email address on Transaction Resource
+    mail to: transaction.email,
     subject: "Your order is confirmed!"
   end
 end
