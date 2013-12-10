@@ -44,4 +44,8 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
     assert page.has_content?('Pay')
   end
 
+  def test_guest_user_can_create_account_from_order_summary
+
+  end
+
 end
