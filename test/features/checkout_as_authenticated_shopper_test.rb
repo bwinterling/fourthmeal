@@ -38,4 +38,37 @@ class CheckoutAsAuthenticatedShopperTest < Capybara::Rails::TestCase
     assert page.has_content?('Pay')
   end
 
+  def test_authenticated_shopper_sees_previous_billing_details
+    skip
+    Capybara.reset_sessions!
+    item1 = create_valid_item
+    user = create_and_login_user
+    Order.create(:status => 'unpaid', :user_id => user.id)
+    binding.pry
+    create_transaction_for(user)
+    binding.pry
+    visit root_path
+    binding.pry
+
+    within "#item_#{item1.id}" do
+      click_on "Add to Cart"
+    end
+
+    click_on "Checkout"
+
+    within "#transaction-container" do
+      assert page.has_content?("Transaction Information")
+    end
+    binding.pry
+    within "#new_transaction" do
+      assert page.has_content?("Bennny Smith")
+      assert page.has_content?("Bennybeans")
+      assert page.has_content?("foo@bar.com")
+      assert page.has_content?("12345")
+      #fill_in "First name", with: "Bob"
+      #fill_in "Last name", with: "Hope"
+      #fill_in "Zipcode", with: "12345"
+    end
+
+  end
 end

@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'rack-mini-profiler'
 
 group :development, :test do
+  # NOTE:  do not add 'mailcatcher' to gemfile
   gem 'rails-pry'
   gem 'better_errors'
   gem 'binding_of_caller'
