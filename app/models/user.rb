@@ -34,5 +34,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def last_transaction
+    orders.order('created_at').last.transaction
+  end
+
 end
 
