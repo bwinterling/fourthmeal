@@ -25,11 +25,11 @@ class UsersTest < ActiveSupport::TestCase
   end
 
   test "it_authenticates_user" do
-    user1 = User.create(email: "demo+franklin@jumpstartlab.com",
-      full_name: "Franklin Webber",
-      display_name: "",
+    user1 = User.create(email: "wtf@example.com",
+      full_name: "Neo",
+      display_name: "Brahhhh",
       password: "password")
-    assert_equal user1, User.authenticate("demo+franklin@jumpstartlab.com", "password")
+    assert_equal user1, User.authenticate("wtf@example.com", "password")
   end
 
 end
