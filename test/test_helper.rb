@@ -26,7 +26,7 @@ class ActiveSupport::TestCase
   end
 
   def create_valid_category
-    @category = Category.create(:title => 'Brunch')
+    @category = Category.find_or_create_by(:title => 'Brunch')
   end
 
   def create_valid_user(password="password", email="test@example.com")
