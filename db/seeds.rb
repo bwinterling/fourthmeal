@@ -12,12 +12,12 @@ beverages = Category.create(title: "Beverages")
 # Entrees
 
 burrito = Item.create(
-  title: "Steak Burrito", 
-  description: "Mouthwatering slab of meat wrapped in white flour.", 
-  price: 5.99, 
+  title: "Steak Burrito",
+  description: "Mouthwatering slab of meat wrapped in white flour.",
+  price: 5.99,
   photo: File.open("app/assets/images/BURRITO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: burrito.id,
@@ -25,12 +25,12 @@ ItemCategory.create(
   )
 
 breakfast_burrito = Item.create(
-  title: "Breakfast Burrito", 
-  description: "Eggs and meat!", 
-  price: 3.99, 
+  title: "Breakfast Burrito",
+  description: "Eggs and meat!",
+  price: 3.99,
   photo: File.open("app/assets/images/BREAKFAST.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: breakfast_burrito.id,
@@ -38,12 +38,12 @@ ItemCategory.create(
   )
 
 naked_burrito = Item.create(
-  title: "Naked Burrito", 
-  description: "Get lucky with a naked burrito.", 
-  price: 5.99, 
+  title: "Naked Burrito",
+  description: "Get lucky with a naked burrito.",
+  price: 5.99,
   photo: File.open("app/assets/images/NAKED_BURRITO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: naked_burrito.id,
@@ -51,12 +51,12 @@ ItemCategory.create(
   )
 
 taco_gumbo = Item.create(
-  title: "Taco Gumbo", 
-  description: "Good for a cold day.", 
-  price: 4.99, 
+  title: "Taco Gumbo",
+  description: "Good for a cold day.",
+  price: 4.99,
   photo: File.open("app/assets/images/C2_TACO_GUMBO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: taco_gumbo.id,
@@ -64,12 +64,12 @@ ItemCategory.create(
   )
 
 sig_veggie_burrito = Item.create(
-  title: "Signature Vegetable Burrito", 
-  description: "Vegetarian is caveman speak for bad hunter.", 
-  price: 4.99, 
+  title: "Signature Vegetable Burrito",
+  description: "Vegetarian is caveman speak for bad hunter.",
+  price: 4.99,
   photo: File.open("app/assets/images/SIG_VEGGIE_BURRITO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: sig_veggie_burrito.id,
@@ -77,12 +77,12 @@ ItemCategory.create(
   )
 
 taco_salad = Item.create(
-  title: "Taco Salad", 
-  description: "It's 'healthy'.", 
-  price: 5.99, 
+  title: "Taco Salad",
+  description: "It's 'healthy'.",
+  price: 5.99,
   photo: File.open("app/assets/images/TACO_SALAD.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: taco_salad.id,
@@ -94,12 +94,12 @@ ItemCategory.create(
 # Kids Menu
 
 kids_meal = Item.create(
-  title: "Kids Meal", 
-  description: "Comes with a plastic toy.", 
-  price: 3.99, 
+  title: "Kids Meal",
+  description: "Comes with a plastic toy.",
+  price: 3.99,
   photo: File.open("app/assets/images/KIDS_LEADING.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: kids_meal.id,
@@ -107,12 +107,12 @@ ItemCategory.create(
   )
 
 kids_taco = Item.create(
-  title: "Kids Taco", 
-  description: "It's like the big one, only smaller.", 
-  price: 3.99, 
+  title: "Kids Taco",
+  description: "It's like the big one, only smaller.",
+  price: 3.99,
   photo: File.open("app/assets/images/KIDS_TACO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: kids_taco.id,
@@ -120,12 +120,12 @@ ItemCategory.create(
   )
 
 kids_quesadilla = Item.create(
-  title: "Kids Quesadilla", 
-  description: "It's like the big one, only smaller.", 
-  price: 3.99, 
+  title: "Kids Quesadilla",
+  description: "It's like the big one, only smaller.",
+  price: 3.99,
   photo: File.open("app/assets/images/KIDS_QUESADILLA.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: kids_quesadilla.id,
@@ -133,12 +133,12 @@ ItemCategory.create(
   )
 
 kids_burrito = Item.create(
-  title: "Kids Naked Burrito", 
-  description: "It's like the big one, only smaller.", 
-  price: 3.99, 
+  title: "Kids Naked Burrito",
+  description: "It's like the big one, only smaller.",
+  price: 3.99,
   photo: File.open("app/assets/images/KIDS_NAKED_BURRITO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: kids_burrito.id,
@@ -150,12 +150,12 @@ ItemCategory.create(
 # Combos
 
 taco_tortilla_soup = Item.create(
-  title: "Taco Torilla Soup", 
-  description: "Es Muy Picante.", 
-  price: 6.99, 
+  title: "Taco Torilla Soup",
+  description: "Es Muy Picante.",
+  price: 6.99,
   photo: File.open("app/assets/images/C2_TACO_TORT_SOUP.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: taco_tortilla_soup.id,
@@ -163,12 +163,12 @@ ItemCategory.create(
   )
 
 nacho_dilla = Item.create(
-  title: "Nacho Dilla", 
-  description: "Eat one every dia.", 
-  price: 6.99, 
+  title: "Nacho Dilla",
+  description: "Eat one every dia.",
+  price: 6.99,
   photo: File.open("app/assets/images/C2_NACHO_DILLA.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: nacho_dilla.id,
@@ -181,12 +181,12 @@ ItemCategory.create(
   )
 
 taco_w_gumbo_soup = Item.create(
-  title: "Taco With Gumbo Soup", 
-  description: "You must be hungry!", 
-  price: 6.99, 
+  title: "Taco With Gumbo Soup",
+  description: "You must be hungry!",
+  price: 6.99,
   photo: File.open("app/assets/images/C2_TACO_GUMBO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: taco_w_gumbo_soup.id,
@@ -194,12 +194,12 @@ ItemCategory.create(
   )
 
 taco_w_naked_burrito = Item.create(
-  title: "Taco With A Naked Burrito", 
-  description: "You must be hungry!", 
-  price: 6.99, 
+  title: "Taco With A Naked Burrito",
+  description: "You must be hungry!",
+  price: 6.99,
   photo: File.open("app/assets/images/C2_TACO_NAKED-BURRITO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: taco_w_naked_burrito.id,
@@ -207,12 +207,12 @@ ItemCategory.create(
   )
 
 two_naked_tacos = Item.create(
-  title: "Two Naked Tacos", 
-  description: "Two tacos caught in bed together!", 
-  price: 6.99, 
+  title: "Two Naked Tacos",
+  description: "Two tacos caught in bed together!",
+  price: 6.99,
   photo: File.open("app/assets/images/C2_TACO_NAKED_TACO.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: two_naked_tacos.id,
@@ -229,12 +229,12 @@ ItemCategory.create(
 # Add-ons
 
 nachos = Item.create(
-  title: "Three Cheese Nachos", 
-  description: "That's 'not-cho' cheese!", 
-  price: 5.99, 
+  title: "Three Cheese Nachos",
+  description: "That's 'not-cho' cheese!",
+  price: 5.99,
   photo: File.open("app/assets/images/3_CHEESE_NACHOS.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: nachos.id,
@@ -247,12 +247,12 @@ ItemCategory.create(
   )
 
 chips_dip = Item.create(
-  title: "Chips and Dip", 
-  description: "Crunchy and smooth.", 
-  price: 4.99, 
+  title: "Chips and Dip",
+  description: "Crunchy and smooth.",
+  price: 4.99,
   photo: File.open("app/assets/images/CHIPS_DIP.png", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: chips_dip.id,
@@ -264,12 +264,12 @@ ItemCategory.create(
 # Beverages
 
 beer = Item.create(
-  title: "Beer", 
-  description: "Beer beer beer beer.", 
-  price: 3.99, 
+  title: "Beer",
+  description: "Beer beer beer beer.",
+  price: 3.99,
   photo: File.open("app/assets/images/beers.jpeg", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: beer.id,
@@ -277,12 +277,12 @@ ItemCategory.create(
   )
 
 soda = Item.create(
-  title: "Soda", 
-  description: "Sodee pop.", 
-  price: 1.99, 
+  title: "Soda",
+  description: "Sodee pop.",
+  price: 1.99,
   photo: File.open("app/assets/images/soda.jpg", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: soda.id,
@@ -290,12 +290,12 @@ ItemCategory.create(
   )
 
 margarita = Item.create(
-  title: "Margaritas", 
-  description: "Blended margs for your enjoyment.", 
-  price: 5.99, 
+  title: "Margaritas",
+  description: "Blended margs for your enjoyment.",
+  price: 5.99,
   photo: File.open("app/assets/images/cocktails.jpg", 'r'),
   retired: false)
-  
+
 
 ItemCategory.create(
   item_id: margarita.id,
@@ -304,33 +304,31 @@ ItemCategory.create(
 
 # USERS
 
-user1 = User.create(email: "demo+franklin@jumpstartlab.com", 
-  full_name: "Franklin Webber", 
-  display_name: "", 
+user1 = User.create(email: "demo+franklin@jumpstartlab.com",
+  full_name: "Franklin Webber",
+  display_name: "",
   password: "password")
 
-user2 = User.create(email: "demo+jeff@jumpstartlab.com", 
-  full_name: "Jeff", 
+user2 = User.create(email: "demo+jeff@jumpstartlab.com",
+  full_name: "Jeff",
   display_name: "j3",
   password: "password")
 
-user3 = User.create(email: "demo+katrina@jumpstartlab.com", 
-  full_name: "Katrina Owen", 
-  display_name: "kytrynx", 
+user3 = User.create(email: "demo+katrina@jumpstartlab.com",
+  full_name: "Katrina Owen",
+  display_name: "kytrynx",
   password: "password")
 
-user4 = User.create(email: "benjamin@example.com", 
-  full_name: "Ben Lewis", 
-  display_name: "bennybeans", 
+user4 = User.create(email: "benjamin@example.com",
+  full_name: "Ben Lewis",
+  display_name: "bennybeans",
   password: "password")
 
-
-# ADMIN USERS
-
-AdminUser.create(:email => "admin@example.com", :password => "password")
-AdminUser.create(:email => "demo+katrina@jumpstartlab.com", :password => "password")
-
-
+user5 = User.create(email: "admin@example.com",
+  full_name: "Neck Beard",
+  display_name: "neckbeard",
+  password: "password",
+  admin: true)
 
 # ORDERS
 
