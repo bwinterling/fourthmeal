@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    render :layout => 'bank_buddy'
+  end
+
   def new
     @user = User.new
   end
@@ -23,14 +27,22 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user.id), :notice => "Credentials updated!"
+      redirect_to users_path
+      flash[:notice] = "Credentials updated!"
     else
-      redirect_to user_path(@user.id), :notice => "Your account was not saved for some reason!"
+      redirect_to users_path
+      flash[:notice] = "Your account was not saved for some reason!"
     end
   end
 
   def show
     @user = current_user
+    render :layout => 'bank_buddy'
+  end
+
+  def edit
+    @user = current_user
+    render :layout => 'bank_buddy'
   end
 
   def is_admin?

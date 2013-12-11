@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content=" width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>
+      Bank Buddy - <%= page_title %>
+    </title>
+    <%= stylesheet_link_tag "application", media: "all"%> 
+    <%= javascript_include_tag "application"%>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Podkova:700' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <nav>
+      <%= render "users/bbnav" %>
+    </nav>
+    <div class="grid-container" id="flash-section">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}", :class => "grid-100" %>
+      <% end %>
+    </div>
+    <main id="main-body" role="main"> 
+      <%= yield %>
+    </main>
+  </body>
+</html>
