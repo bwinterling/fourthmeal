@@ -27,10 +27,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to users_path
+      redirect_to user_path
       flash[:notice] = "Credentials updated!"
     else
-      redirect_to users_path
+      redirect_to user_path
       flash[:notice] = "Your account was not saved for some reason!"
     end
   end
