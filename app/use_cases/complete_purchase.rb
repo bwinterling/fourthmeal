@@ -7,15 +7,15 @@ class CompletePurchase
   end
 
   def create(params, success, failure)
-    # start a transaction
-    transaction = @order.build_transaction(params)
-    if transaction.save
-      transaction_successfully_saved(transaction)
-      success.call(transaction)
-    else
-      failure.call
+    ActiveRecord::Base.transaction do
+      transaction = @order.build_transaction(params)
+      if transaction.save
+        transaction_successfully_saved(transaction)
+        success.call(transaction)
+      else
+        failure.call
+      end
     end
-    # end transaction
   end
 
   def transaction_successfully_saved(trans)
