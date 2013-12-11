@@ -1,6 +1,5 @@
 require_relative '../test_helper'
 
-
 class ItemTest < ActiveSupport::TestCase
 
   test "it is created with valid attributes" do
