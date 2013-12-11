@@ -1,23 +1,10 @@
 <div class="grid-container">
   <div class="grid-50">
-    <h1>Log in</h1>
+    
+    <%= render 'sessions/log_in' %>
 
-    <%= form_tag sessions_path, id:"login-form" do %>
-      <p>
-        <%= label_tag :email %><br />
-        <%= text_field_tag :email, params[:email] %>
-      </p>
-      <p>
-        <%= label_tag :password %><br />
-        <%= password_field_tag :password %>
-      </p>
-      <div class="button"><%= submit_tag "Log In" %></div>
-    <% end %>
+    <%= render 'sessions/checkout_as_guest' %>
 
-    <h1 class="guest-checkout">Or Checkout as Guest</h1>
-      <div class="button" id="checkout-button-guest">
-        <%= link_to 'Guest Checkout', new_transaction_path(:guest => true) %>
-      </div>
   </div>
 
   <div class="grid-50">

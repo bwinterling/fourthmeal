@@ -1,0 +1,6 @@
+<% unless current_order_empty? %>
+  <h1 class="guest-checkout">Or Checkout as Guest</h1>
+  <div class="button" id="checkout-button-guest">
+    <%= link_to 'Guest Checkout', new_transaction_path(:guest => true) %>
+  </div>
+<% end %>
