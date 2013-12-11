@@ -2,10 +2,10 @@
   <% if current_user %>
     <img alt="Logo BankBudz" id="bb-logo-small-image" src="/assets/logo_small_bankbudz.png">
     Logged in as <%= current_user.display_name %>
-    <%= link_to "Account Profile", user_path(current_user.id), class:"user-nav-link" %>
+    <%= link_to "Account Profile", user_path(current_user.id, previous_page: request.original_url), class:"user-nav-link" %>
     <%= link_to "Log out", log_out_path, class:"user-nav-link" %>
   <% else %>
-    <a href=<%= log_in_path %>><img alt="Login BankBudz" id="bb-login-image" src="/assets/login_bankbudz.png"></a>
+    <a id="sign-up-log-in" href=<%= log_in_path %>><img alt="Login BankBudz" id="bb-login-image" src="/assets/login_bankbudz.png"></a>
   <% end %>
 </div>
 

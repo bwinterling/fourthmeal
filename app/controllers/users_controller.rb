@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_previous_page
 
   def index
     render :layout => 'bank_buddy'
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+
     render :layout => 'bank_buddy'
   end
 
@@ -49,7 +51,22 @@ class UsersController < ApplicationController
     current_user && current_user.admin
   end
 
+  def prev_page
+    if session[:prev_page]
+      session[:prev_page]
+    else
+      '/'
+    end
+  end
+  helper_method :prev_page
+
 private
+
+  def set_previous_page
+    if params[:previous_page]
+      session[:prev_page] = params[:previous_page]
+    end
+  end
 
   def set_user
     @user = user.find(params[:id])
