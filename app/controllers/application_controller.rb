@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_order
   helper_method :current_order_total
+  helper_method :current_order_empty?
 
   def current_order
     Order.find_by_id(session[:current_order]) || Order.new(status: "unpaid")  
@@ -28,6 +29,10 @@ class ApplicationController < ActionController::Base
    
    def current_permission
      @current_permission ||= Permission.new(current_user)
+   end
+
+   def current_order_empty?
+    current_order.items.empty?
    end
 
 end
