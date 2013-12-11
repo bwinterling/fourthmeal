@@ -1,4 +1,4 @@
-require 'test_helper'
+require_relative '../test_helper'
 
 
 class ItemTest < ActiveSupport::TestCase
@@ -48,6 +48,11 @@ class ItemTest < ActiveSupport::TestCase
     create_valid_item
     assert_respond_to @item, :retired
     refute @item.retired
+  end
+
+  test "it has restaurant_id" do
+    create_valid_item
+    assert_respond_to @item, :restaurant_id
   end
 
   test "it has photo attributes" do

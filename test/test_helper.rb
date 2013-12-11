@@ -30,7 +30,8 @@ class ActiveSupport::TestCase
   end
 
   def create_valid_user(password="password", email="test@example.com")
-    @user = User.create(:email        => email,
+    @user = User.where(:email => email).first_or_create(
+                        :email        => email,
                         :full_name    => "Bennny Smith",
                         :display_name => "Bennybeans",
                         :password     => password,
