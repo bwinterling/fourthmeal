@@ -34,7 +34,10 @@ class RestaurantTest < ActiveSupport::TestCase
   end
 
   test "it returns empty array for #items" do
-    assert_equal [], @restaurant.items
+    item = create_valid_item
+    item.restaurant_id = @restaurant.id
+    item.save
+    assert_equal 1, @restaurant.items.count
   end
 
 end

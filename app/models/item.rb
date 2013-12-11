@@ -1,11 +1,8 @@
 class Item < ActiveRecord::Base
-  # attr_accessor :photo_file_name
-
   validates :title, presence: true
   validates :description, presence: true
   validates_numericality_of :price, :greater_than_or_equal_to => 0
 
-  
   has_many :item_categories
   has_many :categories, :through => :item_categories
 

@@ -49,9 +49,10 @@ class ItemTest < ActiveSupport::TestCase
     refute @item.retired
   end
 
-  test "it has restaurant_id" do
+  test "it has restaurant_id method" do
     create_valid_item
     assert_respond_to @item, :restaurant_id
+    assert_equal 1, @item.restaurant_id
   end
 
   test "it has photo attributes" do
