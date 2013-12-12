@@ -9,7 +9,7 @@ class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
   self.use_transactional_fixtures = false
 
-  def create_valid_item
+  def create_valid_item(restaurant_id=1)
     @item = Item.create(:title => "Hello!",
     :description => "World",
     :price => 4,
@@ -19,7 +19,7 @@ class ActiveSupport::TestCase
     :photo_content_type => "jpeg",
     :photo_file_size => 12353,
     :photo_updated_at => Time.now.to_s,
-    :restaurant_id => 1)
+    :restaurant_id => restaurant_id)
   end
 
   def create_valid_order

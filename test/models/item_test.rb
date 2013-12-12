@@ -49,12 +49,6 @@ class ItemTest < ActiveSupport::TestCase
     refute @item.retired
   end
 
-  test "it has restaurant_id method" do
-    create_valid_item
-    assert_respond_to @item, :restaurant_id
-    assert_equal 1, @item.restaurant_id
-  end
-
   test "it has photo attributes" do
     create_valid_item
     assert_respond_to @item, :photo_file_name
@@ -74,6 +68,11 @@ class ItemTest < ActiveSupport::TestCase
     item2.categories << category2
     found_items = Item.filter_by_category("Brunch")
     assert_equal "Hello!", found_items.first.title
+  end
+
+  test "it has restaurant_id method" do
+    create_valid_item
+    assert_equal 1, @item.restaurant_id
   end
 
 end

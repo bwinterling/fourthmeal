@@ -33,7 +33,7 @@ class RestaurantTest < ActiveSupport::TestCase
     assert_respond_to(@restaurant, :items)
   end
 
-  test "it returns empty array for #items" do
+  test "it returns its items" do
     item = create_valid_item
     item.restaurant_id = @restaurant.id
     item.save
