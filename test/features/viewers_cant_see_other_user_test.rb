@@ -7,7 +7,7 @@ class ViewersCantSeeOtherUserTest < Capybara::Rails::TestCase
     user2 = User.create({full_name: 'bree bird', display_name: 'bird', password: 'password', email: 'bird@example.com'})
 
     visit root_path
-    click_on "Sign up or Log in"
+    click_on "sign-up-log-in"
     within "#main-body" do
       assert_content page, "Log in"
     end
@@ -31,7 +31,7 @@ class ViewersCantSeeOtherUserTest < Capybara::Rails::TestCase
   test "logged in user cannot create items" do
     User.create({full_name: 'benny bean', display_name: 'benny',  password: 'password', email: 'benny@example.com'})
     visit root_path
-    click_on "Sign up or Log in"
+    click_on "sign-up-log-in"
 
     within "#main-body" do
       assert_content page, "Log in"
@@ -47,7 +47,7 @@ class ViewersCantSeeOtherUserTest < Capybara::Rails::TestCase
       assert_content page, "Logged in as benny"
     end
 
-    visit 'items/new' 
+    visit 'items/new'
     assert_no_button("Create Item")
     assert_no_button("Add Item")
   end

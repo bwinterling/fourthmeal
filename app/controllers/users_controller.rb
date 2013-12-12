@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  before_action :set_previous_page
+
+  def index
+    render :layout => 'bank_buddy'
+  end
 
   def new
     @user = User.new
@@ -23,21 +28,45 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user.id), :notice => "Credentials updated!"
+      redirect_to user_path
+      flash[:notice] = "Credentials updated!"
     else
-      redirect_to user_path(@user.id), :notice => "Your account was not saved for some reason!"
+      redirect_to user_path
+      flash[:notice] = "Your account was not saved for some reason!"
     end
   end
 
   def show
     @user = current_user
+
+    render :layout => 'bank_buddy'
+  end
+
+  def edit
+    @user = current_user
+    render :layout => 'bank_buddy'
   end
 
   def is_admin?
     current_user && current_user.admin
   end
 
+  def prev_page
+    if session[:prev_page]
+      session[:prev_page]
+    else
+      root_url
+    end
+  end
+  helper_method :prev_page
+
 private
+
+  def set_previous_page
+    if params[:previous_page]
+      session[:prev_page] = params[:previous_page]
+    end
+  end
 
   def set_user
     @user = user.find(params[:id])

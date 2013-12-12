@@ -5,7 +5,7 @@ class CanLogInAndOutTest < Capybara::Rails::TestCase
   test "user can sign up with valid params" do
     visit root_path
 
-    click_on "Sign up or Log in"
+    click_on "sign-up-log-in"
 
     within "#new_user" do
       fill_in "Email", with: 'benji@example.com'
@@ -36,7 +36,7 @@ class CanLogInAndOutTest < Capybara::Rails::TestCase
   test "cannot sign up with invalid params" do
     visit root_path
 
-    click_on "Sign up or Log in"
+    click_on "sign-up-log-in"
 
     within "#new_user" do
       fill_in "Email", with: 'benji@example.com'
