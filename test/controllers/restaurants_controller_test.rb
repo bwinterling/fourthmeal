@@ -33,7 +33,7 @@ class RestaurantsControllerTest < ActionController::TestCase
 
   def test_create
     assert_difference('Restaurant.count') do
-      post :create, restaurant: valid_params
+      post :create, restaurant: valid_params.merge(:name => "Art's")
     end
 
     assert_redirected_to restaurant_path(assigns(:restaurant))
