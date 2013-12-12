@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  layout "platform", :only => [:index, :new, :create]
   before_action :set_restaurant, only: [:edit, :update, :destroy]
 
   def index
