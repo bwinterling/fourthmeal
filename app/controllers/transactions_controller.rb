@@ -35,7 +35,8 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_successfully_saved(trans)
-    trans.pay!
+    # trans.pay!
+    #don't need this if we use transaction result
     current_order.update(:user_id => current_user.id) if current_user
     session[:current_order] = nil
     OrderMailer.order_confirmation(trans).deliver
@@ -58,7 +59,7 @@ class TransactionsController < ApplicationController
   end
 
   def updated_params
-    transaction_params.merge(:order_id => current_order.id)
+    transaction_params.merge(:order_id => current_order.id, :result => "success")
   end
 
   def transaction_params

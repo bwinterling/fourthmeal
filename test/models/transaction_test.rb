@@ -61,4 +61,13 @@ class TransactionTest < ActiveSupport::TestCase
     transaction.pay!
     assert_equal "paid", transaction.order.status
   end
+
+  #eventually this needs to test both successful and unsuccessful results
+
+  test "it has a result"
+    order = create_valid_order
+    alt_params = valid_params.merge(order_id: order.id)
+    transaction = Transaction.create(alt_params)
+    assert_equal "successful", transaction.result
+  end
 end
