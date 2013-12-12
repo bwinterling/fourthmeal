@@ -10,7 +10,9 @@ OnoBurrito::Application.routes.draw do
   resources :order_items
   resources :sessions
   resources :transactions, only: [:new, :create, :show]
-  resources :users
+  resources :users do
+    :stores
+  end
 
   get "code" => "codes#index"
   get "log_out" => "sessions#destroy"
