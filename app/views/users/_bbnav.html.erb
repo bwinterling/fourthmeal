@@ -1,11 +1,17 @@
-<div id="bb-nav" class="grid-100">
-  <a href="/users"><img alt="Logo BankBudz" id="bb-logo-image" src="/assets/logo_bankbudz.png"></a>
-  <% if current_user %>
-    Logged in as <%= current_user.display_name %>
-    <%= link_to "Update Account Info", edit_user_path(current_user.id), class:"user-nav-link" %>
-    <%= link_to "Go Back", prev_page, class:"user-nav-link" %>
-    <%= link_to "Log out", log_out_path, class:"user-nav-link" %>
-  <% else %>
-    <%= link_to "Sign up or Log in", log_in_path, class:"user-nav-link" %>
-  <% end %>
+<div id="bb-nav" class="grid-container">
+  <div class="grid-20">
+    <a href="/"><img alt="Logo BankBudz" id="bb-logo-image" src="/assets/logo_bankbudz.png"></a>
+  </div>
+  <div id="bb-links" class="grid-80">
+    <% if current_user %>
+      Logged in as <%= current_user.display_name %>
+  </div>
+  <div id="bb-sub-nav bb-links" class='grid-100'>
+        <%= link_to "Update Account Info", edit_user_path(current_user.id), class: "bb-nav-link" %>
+        <%= link_to "Continue Shopping", prev_page, class: "bb-nav-link" %>
+        <%= link_to "Log out", log_out_path, class: "bb-nav-link" %>
+    <% else %>
+        <%= link_to "Sign up or Log in", log_in_path, class: "bb-nav-link" %>
+    <% end %>
+  </div>
 </div>

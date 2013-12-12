@@ -55,7 +55,7 @@ class UsersController < ApplicationController
     if session[:prev_page]
       session[:prev_page]
     else
-      '/'
+      root_url
     end
   end
   helper_method :prev_page
