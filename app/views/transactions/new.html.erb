@@ -6,7 +6,7 @@
 
     <%= render "shared/errors", model: @transaction %>
 
-      <table>
+    <table>
       <tr>
         <td class="transaction-label"><%= f.label :first_name %></td>
         <td class="transaction-form"><%= f.text_field :first_name %></td>
@@ -23,22 +23,27 @@
         <td class="transaction-label"><%= f.label :zipcode %>
         <td class="transaction-form"><%= f.text_field :zipcode %>
       </tr>
+      <tr>
+        <td><label for="transaction_credit_card">Credit Card</label></td>
+        <td><input type="text" id="transaction_credit_card" size="20" data-stripe="number"></td>
+      </tr>
+      <tr>
+        <td><label for="transaction_cvc">CVC</label></td>
+        <td><input type="text" id="transaction_cvc" size="4" data-stripe="cvc"</td>
+      </tr>
+      <tr>
+        <td><label for="transaction_exp_month">Exp Month (MM)</label></td>
+        <td><input type="text" id="transaction_exp_month" size="2" data-stripe="exp-month"</td>
+      </tr>
+      <tr>
+        <td><label for="transaction_exp_year">Exp Year (YYYY)</label></td>
+        <td><input type="text" id="transaction_exp_year" size="4" data-stripe="exp-year"</td>
+      </tr>
     </table>
 
-    <h2 id="current-total">
-      Current Total: <%= number_to_currency(order_total(current_order.order_items)) %>
-    </h2>
+    <h2 id="current-total">Current Total: <%= number_to_currency(order_total(current_order.order_items)) %></h2>
     <br/>
-
-      <script
-        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="pk_test_czwzkTp2tactuLOEOqbMTRzG"
-        data-amount=""
-        data-name="Ono-Burrito"
-        data-description="Your Order"
-        data-image="">
-      </script>
-
+    <p class="button" id="checkout-button-guest"><%= f.submit "Submit Order" %></p>
     <% end %>
 
   </div>
