@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = current_restaurant.items.active
+    @items = Item.active
     @page_title = "Full Menu"
   end
 

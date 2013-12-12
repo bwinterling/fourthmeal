@@ -5,4 +5,12 @@ class Restaurant < ActiveRecord::Base
   validates :location,    presence: true
   validates :description, presence: true
 
+  def to_param
+    name
+  end
+
+  def self.find_by_param(input)
+    find_by(:name => input)
+  end
+
 end

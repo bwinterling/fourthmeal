@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_restaurant
+    # TODO: this method can throw nil errors, needs work
     @current_restaurant ||= Restaurant.find_by(:name => params[:restaurant])
   end
 

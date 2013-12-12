@@ -31,27 +31,12 @@ class RestaurantsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  def test_new_not_acessible_to_non_admin
-    skip
-    get :new, { }, { "current_user" => @user }
-    assert_redirected_to restaurants_path
-  end
-  # TODO: write similar tests for create, edit, update, destroy
-
   def test_create
     assert_difference('Restaurant.count') do
       post :create, restaurant: valid_params
     end
 
     assert_redirected_to restaurant_path(assigns(:restaurant))
-  end
-
-  def test_create_not_acessible_to_non_admin
-    skip
-    assert_difference('Restaurant.count') do
-      post :create, { restaurant: valid_params }, { "current_user" => @user }
-    end
-    assert_redirected_to restaurants_path
   end
 
   def test_edit

@@ -8,6 +8,7 @@ class ItemsControllerTest < ActionController::TestCase
               :other_item
 
   def setup
+    Item.destroy_all
     @restaurant = create_valid_restaurant
     @restaurant.name = "Foobar's"
     @restaurant.save
