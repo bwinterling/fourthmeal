@@ -33,60 +33,15 @@ kids = Category.create(title: "Kids Menu")
 add_ons = Category.create(title: "Add Ons")
 beverages = Category.create(title: "Beverages")
 
-# RESTAURANTS
-class RestaurantSeeder
-
-  attr_reader :amount
-
-  def initialize(amount)
-    @amount = amount
-  end
-
-  def create_restaurants
-    amount.times do
-      name = restaurant_names.sample + " " + hipster_ipsum.sample.capitalize
-      description = 10.times.map do
-        hipster_ipsum.sample
-      end.join(" ")
-      location = locations.sample
-      restaurant = Restaurant.create(:name => name,
-                        :location => location,
-                        :description => description
-      )
-      if restaurant.save
-        puts "Created #{name} : #{description} in #{location}"
-      else
-        puts "Failed to create #{name}"
-      end
-    end
-  end
-
-  def restaurant_names
-    ["Little India",
-      "Thai Tapas",
-      "Korean BBQ",
-      "Burger Bedlam",
-      "Taco Tuesday"]
-  end
-
-  def hipster_ipsum
-    ["Delectus", "flannel", "accusamus", "nulla", "Neutra.", "Meggings", "Cosby", "sweater", "duis,", "butcher", "Austin", "anim", "chambray", "locavore", "single-origin", "coffee.", "Marfa", "Banksy", "jean", "shorts", "meggings", "Intelligentsia", "disrupt.", "Bicycle", "rights", "direct", "trade", "cupidatat,", "velit", "commodo", "in", "qui", "Brooklyn", "mollit.", "Bitters", "letterpress", "artisan", "Tonx", "Williamsburg.", "Qui", "ennui", "retro", "banh", "mi", "YOLO", "ea.", "Tattooed", "mumblecore", "Marfa,", "pickled", "kitsch", "selvage", "aesthetic", "synth", "beard", "deserunt", "Blue", "Bottle", "eu."]
-  end
-
-  def locations
-    ["Aelas", "Vendor", "Alpha", "Centauri", "Afehirr", "Onias", "Psi", "Velorum", "Agrama", "Sierra", "Alpha", "Centauri", "Aido", "Onias", "Psi", "Velorum", "Aihai", "Devron", "Iota", "Pavonis", "Ajilon", "Archanis", "Eta", "Eridani", "Aldebaran", "Aldebaran", "Eta", "Eridani", "Algira", "Algira", "Alpha", "Trianguli", "Alhena", "Donatu", "Eta", "Eridani", "Alth'ndor"]
-  end
-
-end
-RestaurantSeeder.new(10).create_restaurants
-
 # ITEMS
 class ItemSeeder
 
-  attr_reader :amount
+  attr_reader :amount,
+              :restaurant_id
 
-  def initialize(amount)
+  def initialize(amount,restaurant_id=nil)
     @amount = amount
+    @restaurant_id = restaurant_id
   end
 
   def create_items
@@ -101,10 +56,11 @@ class ItemSeeder
         description: description,
         price: 5.99,
         photo: File.open(image_url, 'r'),
-        retired: false
+        retired: false,
+        restaurant_id: restaurant_id
       )
       if item.save
-        puts "Created #{title}"
+        puts "Created #{title} for restaurant #{item.restaurant_id}"
       else
         puts "Failed to create #{title}"
       end
@@ -149,8 +105,55 @@ class ItemSeeder
   end
 
 end
-ItemSeeder.new(10).create_items
+#ItemSeeder.new(10).create_items
 
+# RESTAURANTS
+class RestaurantSeeder
+
+  attr_reader :amount
+
+  def initialize(amount)
+    @amount = amount
+  end
+
+  def create_restaurants
+    amount.times do
+      name = restaurant_names.sample + " " + hipster_ipsum.sample.capitalize
+      description = 10.times.map do
+        hipster_ipsum.sample
+      end.join(" ")
+      location = locations.sample
+      restaurant = Restaurant.create(:name => name,
+                        :location => location,
+                        :description => description
+      )
+      if restaurant.save
+        puts "Created #{name} : #{description} in #{location}"
+        ItemSeeder.new(10,restaurant.id).create_items
+      else
+        puts "Failed to create #{name}"
+      end
+    end
+  end
+
+  def restaurant_names
+    ["Little India",
+      "Thai Tapas",
+      "Korean BBQ",
+      "Burger Bedlam",
+      "Taco Tuesday"]
+  end
+
+  def hipster_ipsum
+    ["Delectus", "flannel", "accusamus", "nulla", "Neutra.", "Meggings", "Cosby", "sweater", "duis,", "butcher", "Austin", "anim", "chambray", "locavore", "single-origin", "coffee.", "Marfa", "Banksy", "jean", "shorts", "meggings", "Intelligentsia", "disrupt.", "Bicycle", "rights", "direct", "trade", "cupidatat,", "velit", "commodo", "in", "qui", "Brooklyn", "mollit.", "Bitters", "letterpress", "artisan", "Tonx", "Williamsburg.", "Qui", "ennui", "retro", "banh", "mi", "YOLO", "ea.", "Tattooed", "mumblecore", "Marfa,", "pickled", "kitsch", "selvage", "aesthetic", "synth", "beard", "deserunt", "Blue", "Bottle", "eu."]
+  end
+
+  def locations
+    ["Aelas", "Vendor", "Alpha", "Centauri", "Afehirr", "Onias", "Psi", "Velorum", "Agrama", "Sierra", "Alpha", "Centauri", "Aido", "Onias", "Psi", "Velorum", "Aihai", "Devron", "Iota", "Pavonis", "Ajilon", "Archanis", "Eta", "Eridani", "Aldebaran", "Aldebaran", "Eta", "Eridani", "Algira", "Algira", "Alpha", "Trianguli", "Alhena", "Donatu", "Eta", "Eridani", "Alth'ndor"]
+  end
+
+end
+RestaurantSeeder.new(10).create_restaurants
 
 # ITEMS
 
