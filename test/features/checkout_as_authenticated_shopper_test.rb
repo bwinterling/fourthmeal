@@ -1,4 +1,5 @@
 require './test/test_helper'
+require_relative '../helpers/restaurant_helper'
 require 'database_cleaner'
 
 class CheckoutAsAuthenticatedShopperTest < Capybara::Rails::TestCase
@@ -15,10 +16,11 @@ class CheckoutAsAuthenticatedShopperTest < Capybara::Rails::TestCase
 
   def test_authenticated_shopper_can_checkout
     Capybara.current_driver = :selenium
-    item1 = create_valid_item
+    restaurant = create_valid_restaurant(:name => "Pdiddy")
+    item1 = create_valid_item(restaurant.id)
     create_and_login_user
-    visit root_path
 
+    visit restaurant_path(restaurant)
     within "#item_#{item1.id}" do
       click_on "Add to Cart"
     end

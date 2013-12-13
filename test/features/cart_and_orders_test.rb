@@ -40,11 +40,15 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
   end
 
   test "can add multiple items to cart without logging in" do
-    item1 = Item.create(title: 'Steak Burrito', description: 'Mouthwatering slab', price: '1')
-    item2 = Item.create(title: 'Breakfast Burrito', description: 'Yummy', price: '1')
+    restaurant = create_valid_restaurant(:name => "Boyo")
+    item1 = Item.create(title: 'Steak Burrito', description: 'Mouthwatering slab',
+                        price: '1',
+                        restaurant_id: restaurant.id)
+    item2 = Item.create(title: 'Breakfast Burrito', description: 'Yummy',
+                        price: '1',
+                        restaurant_id: restaurant.id)
 
     visit root_path
-    # failing because there is no restaurant
     first(:link, "Show").click
 
     within "#item_#{item1.id}" do
@@ -62,12 +66,15 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
   end
 
   test "can add multiple instances of same item to a cart" do
-    item1 = Item.create(title: 'Steak Burrito', description: 'Mouthwatering slab', price: '1')
+    restaurant = create_valid_restaurant(:name => "Biggy")
+    item1 = Item.create(title: 'Steak Burritos', description: 'Mouthwatering slab',
+                        price: '1',
+                        restaurant_id: restaurant.id)
     item2 = Item.create(title: 'Breakfast Burrito', description: 'Yummy', price: '1')
 
     visit root_path
-    # need to create a restaurant
-    # and select its menu
+    first(:link, "Show").click
+
     within "#item_#{item1.id}" do
       click_on "Add to Cart"
     end

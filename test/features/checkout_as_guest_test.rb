@@ -1,10 +1,17 @@
 require './test/test_helper'
+require_relative '../helpers/restaurant_helper'
 
 class CheckoutAsGuestTest < Capybara::Rails::TestCase
 
+  def setup
+    Restaurant.destroy_all
+  end
+
   def test_guest_user_has_option_to_checkout
-    item1 = create_valid_item
+    restaurant = create_valid_restaurant(:name => "Boyoh's")
+    item1 = create_valid_item(restaurant.id)
     visit root_path
+    first(:link, "Show").click
 
     within "#item_#{item1.id}" do
       click_on "Add to Cart"
@@ -15,9 +22,11 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
   end
 
   def test_guest_user_can_checkout
+    restaurant = create_valid_restaurant(:name => "Boyoh's")
     Capybara.reset!
-    item1 = create_valid_item
+    item1 = create_valid_item(restaurant.id)
     visit root_path
+    first(:link, "Show").click
 
     within "#item_#{item1.id}" do
       click_on "Add to Cart"
