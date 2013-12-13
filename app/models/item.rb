@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, presence: true, :uniqueness => { scope: :restaurant_id }
   validates :description, presence: true
   validates_numericality_of :price, :greater_than_or_equal_to => 0
 

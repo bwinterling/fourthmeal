@@ -9,8 +9,8 @@ class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
   self.use_transactional_fixtures = false
 
-  def create_valid_item(restaurant_id=1)
-    @item = Item.create(:title => "Hello!",
+  def create_valid_item(restaurant_id=1, title="Hello!")
+    @item = Item.create(:title => title,
     :description => "World",
     :price => 4,
     :slug => "new_item",
