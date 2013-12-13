@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213020202) do
+ActiveRecord::Schema.define(version: 20131213152451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20131213020202) do
     t.datetime "updated_at"
     t.string   "slug"
   end
+
+  add_index "restaurants", ["name"], name: "index_restaurants_on_name", using: :btree
 
   create_table "transactions", force: true do |t|
     t.string   "first_name"
