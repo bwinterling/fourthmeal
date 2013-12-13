@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-  has_many :items
+  has_many :items, dependent: :destroy
   before_validation :slugify
 
   validates :name,        presence: true, uniqueness: true
