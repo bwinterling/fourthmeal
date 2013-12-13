@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.includes(:items).find_by_param(params[:id])
+    @restaurant = Restaurant.includes(:items).find_by(:slug => params[:id])
   end
 
   def new
@@ -53,10 +53,13 @@ class RestaurantsController < ApplicationController
 
   private
     def set_restaurant
-      @restaurant = Restaurant.find_by_param(params[:id])
+      @restaurant = Restaurant.find_by(:slug => params[:id])
     end
 
     def restaurant_params
-      params.require(:restaurant).permit(:name, :location, :description)
+      params.require(:restaurant).permit(:name,
+                                         :location,
+                                         :description,
+                                         :slug)
     end
 end

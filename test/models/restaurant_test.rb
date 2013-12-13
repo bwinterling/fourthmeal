@@ -3,6 +3,7 @@ require_relative "../test_helper"
 class RestaurantTest < ActiveSupport::TestCase
 
   def setup
+    Restaurant.destroy_all
     @restaurant = Restaurant.create(valid_params)
   end
 
@@ -11,6 +12,7 @@ class RestaurantTest < ActiveSupport::TestCase
       :name => "Bob's",
       :location => "NYC",
       :description => "awesomeness"
+
     }
   end
 
@@ -34,11 +36,23 @@ class RestaurantTest < ActiveSupport::TestCase
   end
 
   test "it returns its items" do
-    restaurant = Restaurant.create(valid_params.merge(:name => "Roy's"))
+    restaurant = Restaurant.create(valid_params.merge(:name => "Roy Rogers"))
     item = create_valid_item
     item.restaurant_id = restaurant.id
     item.save
     assert_equal 1, restaurant.items.count
+  end
+
+  test "it returns its slug" do
+    restaurant = Restaurant.create(valid_params.merge(:name => "bobby sue's"))
+    assert_equal "bobby-sue-s", restaurant.slug
+  end
+
+  test "rejects duplicate slug" do
+    restaurant = Restaurant.create(valid_params.merge(:name => "bobby sue's"))
+    assert_equal "bobby-sue-s", restaurant.slug
+    restaurant2 = Restaurant.create(valid_params.merge(:name => "bobby sue s"))
+    refute restaurant2.valid?
   end
 
 end
