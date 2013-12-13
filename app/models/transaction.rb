@@ -9,8 +9,4 @@ class Transaction < ActiveRecord::Base
   validates :result, presence: true, inclusion: { in:
     ['success', 'fail'] }
 
-  def pay!
-    order.status = "paid"
-    order.save
-  end
 end

@@ -22,7 +22,7 @@ class ActiveSupport::TestCase
   end
 
   def create_valid_order
-    @order = Order.create(:status => 'unpaid', :user_id => 5)
+    @order = Order.create(:user_id => 5)
   end
 
   def create_valid_category
@@ -62,7 +62,8 @@ class ActiveSupport::TestCase
                        last_name: user.display_name,
                        email: user.email,
                        zipcode: "12345",
-                       order_id: user.orders.last.id
+                       order_id: user.orders.last.id,
+                       result: "success"
                       )
   end
 

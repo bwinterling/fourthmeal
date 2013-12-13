@@ -49,7 +49,7 @@ class CheckoutAsAuthenticatedShopperTest < Capybara::Rails::TestCase
     Capybara.reset_sessions!
     item1 = create_valid_item
     user = create_and_login_user
-    Order.create(:status => 'unpaid', :user_id => user.id)
+    Order.create(:user_id => user.id)
     binding.pry
     create_transaction_for(user)
     binding.pry

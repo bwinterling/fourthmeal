@@ -332,16 +332,16 @@ user5 = User.create(email: "admin@example.com",
 
 # ORDERS
 
-order1 = Order.create(status: 'unpaid', user_id: user1.id)
-order2 = Order.create(status: 'unpaid', user_id: user2.id)
-order3 = Order.create(status: 'unpaid', user_id: user3.id)
-order4 = Order.create(status: 'unpaid', user_id: user4.id)
-order5 = Order.create(status: 'unpaid', user_id: user1.id)
-order6 = Order.create(status: 'paid', user_id: user2.id)
-order7 = Order.create(status: 'unpaid', user_id: user3.id)
-order8 = Order.create(status: 'paid', user_id: user4.id)
-order9 = Order.create(status: 'unpaid', user_id: user1.id)
-order10 = Order.create(status: 'paid', user_id: user2.id)
+order1 = Order.create(user_id: user1.id)
+order2 = Order.create(user_id: user2.id)
+order3 = Order.create(user_id: user3.id)
+order4 = Order.create(user_id: user4.id)
+order5 = Order.create(user_id: user1.id)
+order6 = Order.create(user_id: user2.id)
+order7 = Order.create(user_id: user3.id)
+order8 = Order.create(user_id: user4.id)
+order9 = Order.create(user_id: user1.id)
+order10 = Order.create(user_id: user2.id)
 
 
 # ORDER ITEMS

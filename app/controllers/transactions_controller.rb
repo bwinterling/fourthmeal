@@ -10,7 +10,8 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = current_order.build_transaction(updated_params)
+    # @transaction = current_order.build_transaction(updated_params)
+    @transaction = Transaction.new(updated_params)
     if @transaction.save
       transaction_successfully_saved(@transaction)
       flash[:notice] = "Successfully created your order!"
@@ -35,8 +36,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_successfully_saved(trans)
-    # trans.pay!
-    #don't need this if we use transaction result
     current_order.update(:user_id => current_user.id) if current_user
     session[:current_order] = nil
     OrderMailer.order_confirmation(trans).deliver
@@ -63,7 +62,7 @@ class TransactionsController < ApplicationController
   end
 
   def transaction_params
-    params.require(:transaction).permit(:first_name, :last_name, :email, :credit_card_number, :credit_card_expiration, :zipcode)
+    params.require(:transaction).permit(:first_name, :last_name, :email, :zipcode)
   end
 
 end
