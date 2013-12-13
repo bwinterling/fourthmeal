@@ -26,8 +26,14 @@ user5 = User.create(email: "admin@example.com",
   password: "password",
   admin: true)
 
-# RESTAURANTS
+# CATEGORIES
+entrees = Category.create(title: "Entrees")
+combos = Category.create(title: "Combos")
+kids = Category.create(title: "Kids Menu")
+add_ons = Category.create(title: "Add Ons")
+beverages = Category.create(title: "Beverages")
 
+# RESTAURANTS
 class RestaurantSeeder
 
   attr_reader :amount
@@ -74,13 +80,76 @@ class RestaurantSeeder
 end
 RestaurantSeeder.new(10).create_restaurants
 
+# ITEMS
+class ItemSeeder
 
-# CATEGORIES
-entrees = Category.create(title: "Entrees")
-combos = Category.create(title: "Combos")
-kids = Category.create(title: "Kids Menu")
-add_ons = Category.create(title: "Add Ons")
-beverages = Category.create(title: "Beverages")
+  attr_reader :amount
+
+  def initialize(amount)
+    @amount = amount
+  end
+
+  def create_items
+    amount.times do
+      title = item_titles.sample + " " + hipster_ipsum.sample.capitalize
+      description = 10.times.map do
+        hipster_ipsum.sample + " " + title
+      end.join(" ")
+      image_url = item_image_urls.sample
+      item = Item.create(
+        title: title,
+        description: description,
+        price: 5.99,
+        photo: File.open(image_url, 'r'),
+        retired: false
+      )
+      if item.save
+        puts "Created #{title}"
+      else
+        puts "Failed to create #{title}"
+      end
+    end
+  end
+
+  def item_titles
+    ["Burrito",
+      "Tacos",
+      "Korma",
+      "Burger",
+      "Cheese"]
+  end
+
+  def item_image_urls
+    [
+      "app/assets/images/BURRITO.png",
+      "app/assets/images/BREAKFAST.png",
+      "app/assets/images/NAKED_BURRITO.png",
+      "app/assets/images/C2_TACO_GUMBO.png",
+      "app/assets/images/SIG_VEGGIE_BURRITO.png",
+      "app/assets/images/TACO_SALAD.png",
+      "app/assets/images/KIDS_LEADING.png",
+      "app/assets/images/KIDS_TACO.png",
+      "app/assets/images/KIDS_QUESADILLA.png",
+      "app/assets/images/KIDS_NAKED_BURRITO.png",
+      "app/assets/images/C2_TACO_TORT_SOUP.png",
+      "app/assets/images/C2_NACHO_DILLA.png",
+      "app/assets/images/C2_TACO_GUMBO.png",
+      "app/assets/images/C2_TACO_NAKED-BURRITO.png",
+      "app/assets/images/C2_TACO_NAKED_TACO.png",
+      "app/assets/images/3_CHEESE_NACHOS.png",
+      "app/assets/images/CHIPS_DIP.png",
+      "app/assets/images/beers.jpeg",
+      "app/assets/images/soda.jpg",
+      "app/assets/images/cocktails.jpg"
+    ]
+  end
+
+  def hipster_ipsum
+    ["Delectus", "flannel", "accusamus", "nulla", "Neutra.", "Meggings", "Cosby", "sweater", "duis,", "butcher", "Austin", "anim", "chambray", "locavore", "single-origin", "coffee.", "Marfa", "Banksy", "jean", "shorts", "meggings", "Intelligentsia", "disrupt.", "Bicycle", "rights", "direct", "trade", "cupidatat,", "velit", "commodo", "in", "qui", "Brooklyn", "mollit.", "Bitters", "letterpress", "artisan", "Tonx", "Williamsburg.", "Qui", "ennui", "retro", "banh", "mi", "YOLO", "ea.", "Tattooed", "mumblecore", "Marfa,", "pickled", "kitsch", "selvage", "aesthetic", "synth", "beard", "deserunt", "Blue", "Bottle", "eu."]
+  end
+
+end
+ItemSeeder.new(10).create_items
 
 
 # ITEMS
