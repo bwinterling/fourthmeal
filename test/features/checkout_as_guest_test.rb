@@ -47,10 +47,14 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
       fill_in "Last name", with: "Hope"
       fill_in "Email", with: "shopper@example.com"
       fill_in "Zipcode", with: "12345"
-      click_on "Pay with Card"
+      fill_in "Credit Card", with: "4242424242424242"
+      fill_in "CVC", with: "123"
+      fill_in "Exp Month (MM)", with: "10"
+      fill_in "Exp Year (YYYY)", with: "2020"
+      click_on "Submit"
     end
 
-    assert page.has_content?('Pay')
+    assert page.has_content?('Successfully created your order')
   end
 
 end
