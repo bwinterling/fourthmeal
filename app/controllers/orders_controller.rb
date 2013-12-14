@@ -32,7 +32,8 @@ class OrdersController < ApplicationController
     @order = current_order
     @item = Item.find(params[:item])
     add_item_to_order
-    redirect_to order_path(@order.id)
+    flash[:notice] = "Added #{@item.title} to your cart."
+    redirect_to :back
   end
 
   def destroy
