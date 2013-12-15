@@ -129,7 +129,7 @@ class RestaurantSeeder
       )
       if restaurant.save
         puts "Created #{name} : #{description} in #{location}"
-        ItemSeeder.new(10,restaurant.id).create_items
+        ItemSeeder.new(100,restaurant.id).create_items
       else
         puts "Failed to create #{name}"
       end
@@ -153,7 +153,7 @@ class RestaurantSeeder
   end
 
 end
-RestaurantSeeder.new(10).create_restaurants
+RestaurantSeeder.new(100).create_restaurants
 
 # ITEMS
 
