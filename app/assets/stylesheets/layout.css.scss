@@ -123,9 +123,15 @@ h1 {
 
 .show-order-table {
   clear: both;
-
 }
 
 .hidden {
   display: none;
+}
+
+.order-total {
+  font-family: 'Podkova', serif;
+  font-size: 2em;
+  text-decoration: none;
+  float: right;
 }

@@ -13,6 +13,18 @@ class Order < ActiveRecord::Base
     else
       "unpaid"
     end
+
+  def total
+    total = 0
+    order_items.each do |order_item|
+      total += order_item.quantity * order_item.item.price
+    end
+    "Order Total: #{total}"
+  end
+
+  def add_item(item, quantity)
+    self.order_items.create(:item_id => item.id,
+    :quantity => quantity )
   end
 
 end
