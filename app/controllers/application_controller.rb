@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_order_empty?
 
   def current_order
-    Order.find_by_id(session[:current_order]) || Order.new(status: "unpaid")
+    @current_order ||= Order.find_by_id(session[:current_order]) || Order.new(status: "unpaid")
   end
 
   def current_restaurant
