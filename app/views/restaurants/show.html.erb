@@ -1,21 +1,23 @@
-<p id="notice"><%= notice %></p>
+<section class="grid-container">
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+  <p>
+    <strong>Location:</strong>
+    <%= @restaurant.location %>
+  </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @restaurant.location %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @restaurant.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @restaurant.description %>
-</p>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %>
+</section>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
-
-<%= render partial: 'items/item', collection: @restaurant.items %>
+<section class="grid-container menu-view">
+  <%= render partial: 'items/item', collection: @restaurant.items %>
+</section>
