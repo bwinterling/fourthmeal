@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209035217) do
+ActiveRecord::Schema.define(version: 20131213153842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,10 @@ ActiveRecord::Schema.define(version: 20131209035217) do
     t.datetime "photo_updated_at"
     t.string   "slug"
     t.boolean  "retired",                                     default: false
+    t.integer  "restaurant_id"
   end
+
+  add_index "items", ["restaurant_id"], name: "index_items_on_restaurant_id", using: :btree
 
   create_table "order_items", force: true do |t|
     t.integer  "order_id"
@@ -60,12 +63,29 @@ ActiveRecord::Schema.define(version: 20131209035217) do
     t.integer  "quantity"
   end
 
+  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id", using: :btree
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
   create_table "orders", force: true do |t|
     t.text     "status"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "restaurants", force: true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
+  end
+
+  add_index "restaurants", ["name"], name: "index_restaurants_on_name", using: :btree
+  add_index "restaurants", ["slug"], name: "index_restaurants_on_slug", using: :btree
 
   create_table "transactions", force: true do |t|
     t.string   "first_name"
@@ -89,5 +109,7 @@ ActiveRecord::Schema.define(version: 20131209035217) do
     t.datetime "updated_at"
     t.boolean  "admin"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
 end

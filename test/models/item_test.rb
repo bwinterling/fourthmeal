@@ -1,7 +1,12 @@
-require 'test_helper'
-
+require_relative '../test_helper'
+require_relative '../helpers/restaurant_helper'
 
 class ItemTest < ActiveSupport::TestCase
+
+  def setup
+    Item.destroy_all
+    Restaurant.destroy_all
+  end
 
   test "it is created with valid attributes" do
     create_valid_item
@@ -69,6 +74,22 @@ class ItemTest < ActiveSupport::TestCase
     item2.categories << category2
     found_items = Item.filter_by_category("Brunch")
     assert_equal "Hello!", found_items.first.title
+  end
+
+  test "it has restaurant_id method" do
+    create_valid_item
+    assert_equal 1, @item.restaurant_id
+  end
+
+  test "it is unique by restaurant" do
+    restaurant1 = create_valid_restaurant(:name => "One")
+    item1 = create_valid_item(restaurant1.id, "Food")
+    assert item1.valid?
+    item2 = create_valid_item(restaurant1.id, "Food")
+    refute item2.valid?
+    restaurant2 = create_valid_restaurant(:name => "Two")
+    item3 = create_valid_item(restaurant2.id, "Food")
+    assert item3.valid?
   end
 
 end
