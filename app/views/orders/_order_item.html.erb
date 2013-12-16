@@ -5,6 +5,6 @@
   <td class="table-item"><%= order_item.quantity %></td>
   <td class="table-item"><%= number_to_currency(order_item.quantity*order_item.item.price) %></td>
   <td class="table-item"><%= button_to "Remove", 
-      { :controller => :order_items, :action => 'destroy', :oiid => order_item.id }, 
+      { :controller => :order_items, :action => 'destroy', :id => "Ask George", :oiid => order_item.id }, 
         :method => :delete, class:"button" %></td>
 <% end %>
