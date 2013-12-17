@@ -43,13 +43,14 @@ class OrderTest < ActiveSupport::TestCase
 
   test "calculating total" do
     create_valid_order
-    assert_equal 0, @order.total
+    assert_equal "Order Total: 0", @order.total
     new_item = create_valid_item
     new_item.price = 5.01
     new_item.save!
 
     @order.add_item(new_item, 2)
     assert_equal 10.02, @order.total
+    assert_equal "Order Total: 10.02", @order.total
   end
 
 
