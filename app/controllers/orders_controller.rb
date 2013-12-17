@@ -12,20 +12,20 @@ class OrdersController < ApplicationController
     @order_items = @order.order_items
     @items = Item.active.limit(10)
     if @order_items.count < 1
-      redirect_to menu_path
+      redirect_to root_path
     end
   end
 
   def create
-    current_restaurant = @current_restaurant
-    @order = Order.create(:user_id => 1)
-                          #:restaurant_id => current_restaurant.id)
+    @order = Order.create(:user_id => 1,
+                          :restaurant_id => current_restaurant.id)
     if params[:item]
       item = Item.find(params[:item])
       @order.order_items.build(item: item, quantity: 1)
       @order.save
     end
-    session[:current_order] = @order.id
+    session[:orders] = [] unless session[:orders]
+    session[:orders] << @order.id
     redirect_to :back
   end
 

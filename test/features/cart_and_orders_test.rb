@@ -83,7 +83,6 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
       click_on "Add to Cart"
     end
 
-    visit order_path(Order.first)
     within("#current_order") do
       assert_content page, "2"
     end
