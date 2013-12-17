@@ -1,10 +1,11 @@
-require "test_helper"
+require_relative "../test_helper"
 
 class TransactionsControllerTest < ActionController::TestCase
 
   def setup
+    Item.destroy_all
     reset_email
-    item = create_valid_item
+    item = create_valid_item(1,"Shazam")
     @order = create_valid_order
     @order_item = OrderItem.create(
       :order_id => @order.id,
@@ -23,7 +24,7 @@ class TransactionsControllerTest < ActionController::TestCase
                   {"current_order" => @order})
     assert_equal "Your order is confirmed!", last_email.subject
     assert_equal "shopper@example.com", last_email.to.first
-    assert last_email.body.include?("Hello!")
+    assert last_email.body.include?("Shazam")
   end
 
 end
