@@ -10,16 +10,16 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    # @transaction = current_order.build_transaction(updated_params)
-    @transaction = Transaction.new(updated_params)
-    if @transaction.save
-      transaction_successfully_saved(@transaction)
-      flash[:notice] = "Successfully created your order!"
-      redirect_to transaction_path(@transaction)
-    else
-      flash[:notice] = "There was a problem creating your order!"
-      render :new
-    end
+    CompletePurchase.new(current_user, current_order).create(updated_params,
+      ->(transaction) {
+        session[:current_order] = nil
+        flash[:notice] = "Successfully created your order!"
+        redirect_to transaction_path(transaction)
+      },
+      -> {
+        flash[:notice] = "There was a problem creating your order!"
+        render :new
+    })
   end
 
   def show
@@ -34,12 +34,6 @@ class TransactionsController < ApplicationController
   end
 
   private
-
-  def transaction_successfully_saved(trans)
-    current_order.update(:user_id => current_user.id) if current_user
-    session[:current_order] = nil
-    OrderMailer.order_confirmation(trans).deliver
-  end
 
   def new_transaction_with_autofill
     Transaction.new(user_has_transacted? ? previous_transaction_params : nil)

@@ -9,8 +9,8 @@ class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
   self.use_transactional_fixtures = false
 
-  def create_valid_item
-    @item = Item.create(:title => "Hello!",
+  def create_valid_item(restaurant_id=1, title="Hello!")
+    @item = Item.create(:title => title,
     :description => "World",
     :price => 4,
     :slug => "new_item",
@@ -18,7 +18,8 @@ class ActiveSupport::TestCase
     :photo_file_name => "hello.jpg",
     :photo_content_type => "jpeg",
     :photo_file_size => 12353,
-    :photo_updated_at => Time.now.to_s)
+    :photo_updated_at => Time.now.to_s,
+    :restaurant_id => restaurant_id)
   end
 
   def create_valid_order
@@ -30,7 +31,8 @@ class ActiveSupport::TestCase
   end
 
   def create_valid_user(password="password", email="test@example.com")
-    @user = User.create(:email        => email,
+    @user = User.where(:email => email).first_or_create(
+                        :email        => email,
                         :full_name    => "Bennny Smith",
                         :display_name => "Bennybeans",
                         :password     => password,

@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_order_empty?
 
   def current_order
-    Order.find_by_id(session[:current_order]) || Order.new
+    @current_order ||= Order.find_by_id(session[:current_order]) || Order.new
+  end
+
+  def current_restaurant
+    @current_restaurant ||= Restaurant.find_by(:slug => params[:restaurant])
   end
 
   def categories
