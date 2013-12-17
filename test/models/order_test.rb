@@ -49,7 +49,6 @@ class OrderTest < ActiveSupport::TestCase
     new_item.save!
 
     @order.add_item(new_item, 2)
-    assert_equal 10.02, @order.total
     assert_equal "Order Total: 10.02", @order.total
   end
 

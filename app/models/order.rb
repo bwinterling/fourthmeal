@@ -13,6 +13,7 @@ class Order < ActiveRecord::Base
     else
       "unpaid"
     end
+  end
 
   def total
     total = 0
