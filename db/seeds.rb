@@ -1,37 +1,8 @@
-# USERS
+Rake::Task['seeds:users'].invoke
 
-user1 = User.create(email: "demo+franklin@jumpstartlab.com",
-  full_name: "Franklin Webber",
-  display_name: "",
-  password: "password")
+Rake::Task['seeds:categories'].invoke
 
-user2 = User.create(email: "demo+jeff@jumpstartlab.com",
-  full_name: "Jeff",
-  display_name: "j3",
-  password: "password")
-
-user3 = User.create(email: "demo+katrina@jumpstartlab.com",
-  full_name: "Katrina Owen",
-  display_name: "kytrynx",
-  password: "password")
-
-user4 = User.create(email: "benjamin@example.com",
-  full_name: "Ben Lewis",
-  display_name: "bennybeans",
-  password: "password")
-
-user5 = User.create(email: "admin@example.com",
-  full_name: "Neck Beard",
-  display_name: "neckbeard",
-  password: "password",
-  admin: true)
-
-# CATEGORIES
-entrees = Category.create(title: "Entrees")
-combos = Category.create(title: "Combos")
-kids = Category.create(title: "Kids Menu")
-add_ons = Category.create(title: "Add Ons")
-beverages = Category.create(title: "Beverages")
+Rake::Task['seeds:restaurants'].invoke
 
 # ITEMS
 class ItemSeeder
@@ -107,58 +78,10 @@ class ItemSeeder
 end
 #ItemSeeder.new(10).create_items
 
-# RESTAURANTS
-class RestaurantSeeder
-
-  attr_reader :amount
-
-  def initialize(amount)
-    @amount = amount
-  end
-
-  def create_restaurants
-    amount.times do
-      name = restaurant_names.sample + " " + hipster_ipsum.sample.capitalize
-      description = 10.times.map do
-        hipster_ipsum.sample
-      end.join(" ")
-      location = locations.sample
-      restaurant = Restaurant.create(:name => name,
-                        :location => location,
-                        :description => description
-      )
-      if restaurant.save
-        puts "Created #{name} : #{description} in #{location}"
-        ItemSeeder.new(100,restaurant.id).create_items
-      else
-        puts "Failed to create #{name}"
-      end
-    end
-  end
-
-  def restaurant_names
-    ["Little India",
-      "Thai Tapas",
-      "Korean BBQ",
-      "Burger Bedlam",
-      "Taco Tuesday"]
-  end
-
-  def hipster_ipsum
-    ["Delectus", "flannel", "accusamus", "nulla", "Neutra.", "Meggings", "Cosby", "sweater", "duis,", "butcher", "Austin", "anim", "chambray", "locavore", "single-origin", "coffee.", "Marfa", "Banksy", "jean", "shorts", "meggings", "Intelligentsia", "disrupt.", "Bicycle", "rights", "direct", "trade", "cupidatat,", "velit", "commodo", "in", "qui", "Brooklyn", "mollit.", "Bitters", "letterpress", "artisan", "Tonx", "Williamsburg.", "Qui", "ennui", "retro", "banh", "mi", "YOLO", "ea.", "Tattooed", "mumblecore", "Marfa,", "pickled", "kitsch", "selvage", "aesthetic", "synth", "beard", "deserunt", "Blue", "Bottle", "eu."]
-  end
-
-  def locations
-    ["Aelas", "Vendor", "Alpha", "Centauri", "Afehirr", "Onias", "Psi", "Velorum", "Agrama", "Sierra", "Alpha", "Centauri", "Aido", "Onias", "Psi", "Velorum", "Aihai", "Devron", "Iota", "Pavonis", "Ajilon", "Archanis", "Eta", "Eridani", "Aldebaran", "Aldebaran", "Eta", "Eridani", "Algira", "Algira", "Alpha", "Trianguli", "Alhena", "Donatu", "Eta", "Eridani", "Alth'ndor"]
-  end
-
-end
-RestaurantSeeder.new(100).create_restaurants
-
 # ITEMS
 
 # Entrees
-
+# NOTE: below requires local variables
 burrito = Item.create(
   title: "Steak Burrito",
   description: "Mouthwatering slab of meat wrapped in white flour.",
