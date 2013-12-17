@@ -66,6 +66,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     daemons (1.1.9)
+    dalli (2.6.4)
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     docile (1.1.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   binding_of_caller
   capybara-rails
   coffee-rails (~> 4.0.0)
+  dalli
   database_cleaner
   faker
   guard
