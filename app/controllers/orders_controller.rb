@@ -17,12 +17,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(:status => "unpaid", :user_id => 1)
+    @order = Order.create(:user_id => 1)
     if params[:item]
       item = Item.find(params[:item])
-      @order.order_items.build(item: item, quantity: 1) 
+      @order.order_items.build(item: item, quantity: 1)
       @order.save
-    end 
+    end
+    # update the order to have the proper restaurant_id
     session[:current_order] = @order.id
     redirect_to order_path(session[:current_order])
   end
@@ -55,8 +56,8 @@ class OrdersController < ApplicationController
       @order_item.update(:quantity => current_count + 1)
     else
       @order_item = OrderItem.create(
-        :order_id => current_order.id, 
-        :item_id => @item.id, 
+        :order_id => current_order.id,
+        :item_id => @item.id,
         :quantity => 1)
     end
   end

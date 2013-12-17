@@ -1,12 +1,14 @@
-<% if items_in_cart? %>
-  <section id="current_order" class="grid-container"> 
-    <%= render partial: 'order', locals: {:order => @order} %>
+<% cache @items do %>
+  <% if items_in_cart? %>
+    <section id="current_order" class="grid-container"> 
+      <%= render partial: 'order', locals: {:order => @order} %>
+    </section>
+  <% end %>
+  
+  <section id="shop_more" class="grid-container">
+    <div class="grid-100">
+      <h1 id="fill-your-bag">Fill Your Bag</h1>
+    </div>
+    <%= render partial: 'items/item', collection: @items %>
   </section>
 <% end %>
-
-<section id="shop_more" class="grid-container">
-  <div class="grid-100">
-    <h1 id="fill-your-bag">Fill Your Bag</h1>
-  </div>
-  <%= render partial: 'items/item', collection: @items %>
-</section>

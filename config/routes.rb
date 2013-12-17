@@ -1,5 +1,7 @@
 OnoBurrito::Application.routes.draw do
-  root :to => "items#index"
+  resources :restaurants
+
+  root :to => "restaurants#index"
 
   resources :contacts
   resources :items do

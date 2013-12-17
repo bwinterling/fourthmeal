@@ -9,7 +9,8 @@ class TransactionTest < ActiveSupport::TestCase
       email: "bob@hope.com",
       credit_card_number: 4444888899996666,
       credit_card_expiration: 8833,
-      zipcode: 45455
+      zipcode: 45455,
+      result: "success"
     }
   end
 
@@ -53,12 +54,12 @@ class TransactionTest < ActiveSupport::TestCase
     refute transaction.valid?
   end
 
-  test "it updates a paid transaction and saves" do
+  #eventually this needs to test both successful and unsuccessful results
+
+  test "it has a result" do
     order = create_valid_order
     alt_params = valid_params.merge(order_id: order.id)
     transaction = Transaction.create(alt_params)
-    assert_equal "unpaid", transaction.order.status
-    transaction.pay!
-    assert_equal "paid", transaction.order.status
+    assert_equal "success", transaction.result
   end
 end

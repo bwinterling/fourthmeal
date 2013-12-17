@@ -6,9 +6,7 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :email
   validates_format_of   :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates_format_of   :zipcode, with: /\d{5}/
+  validates :result, presence: true, inclusion: { in:
+    ['success', 'fail'] }
 
-  def pay!
-    order.status = "paid"
-    order.save
-  end
 end

@@ -33,14 +33,14 @@
       <% if items_in_cart? && @order.nil? %>
         <%= render 'layouts/view_order_link' %>
       <% end %>
-       
+
       <%= yield %>
     </main>
 
     <footer class="grid-container" id="footer-container" role="footer">
       <%= render 'layouts/footer' %>
     </footer>
-    
+
   </div>
 </body>
 
