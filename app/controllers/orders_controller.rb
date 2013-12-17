@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
       @order.save
     end
     session[:current_order] = @order.id
-    redirect_to order_path(session[:current_order])
+    redirect_to :back
   end
 
   def update
@@ -34,7 +34,8 @@ class OrdersController < ApplicationController
     @order = current_order
     @item = Item.find(params[:item])
     add_item_to_order
-    redirect_to order_path(@order.id)
+    flash[:notice] = "Added #{@item.title} to your cart."
+    redirect_to :back
   end
 
   def destroy

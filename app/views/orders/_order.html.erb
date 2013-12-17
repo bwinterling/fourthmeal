@@ -1,5 +1,4 @@
-<table class="grid-100">
-  <h1 id="your-current-order">Your Current Order </h1>
+<table class="grid-100 show-order-table">
   <thead>
     <tr>
       <td class="table-header-item">Title</td>
@@ -12,7 +11,7 @@
   </thead>
 
   <tbody>
-    <%= render partial: 'order_item', collection: order.order_items %>
+    <%= render partial: 'orders/order_item', collection: order.order_items %>
   </tbody>
 
 </table>
@@ -22,7 +21,7 @@
     <%= link_to "(Cancel Order)", order_path(current_order.id), :method => :delete, id: "cancel-link" %>
     <br/>
     <h2 id="current-total">
-      Current Total: <%= number_to_currency(order_total(@order_items)) %>
+      Current Total: <%= number_to_currency(order_total(current_order.order_items)) %>
     </h2>
     
   </div>

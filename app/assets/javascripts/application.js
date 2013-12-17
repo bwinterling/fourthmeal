@@ -14,3 +14,30 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require_tree .
+
+$(function() {
+  // find the view order link
+  // add event handler for click
+  $(".view-order-link").on("click", function(event){
+  	// prevent the default action
+  	event.preventDefault();
+  	// toggle visibility of order partial
+  	$("#current_order").slideToggle();
+  	$(".order-header").fadeToggle();
+  	// toggle out view order link
+  	$(this).toggle();
+    $(".order-total").toggle();
+  	// toggle in "Your Current order" header
+  	// toggle in close link
+  });
+    // find close link
+  	// do the opposite as above
+  $(".hide-order").on("click", function(event){
+  	event.preventDefault();
+  	$(".order-header").toggle();
+  	$(".view-order-link").fadeToggle();
+    $(".order-total").fadeToggle();
+  	$("#current_order").slideToggle();
+  });
+
+});
