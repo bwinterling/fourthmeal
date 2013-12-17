@@ -29,8 +29,8 @@ class MultipleCartsTest < Capybara::Rails::TestCase
       click_on "Add to Cart"
     end
 
-    refute page.has_content?("Numone")
-    assert page.has_content?("Numtwo")
+    refute page.has_content?("Numone"), "should not have first item"
+    assert page.has_content?("Numtwo"), "should show second item"
   end
 
 end

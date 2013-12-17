@@ -7,6 +7,8 @@ class Order < ActiveRecord::Base
   has_many :items, through: :order_items
   has_many :transactions
 
+  belongs_to :restaurant
+
   def status
     if transactions.any? { |t| t.result == "success" }
       "paid"

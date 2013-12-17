@@ -1,7 +1,7 @@
 <%= div_for(item, class:"tile grid-33") do %>
     <%= image_tag item.photo.url, class:"item-image", height:200, width:200 %>
 
-    <%= form_for current_order, url: restaurant_order_path do |f| %>
+    <%= form_for current_order do |f| %>
       <h2 class="tile-title">
         <%= item.title %>
       </h2>

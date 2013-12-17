@@ -3,6 +3,8 @@ OnoBurrito::Application.routes.draw do
     resources :orders
   end
 
+  resources :orders
+
   root :to => "restaurants#index"
 
   resources :contacts

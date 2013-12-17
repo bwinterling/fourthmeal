@@ -1,4 +1,5 @@
-require 'test_helper'
+require_relative '../test_helper'
+require_relative '../helpers/restaurant_helper'
 
 class OrderTest < ActiveSupport::TestCase
 
@@ -28,6 +29,13 @@ class OrderTest < ActiveSupport::TestCase
   test "it has items" do
     create_valid_order
     assert @order.items
+  end
+
+  test "it has and responds to restaurant" do
+    restaurant = create_valid_restaurant(:name => "foo's")
+    order = create_valid_order
+    order.restaurant = restaurant
+    assert_equal restaurant.id, order.restaurant.id
   end
 
   def transaction_base_params(order)
