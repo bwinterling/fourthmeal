@@ -10,14 +10,16 @@ class OrdersController < ApplicationController
     @page_title = "Your Order"
     @order = current_order
     @order_items = @order.order_items
-    @items = Item.active
+    @items = Item.active.limit(10)
     if @order_items.count < 1
       redirect_to menu_path
     end
   end
 
   def create
+    current_restaurant = @current_restaurant
     @order = Order.create(:user_id => 1)
+                          #:restaurant_id => current_restaurant.id)
     if params[:item]
       item = Item.find(params[:item])
       @order.order_items.build(item: item, quantity: 1)

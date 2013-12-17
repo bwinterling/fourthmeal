@@ -1,5 +1,7 @@
 OnoBurrito::Application.routes.draw do
-  resources :restaurants
+  resources :restaurants do
+    resources :orders
+  end
 
   root :to => "restaurants#index"
 
@@ -8,7 +10,6 @@ OnoBurrito::Application.routes.draw do
     :item_categories
   end
   resources :locations
-  resources :orders
   resources :order_items
   resources :sessions
   resources :transactions, only: [:new, :create, :show]
