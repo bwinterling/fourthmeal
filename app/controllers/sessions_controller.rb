@@ -25,11 +25,10 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     session.delete(:order_id)
+    session.delete(:prev_page)
     session[:user_id] = nil
     session[:current_order] = Order.new
     redirect_to root_url, :notice => "Logged out!"
   end
-
-  
 
 end

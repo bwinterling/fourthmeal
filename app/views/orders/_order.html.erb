@@ -1,8 +1,9 @@
-<table class="grid-100 show-order-table">
+<table class="grid-100 show-order-table order-table">
+  <h1 id="your-current-order">Your Current Order </h1>
   <thead>
     <tr>
       <td class="table-header-item">Title</td>
-      <td class="table-header-item">Description</td>
+      <td class="table-header-item desc">Description</td>
       <td class="table-header-item">Price</td>
       <td class="table-header-item">Quantity</td>
       <td class="table-header-item">Subtotal</td>
@@ -17,19 +18,18 @@
 </table>
 
 <% unless order.order_items.nil? %>
-  <div class="grid-100">
-    <%= link_to "(Cancel Order)", order_path(current_order.id), :method => :delete, id: "cancel-link" %>
-    <br/>
-    <h2 id="current-total">
-      Current Total: <%= number_to_currency(order_total(current_order.order_items)) %>
-    </h2>
-
-  </div>
-
-  <div class="grid-100">
-    <%= button_to "Checkout", new_restaurant_transaction_path(current_restaurant),
-      :method => :get, class: "button grid-25 prefix-65",
-      id:"checkout-button" %>
+  <div class="grid-container">
+    <div class="grid-50">
+      <p id="current-total">
+        Current Total: <%= number_to_currency(order_total(current_order.order_items)) %>
+      </p>
+    </div>
+    <div class="grid-50">
+      <%= link_to "(Cancel Order)", order_path(current_order.id), :method => :delete, id: "cancel-link" %>
+      <%= button_to "Checkout", new_restaurant_transaction_path(current_restaurant),
+        :method => :get, class: "button",
+        id:"checkout-button" %>
+    </div>
   </div>
 
 <% end %>

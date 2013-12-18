@@ -3,9 +3,10 @@ require './test/test_helper'
 class ContactRequestTest < Capybara::Rails::TestCase
 
   test "user can send contact request" do
-    skip # TODO: unskip for multitentant contacts
+    skip
     reset_email
-    visit root_path
+    rest = Restaurant.last
+    visit restaurant_show_path(rest.id)
     click_on "Contact"
     assert_content page, 'Contact Us'
     within "#new_contact" do

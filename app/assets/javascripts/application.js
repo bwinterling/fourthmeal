@@ -41,3 +41,7 @@ $(function() {
   });
 
 });
+
+$(document).ready(function(){
+  $("[data-view-toggle]").viewToggle();
+})

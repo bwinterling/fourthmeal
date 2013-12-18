@@ -1,6 +1,6 @@
 <%= content_tag_for(:tr, order_item) do |order_item| %>
   <td class="table-item"><%= order_item.item.title %></td>
-  <td class="table-item"><%= order_item.item.description %></td>
+  <td class="table-item desc"><%= order_item.item.description %></td>
   <td class="table-item"><%= number_to_currency(order_item.item.price) %></td> 
   <td class="table-item"><%= order_item.quantity %></td>
   <td class="table-item"><%= number_to_currency(order_item.quantity*order_item.item.price) %></td>
