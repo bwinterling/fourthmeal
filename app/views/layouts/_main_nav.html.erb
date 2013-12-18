@@ -2,6 +2,6 @@
     <ul class="nav-list">
       <li class="nav-item"><%= link_to "Menu", menu_path %></li>
       <li class="nav-item"><%= link_to "Locations", locations_path %></li>
-      <li class="nav-item"><%= link_to "Contact", new_contact_path %></li>
+      <li class="nav-item"><%= link_to "Contact", new_restaurant_contact_path(@restaurant.slug) %></li>
     </ul>
   </div>

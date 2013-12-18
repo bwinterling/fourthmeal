@@ -5,7 +5,7 @@ class ContactRequestTest < Capybara::Rails::TestCase
   test "user can send contact request" do
     reset_email
     rest = Restaurant.last
-    visit restaurant_show_path(rest.id)
+    visit restaurant_path(rest.slug)
     click_on "Contact"
     assert_content page, 'Contact Us'
     within "#new_contact" do
