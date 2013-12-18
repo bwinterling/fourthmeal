@@ -1,7 +1,9 @@
 OnoBurrito::Application.routes.draw do
   resources :restaurants do
+    resources :contacts
     resources :orders
     resources :transactions, only: [:new, :create, :show]
+    resources :locations
   end
 
   resources :orders # TODO: remove this line after update

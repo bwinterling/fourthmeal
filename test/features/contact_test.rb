@@ -6,7 +6,7 @@ class ContactRequestTest < Capybara::Rails::TestCase
     skip
     reset_email
     rest = Restaurant.last
-    visit restaurant_show_path(rest.id)
+    visit restaurant_path(rest.slug)
     click_on "Contact"
     assert_content page, 'Contact Us'
     within "#new_contact" do

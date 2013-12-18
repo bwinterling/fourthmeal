@@ -1,9 +1,9 @@
 class ContactMailer < ActionMailer::Base
   default from: "fourthmeal@example.com"
 
-  def contact_requested(contact)
+  def contact_requested(contact, slug)
     @contact = contact
-    mail to: "bwinterling@yahoo.com", subject: contact.subject
+    mail to: "#{slug}@example.com", subject: contact.subject
   end
 
   def account_confirmation(user)

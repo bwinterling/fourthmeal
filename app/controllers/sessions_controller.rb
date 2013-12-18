@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "bank_buddy"
 
   def new
     @user = User.new
