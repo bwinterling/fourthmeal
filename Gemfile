@@ -12,6 +12,7 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'paperclip'
 gem 'rack-mini-profiler'
 gem 'newrelic_rpm'
+gem 'resque'
 
 group :development, :test do
   # NOTE:  do not add 'mailcatcher' to gemfile
