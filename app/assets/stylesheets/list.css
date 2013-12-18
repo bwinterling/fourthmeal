@@ -1,0 +1,17 @@
+.menu-items-list .tile {
+	float: none;
+	width: 100%;
+	height: inherit;
+	clear: both;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+
+.menu-items-list .tile .item-image {
+	float: left;
+}
+
+.menu-items-list .tile form {
+	margin-left: 210px;
+}
+

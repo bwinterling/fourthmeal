@@ -3,6 +3,7 @@ require './test/test_helper'
 class ContactRequestTest < Capybara::Rails::TestCase
 
   test "user can send contact request" do
+    skip
     reset_email
     rest = Restaurant.last
     visit restaurant_show_path(rest.id)
