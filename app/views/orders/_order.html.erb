@@ -23,13 +23,13 @@
     <h2 id="current-total">
       Current Total: <%= number_to_currency(order_total(current_order.order_items)) %>
     </h2>
-    
+
   </div>
 
   <div class="grid-100">
-    <%= button_to "Checkout", new_transaction_path, 
-      :method => :get, class: "button grid-25 prefix-65", 
+    <%= button_to "Checkout", new_restaurant_transaction_path(current_restaurant),
+      :method => :get, class: "button grid-25 prefix-65",
       id:"checkout-button" %>
   </div>
-  
+
 <% end %>

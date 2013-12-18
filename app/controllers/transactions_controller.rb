@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
     if current_user || params[:guest]
       render :new
     else
-      redirect_to new_session_path
+      redirect_to new_session_path(:restaurant_id => current_restaurant.slug)
     end
   end
 
