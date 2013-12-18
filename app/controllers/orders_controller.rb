@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @page_title = "Your Order"
     @order = current_order
     @order_items = @order.order_items
-    @items = Item.active
+    @items = Item.active.limit(20)
     if @order_items.count < 1
       redirect_to menu_path
     end
