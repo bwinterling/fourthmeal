@@ -1,10 +1,10 @@
 <%= content_tag_for(:tr, order_item) do |order_item| %>
   <td class="table-item"><%= order_item.item.title %></td>
-  <td class="table-item"><%= order_item.item.description %></td>
+  <td class="table-item desc"><%= order_item.item.description %></td>
   <td class="table-item"><%= number_to_currency(order_item.item.price) %></td> 
   <td class="table-item"><%= order_item.quantity %></td>
   <td class="table-item"><%= number_to_currency(order_item.quantity*order_item.item.price) %></td>
   <td class="table-item"><%= button_to "Remove", 
-      { :controller => :order_items, :action => 'destroy', :oiid => order_item.id }, 
+      { :controller => :order_items, :action => 'destroy', :id => current_order.id, :oiid => order_item.id }, 
         :method => :delete, class:"button" %></td>
 <% end %>

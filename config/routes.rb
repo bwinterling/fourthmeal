@@ -1,7 +1,12 @@
 OnoBurrito::Application.routes.draw do
   resources :restaurants do
     resources :contacts
+    resources :orders
+    resources :transactions, only: [:new, :create, :show]
+    resources :locations
   end
+
+  resources :orders # TODO: remove this line after update
 
   root :to => "restaurants#index"
 
@@ -10,10 +15,9 @@ OnoBurrito::Application.routes.draw do
     :item_categories
   end
   resources :locations
-  resources :orders
   resources :order_items
   resources :sessions
-  resources :transactions, only: [:new, :create, :show]
+  resources :transactions, only: [:new, :create, :show] # TODO: remove this line after update
   resources :users do
     :stores
   end

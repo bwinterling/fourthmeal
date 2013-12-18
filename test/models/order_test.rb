@@ -1,4 +1,5 @@
-require 'test_helper'
+require_relative '../test_helper'
+require_relative '../helpers/restaurant_helper'
 
 class OrderTest < ActiveSupport::TestCase
 
@@ -30,6 +31,13 @@ class OrderTest < ActiveSupport::TestCase
     assert @order.items
   end
 
+  test "it has and responds to restaurant" do
+    restaurant = create_valid_restaurant(:name => "foo's")
+    order = create_valid_order
+    order.restaurant = restaurant
+    assert_equal restaurant.id, order.restaurant.id
+  end
+
   def transaction_base_params(order)
     {
       order_id: order.id,
@@ -40,6 +48,18 @@ class OrderTest < ActiveSupport::TestCase
       result: "success"
     }
   end
+
+  test "calculating total" do
+    create_valid_order
+    assert_equal "Order Total: 0", @order.total
+    new_item = create_valid_item
+    new_item.price = 5.01
+    new_item.save!
+
+    @order.add_item(new_item, 2)
+    assert_equal "Order Total: 10.02", @order.total
+  end
+
 
 
 end

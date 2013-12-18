@@ -62,10 +62,24 @@
   font-size: 1em;
   color: black;
   padding: 0 3% 2% 0;
-  width: 3%;
 }
 
 .table-item {
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+tr.order_item {
+  padding-bottom: 20px;
+}
+
+.order_item {
+  overflow: auto;
+}
+
+.table-item,
+.desc {
+  font-size: .8em;
 }
 
 .tile-front {

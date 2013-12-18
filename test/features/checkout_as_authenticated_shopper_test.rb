@@ -25,6 +25,7 @@ class CheckoutAsAuthenticatedShopperTest < Capybara::Rails::TestCase
       click_on "Add to Cart"
     end
 
+    click_on "View Your Order"
     click_on "Checkout"
 
     within "#transaction-container" do

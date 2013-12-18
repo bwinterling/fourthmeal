@@ -10,21 +10,23 @@ class OrdersController < ApplicationController
     @page_title = "Your Order"
     @order = current_order
     @order_items = @order.order_items
-    @items = Item.active
+    @items = Item.active.limit(20)
     if @order_items.count < 1
-      redirect_to menu_path
+      redirect_to root_path
     end
   end
 
   def create
-    @order = Order.create(:user_id => 1)
+    @order = Order.create(:user_id => 1,
+                          :restaurant_id => current_restaurant.id)
     if params[:item]
       item = Item.find(params[:item])
       @order.order_items.build(item: item, quantity: 1)
       @order.save
     end
-    session[:current_order] = @order.id
-    redirect_to order_path(session[:current_order])
+    session[:orders] = [] unless session[:orders]
+    session[:orders] << @order.id
+    redirect_to :back
   end
 
   def update
@@ -32,7 +34,8 @@ class OrdersController < ApplicationController
     @order = current_order
     @item = Item.find(params[:item])
     add_item_to_order
-    redirect_to order_path(@order.id)
+    flash[:notice] = "Added #{@item.title} to your cart."
+    redirect_to :back
   end
 
   def destroy

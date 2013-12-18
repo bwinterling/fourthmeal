@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  layout "bank_buddy"
 
   def new
     @user = User.new
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
     elsif @user
       session[:user_id] = @user.id
       flash[:notice] = "Logged in!"
-      redirect_to menu_path
+      redirect_to root_path
     else
       @user = User.new
       flash.now.alert = "Invalid email or password"

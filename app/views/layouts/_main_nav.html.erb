@@ -1,7 +1,7 @@
   <div class="grid-100">
     <ul class="nav-list">
-      <li class="nav-item"><%= link_to "Menu", menu_path %></li>
-      <li class="nav-item"><%= link_to "Locations", locations_path %></li>
-      <li class="nav-item"><%= link_to "Contact", new_restaurant_contact_path(@restaurant.slug) %></li>
+      <li class="nav-item"><%= link_to "Menu", restaurant_path(current_restaurant) %></li>
+      <li class="nav-item"><%= link_to "Locations", restaurant_locations_path(current_restaurant) %></li>
+      <li class="nav-item"><%= link_to "Contact", new_restaurant_contact_path(current_restaurant.slug) %></li>
     </ul>
   </div>

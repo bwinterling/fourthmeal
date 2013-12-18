@@ -22,8 +22,9 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
   end
 
   def test_guest_user_can_checkout
-    restaurant = create_valid_restaurant(:name => "Boyoh's")
     Capybara.reset!
+    Capybara.current_driver = :selenium
+    restaurant = create_valid_restaurant(:name => "Boyoh's")
     item1 = create_valid_item(restaurant.id)
     visit root_path
     first(:link, "Show").click
@@ -32,6 +33,7 @@ class CheckoutAsGuestTest < Capybara::Rails::TestCase
       click_on "Add to Cart"
     end
 
+    click_on "View Your Order"
     click_on "Checkout"
 
     within "#checkout-button-guest" do

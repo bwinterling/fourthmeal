@@ -19,5 +19,9 @@
 </section>
 
 <section class="grid-container menu-view">
-  <%= render partial: 'items/item', collection: @restaurant.items %>
+  <div id="menu-list">
+    <a href="#" data-view-toggle="menu-items-grid">Grid View</a>
+    <a href="#" data-view-toggle="menu-items-list">List View</a>
+    <%= render partial: 'items/item', collection: @restaurant.items %>
+  </div>
 </section>
