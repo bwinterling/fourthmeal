@@ -12,6 +12,7 @@ class TransactionsController < ApplicationController
   def create
     CompletePurchase.new(current_user, current_order, current_restaurant).create(updated_params,
       ->(restaurant, transaction) {
+        session[:orders].delete(current_order.id)
         session[:current_order] = nil
         flash[:notice] = "Successfully created your order!"
         redirect_to restaurant_transaction_path(restaurant, transaction)
