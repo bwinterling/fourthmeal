@@ -261,6 +261,7 @@ DEPENDENCIES
   rails (= 4.0.1)
   rails-pry
   rails_12factor
+  redis
   resque
   sass-rails (~> 4.0.0)
   selenium-webdriver

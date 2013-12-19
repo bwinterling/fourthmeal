@@ -13,6 +13,7 @@ gem 'paperclip'
 gem 'rack-mini-profiler'
 gem 'newrelic_rpm'
 gem 'resque'
+gem 'redis'
 
 group :development, :test do
   # NOTE:  do not add 'mailcatcher' to gemfile
