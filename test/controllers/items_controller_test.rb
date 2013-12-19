@@ -16,7 +16,8 @@ class ItemsControllerTest < ActionController::TestCase
   end
 
   def test_index_page_has_items_for_current_restaurant
-    get(:index, { :restaurant => restaurant.name }, { })
+    get(:index, { :restaurant => restaurant.name,
+                  :restaurant_id => restaurant.slug}, { })
     assert_response :success
     assert_not_nil assigns(:items)
     assert_equal 1, assigns(:items).count

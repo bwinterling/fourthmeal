@@ -2,7 +2,7 @@
   <div class="grid-100" id="transaction-container">
     <h1>Transaction Information</h1>
 
-    <%= form_for(@transaction) do |f| %>
+    <%= form_for([current_restaurant, @transaction]) do |f| %>
 
     <%= render "shared/errors", model: @transaction %>
 

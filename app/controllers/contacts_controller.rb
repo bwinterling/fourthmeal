@@ -3,8 +3,8 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      Resque.enqueue(Mailer, @contact)
-      #ContactMailer.contact_requested(@contact).deliver
+      updated_contact_params = contact_params.merge(:slug => current_restaurant.slug)
+      Resque.enqueue(Mailer, updated_contact_params)
       flash[:notice] = "Thanks for your message!
         We'll get back to you as soon as possible."
       redirect_to root_path
@@ -14,6 +14,7 @@ class ContactsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.find_by(:slug => params[:restaurant_id])
     @contact = Contact.new
   end
 

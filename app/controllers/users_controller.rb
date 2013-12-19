@@ -19,9 +19,9 @@ class UsersController < ApplicationController
     elsif @user.save && !current_order.id
       ContactMailer.account_confirmation(@user).deliver
       session[:user_id] = @user.id
-      redirect_to menu_path
+      redirect_to root_path
     else
-      render "sessions/new"
+      render "sessions/new", layout: "bank_buddy"
     end
   end
 

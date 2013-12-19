@@ -2,6 +2,10 @@ require './test/test_helper'
 
 class CanLogInAndOutTest < Capybara::Rails::TestCase
 
+  def setup
+    User.destroy_all
+  end
+
   test "user can sign up with valid params" do
     visit root_path
 
@@ -16,6 +20,7 @@ class CanLogInAndOutTest < Capybara::Rails::TestCase
       click_button "Create User"
     end
 
+    assert page.has_content?('Logged in')
     assert_content page, 'Logged in'
   end
 

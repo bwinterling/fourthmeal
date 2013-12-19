@@ -5,16 +5,16 @@ class TransactionsController < ApplicationController
     if current_user || params[:guest]
       render :new
     else
-      redirect_to new_session_path
+      redirect_to new_session_path(:restaurant_id => current_restaurant.slug)
     end
   end
 
   def create
-    CompletePurchase.new(current_user, current_order).create(updated_params,
-      ->(transaction) {
+    CompletePurchase.new(current_user, current_order, current_restaurant).create(updated_params,
+      ->(restaurant, transaction) {
         session[:current_order] = nil
         flash[:notice] = "Successfully created your order!"
-        redirect_to transaction_path(transaction)
+        redirect_to restaurant_transaction_path(restaurant, transaction)
       },
       -> {
         flash[:notice] = "There was a problem creating your order!"

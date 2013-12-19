@@ -1,5 +1,14 @@
 <div id="view_order" class="grid-container">
-  <div class="grid-100">
+  <div class="grid-100 toggle-order">
     <%= link_to "View Your Order", order_path(current_order.id), class: "view-order-link" %>
+    <div class="order-header hidden">
+      <a href="#" class="hide-order">Close</a>
+    </div>
+    <span class="order-total">
+      <%= current_order.total %>
+    </span>
   </div>
+  <section id="current_order" class="grid-container hidden"> 
+    <%= render partial: 'orders/order', locals: {:order => current_order} %>
+  </section>
 </div>

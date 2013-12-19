@@ -30,6 +30,7 @@
     </div>
 
     <main id="main-body" role="main">
+
       <% if items_in_cart? && @order.nil? %>
         <%= render 'layouts/view_order_link' %>
       <% end %>

@@ -19,9 +19,9 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
     within "#item_#{item.id}" do
       click_on "Add to Cart"
     end
-
-    assert_content page, 'Your Current Order'
-    assert_content page, "Mouthwatering slab"
+    within("#current_order") do
+      assert_content page, "Mouthwatering slab"
+    end
   end
 
   test "a user can create a cart from the homepage" do
@@ -83,7 +83,6 @@ class CanMakeAnOrderTest < Capybara::Rails::TestCase
       click_on "Add to Cart"
     end
 
-    visit order_path(Order.first)
     within("#current_order") do
       assert_content page, "2"
     end

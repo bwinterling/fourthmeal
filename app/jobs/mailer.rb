@@ -1,7 +1,7 @@
 class Mailer
   @queue = :mail_to_send
 
-  def self.perform(contact)
-    ContactMailer.contact_requested(contact).deliver
+  def self.perform(contact_params)
+    ContactMailer.contact_requested(contact_params).deliver
   end
 end

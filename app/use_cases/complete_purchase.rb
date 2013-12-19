@@ -1,8 +1,9 @@
 class CompletePurchase
 
-  def initialize(user, order, mailer=OrderMailer)
+  def initialize(user, order, restaurant, mailer=OrderMailer)
     @user = user
     @order = order
+    @restaurant = restaurant
     @mailer = mailer
   end
 
@@ -11,7 +12,7 @@ class CompletePurchase
       transaction = Transaction.new(params)
       if transaction.save
         transaction_successfully_saved(transaction)
-        success.call(transaction)
+        success.call(@restaurant, transaction)
       else
         failure.call
       end
