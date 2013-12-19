@@ -66,6 +66,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     daemons (1.1.9)
+    dalli (2.6.4)
     database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     docile (1.1.0)
@@ -108,6 +109,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     method_source (0.8.2)
     mime-types (1.25)
     mini_portile (0.5.2)
@@ -245,6 +247,7 @@ DEPENDENCIES
   binding_of_caller
   capybara-rails
   coffee-rails (~> 4.0.0)
+  dalli
   database_cleaner
   faker
   guard
@@ -252,6 +255,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy
+  memcachier
   minitest-rails-capybara
   newrelic_rpm
   paperclip

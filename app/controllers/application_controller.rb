@@ -12,10 +12,9 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if session[:orders] && current_restaurant
-      orders = session[:orders].map{|order_id| Order.find(order_id)}
-      order = orders.find {|order| order.restaurant_id == current_restaurant.id}
+      @current_order ||= Order.where(:id => session[:orders],
+                  :restaurant_id => current_restaurant.id).first || Order.new
 
-      @current_order ||= order || Order.new
     else
       @current_order = Order.new
     end
