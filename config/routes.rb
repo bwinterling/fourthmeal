@@ -1,4 +1,7 @@
+require 'resque/server'
 OnoBurrito::Application.routes.draw do
+  mount Resque::Server.new, at: "/resque"
+
   resources :restaurants do
     resources :contacts
     resources :orders
