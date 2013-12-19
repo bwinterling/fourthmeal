@@ -1,27 +1,29 @@
-<section class="grid-container">
-  <p>
-    <strong>Name:</strong>
-    <%= @restaurant.name %>
-  </p>
+<% cache @restaurant do %>
+  <section class="grid-container">
+    <p>
+      <strong>Name:</strong>
+      <%= @restaurant.name %>
+    </p>
 
-  <p>
-    <strong>Location:</strong>
-    <%= @restaurant.location %>
-  </p>
+    <p>
+      <strong>Location:</strong>
+      <%= @restaurant.location %>
+    </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @restaurant.description %>
-  </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @restaurant.description %>
+    </p>
 
-  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-  <%= link_to 'Back', restaurants_path %>
-</section>
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+    <%= link_to 'Back', restaurants_path %>
+  </section>
 
-<section class="grid-container menu-view">
-  <div id="menu-list">
-    <a href="#" data-view-toggle="menu-items-grid">Grid View</a>
-    <a href="#" data-view-toggle="menu-items-list">List View</a>
-    <%= render partial: 'items/item', collection: @restaurant.items %>
-  </div>
-</section>
+  <section class="grid-container menu-view">
+    <div id="menu-list">
+      <a href="#" data-view-toggle="menu-items-grid">Grid View</a>
+      <a href="#" data-view-toggle="menu-items-list">List View</a>
+      <%= render partial: 'items/item', collection: @restaurant.items %>
+    </div>
+  </section>
+<% end %>
